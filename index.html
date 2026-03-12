@@ -3,6 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- ========== HEADER DE SEGURANÇA ========== -->
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="X-Frame-Options" content="DENY">
+    <meta http-equiv="X-XSS-Protection" content="1; mode=block">
+    <meta http-equiv="Referrer-Policy" content="no-referrer-when-downgrade">
+    <meta http-equiv="Content-Security-Policy" content="
+        default-src 'self';
+        script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://connect.facebook.net https://*.googleapis.com https://cdnjs.cloudflare.com;
+        style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com;
+        font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com data:;
+        img-src 'self' data: https://www.facebook.com https://*.fbcdn.net;
+        connect-src 'self' https://a.nel.cloudflare.com https://*.sigilopay.com /api/sigilopay;
+        frame-src 'self' https://www.youtube.com;
+        object-src 'none';
+        base-uri 'self';
+        form-action 'self';
+    ">
+
+    <!--
+        Observação sobre os cabeçalhos:
+        - Strict-Transport-Security (HSTS) não pode ser configurado via meta tag; deve ser definido no servidor.
+        - Permissions-Policy também requer configuração no servidor.
+        - A CSP acima é um ponto de partida e inclui 'unsafe-inline' para estilos, necessário devido ao uso de CSS inline no site.
+        - 'unsafe-eval' foi adicionado para permitir bibliotecas que usam eval (ex.: algumas versões de jQuery ou funções do Google).
+        - Os domínios adicionados (googleapis, cloudflare, etc.) são necessários para fontes, scripts e estilos externos.
+        - Teste exaustivamente esta política em um ambiente de teste antes de ir para produção. Ajuste conforme necessário.
+    -->
+
     <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17691475001"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -11,7 +40,7 @@
       gtag('config', 'AW-17691475001');
     </script>
 
-    <!-- Meta Pixel Code -->
+    <!-- Meta Pixel Code (ID: 26227562986902348) -->
     <script>
     !function(f,b,e,v,n,t,s)
     {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -21,7 +50,6 @@
     t.src=v;s=b.getElementsByTagName(e)[0];
     s.parentNode.insertBefore(t,s)}(window, document,'script',
     'https://connect.facebook.net/en_US/fbevents.js');
-    // ⚠️ SUBSTITUA O ID ABAIXO PELO SEU PIXEL ID REAL
     fbq('init', '26227562986902348');
     fbq('track', 'PageView');
     </script>
@@ -37,8 +65,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Orbitron:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="icon" href="img23.png" type="image/png">
+
     <style>
-        /* (todo o seu CSS permanece exatamente igual) */
+        /* (todo o seu CSS original permanece inalterado) */
         :root {
             --primary-color: #6a0dad;
             --secondary-color: #9c27b0;
@@ -333,7 +362,7 @@
         </div>
     </header>
 
-    <!-- PROMO BANNER - 3 DIAS, R$15 OFF (exceto clonador/espelhador) -->
+    <!-- PROMO BANNER -->
     <div class="promo-banner">
         <div class="container">
             <span class="promo-text"><i class="fas fa-fire"></i> 🔥 SUPER DESCONTO PRO 🔥</span>
@@ -366,7 +395,6 @@
                 <p>Escolha a solução perfeita para o seu negócio no Telegram</p>
             </div>
             <div class="products-grid">
-
                 <!-- 1. ManyCam PRO - com desconto -->
                 <div class="product-card">
                     <div class="product-badge badge-off">R$15 OFF</div>
@@ -570,7 +598,6 @@
                         </div>
                     </div>
                 </div>
-
             </div>
         </div>
     </section>
@@ -851,6 +878,12 @@
                             'Acesso liberado! Entre em contato com @suphotvip no Telegram para receber o produto.');
                         document.getElementById('btnVerificar').style.display = 'none';
                         showToast('Pagamento confirmado! ✅', 'success');
+
+                        // 👇 DISPARA O EVENTO DE COMPRA PARA O PIXEL
+                        if (typeof fbq === 'function' && currentProduct) {
+                            const value = parseFloat(currentProduct.price);
+                            fbq('track', 'Purchase', { value: value, currency: 'BRL' });
+                        }
                     }
                 } catch (_) {}
             }, 8000);
@@ -870,6 +903,12 @@
                         'Acesso liberado! Entre em contato com @suphotvip no Telegram para receber o produto.');
                     btn.style.display = 'none';
                     showToast('Pagamento confirmado! ✅','success');
+
+                    // 👇 DISPARA O EVENTO DE COMPRA NO BOTÃO VERIFICAR
+                    if (typeof fbq === 'function' && currentProduct) {
+                        const value = parseFloat(currentProduct.price);
+                        fbq('track', 'Purchase', { value: value, currency: 'BRL' });
+                    }
                 } else {
                     setStatus('pending','⏳','Ainda não identificamos o pagamento',
                         'Se você já pagou, aguarde alguns instantes e tente novamente.');
@@ -1052,22 +1091,20 @@
             if (!playing) music.play().then(() => { mToggle.innerHTML='<i class="fas fa-pause"></i>'; playing=true; }).catch(()=>{});
         }, { once: true });
 
-        // NOTIFICAÇÕES DE COMPRA (intervalo aumentado para 3-5 minutos, mais profissional)
+        // NOTIFICAÇÕES DE COMPRA (intervalo mais espaçado)
         const fp = [{n:'Clonador de Canais',p:'R$59,90'},{n:'Espelhador de Canais',p:'R$69,90'},{n:'Editor de Mídia',p:'R$14,90'},{n:'ManyCam PRO',p:'R$24,90'},{n:'Combo Completo',p:'R$284,90'}];
         const fn = ['Carlos','Ana','João','Maria','Pedro','Fernanda','Ricardo','Juliana'];
         const fi = ['S.','M.','P.','R.','F.','G.','L.','C.'];
         function fakeBuy() {
             const p=fp[Math.random()*fp.length|0], n=fn[Math.random()*fn.length|0]+' '+fi[Math.random()*fi.length|0];
             showToast(`${n} comprou ${p.n} por ${p.p}`,'info');
-            // reexecuta entre 3 a 5 minutos (180000 a 300000 ms)
             setTimeout(fakeBuy, 180000 + Math.random()*120000);
         }
-        // inicia após 1 minuto e depois respeita o intervalo acima
         setTimeout(fakeBuy, 60000);
 
-        // Timer regressivo para 15/03/2026 23:59:59
+        // Timer regressivo para 15/03/2026
         function updateCountdown() {
-            const endDate = new Date(2026, 2, 15, 23, 59, 59); // 15 de Março de 2026
+            const endDate = new Date(2026, 2, 15, 23, 59, 59);
             const now = new Date();
             const diff = endDate - now;
             if (diff <= 0) {
