@@ -1,0 +1,1068 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17691475001"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'AW-17691475001');
+    </script>
+    <title>COLAB HOT PRO | Ferramentas Profissionais para Telegram</title>
+    <meta name="description" content="Ferramentas digitais premium para gestão de canais no Telegram.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Orbitron:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="icon" href="img23.png" type="image/png">
+    <style>
+        :root {
+            --primary-color: #6a0dad;
+            --secondary-color: #9c27b0;
+            --accent-purple: #8a2be2;
+            --accent-blue: #3498db;
+            --accent-green: #2ecc71;
+            --accent-red: #e74c3c;
+            --dark-bg: #0f0f1a;
+            --darker-bg: #0a0a12;
+            --card-bg: #1a1a2e;
+            --card-border: #2d2d44;
+            --light-text: #f8f9fa;
+            --muted-text: #b0b0c0;
+            --success-color: #2ecc71;
+            --warning-color: #f39c12;
+            --error-color: #e74c3c;
+            --shadow-light: 0 5px 15px rgba(0,0,0,0.2);
+            --shadow-medium: 0 10px 30px rgba(0,0,0,0.3);
+            --shadow-heavy: 0 15px 40px rgba(0,0,0,0.4);
+            --transition: all 0.3s cubic-bezier(0.25,0.46,0.45,0.94);
+        }
+        *{margin:0;padding:0;box-sizing:border-box;}
+        html{scroll-behavior:smooth;}
+        body{background-color:var(--dark-bg);color:var(--light-text);line-height:1.6;padding-top:80px;font-family:'Inter',sans-serif;font-weight:400;overflow-x:hidden;}
+        h1,h2,h3,h4,h5,h6{font-family:'Orbitron',sans-serif;font-weight:700;letter-spacing:1px;}
+        .container{max-width:1200px;margin:0 auto;padding:0 20px;}
+
+        /* HEADER */
+        header{background-color:rgba(15,15,26,0.95);backdrop-filter:blur(10px);position:fixed;top:0;left:0;width:100%;z-index:1000;border-bottom:1px solid rgba(45,45,68,0.3);transition:var(--transition);}
+        .header-container{display:flex;justify-content:space-between;align-items:center;padding:15px 0;}
+        .logo{font-size:1.8rem;font-weight:800;color:var(--light-text);display:flex;align-items:center;text-decoration:none;}
+        .logo span{color:var(--accent-purple);margin-left:5px;}
+        .logo .pro-badge{background:linear-gradient(135deg,var(--accent-purple),var(--accent-blue));color:white;font-size:0.7rem;padding:2px 8px;border-radius:4px;margin-left:8px;font-weight:700;}
+        .nav-links{display:flex;align-items:center;gap:30px;}
+        .nav-link{color:var(--muted-text);text-decoration:none;font-weight:500;font-size:0.95rem;transition:var(--transition);position:relative;}
+        .nav-link:hover{color:var(--light-text);}
+        .nav-link::after{content:'';position:absolute;bottom:-5px;left:0;width:0;height:2px;background:linear-gradient(90deg,var(--accent-purple),var(--accent-blue));transition:var(--transition);}
+        .nav-link:hover::after{width:100%;}
+        .mobile-menu-btn{display:none;background:none;border:none;color:var(--light-text);font-size:1.5rem;cursor:pointer;}
+
+        /* PROMO BANNER */
+        .promo-banner {
+            background: linear-gradient(135deg, #ff8c00, #ff2e2e);
+            color: #0f0f1a;
+            padding: 12px 20px;
+            text-align: center;
+            font-weight: 800;
+            position: relative;
+            z-index: 999;
+            border-bottom: 2px solid #ffd700;
+            box-shadow: var(--shadow-medium);
+        }
+        .promo-banner .container {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+        }
+        .promo-text {
+            font-size: 1.3rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .promo-text i {
+            margin-right: 8px;
+            color: #0f0f1a;
+        }
+        .promo-timer {
+            background: #0f0f1a;
+            color: #ffd700;
+            padding: 8px 20px;
+            border-radius: 60px;
+            font-family: 'Orbitron', monospace;
+            font-size: 1.5rem;
+            font-weight: 700;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 0 0 2px #ffd700;
+        }
+        .promo-timer span {
+            background: #2d2d44;
+            color: white;
+            padding: 4px 8px;
+            border-radius: 8px;
+            font-size: 1rem;
+            margin-left: 5px;
+        }
+        .promo-cta {
+            background: #0f0f1a;
+            color: #ffd700;
+            border: none;
+            padding: 10px 30px;
+            border-radius: 60px;
+            font-weight: 800;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: var(--transition);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .promo-cta:hover {
+            background: #ffd700;
+            color: #0f0f1a;
+            transform: scale(1.05);
+        }
+
+        /* HERO */
+        .hero{padding:100px 0 80px;text-align:center;position:relative;overflow:hidden;}
+        .hero::before{content:'';position:absolute;top:-50%;left:-50%;width:200%;height:200%;background:radial-gradient(circle at 30% 30%,rgba(138,43,226,0.1) 0%,transparent 50%);z-index:-1;}
+        .hero h1{font-size:3.2rem;margin-bottom:20px;background:linear-gradient(135deg,var(--accent-purple),var(--accent-blue));-webkit-background-clip:text;background-clip:text;color:transparent;line-height:1.2;}
+        .hero p{font-size:1.2rem;color:var(--muted-text);max-width:800px;margin:0 auto 40px;}
+        .hero-badges{display:flex;justify-content:center;flex-wrap:wrap;gap:20px;margin-bottom:50px;}
+        .badge{display:flex;align-items:center;gap:10px;padding:12px 20px;background-color:rgba(138,43,226,0.1);border:1px solid rgba(138,43,226,0.3);border-radius:8px;font-size:0.9rem;}
+        .badge i{color:var(--accent-purple);font-size:1.1rem;}
+        .hero-cta{display:flex;justify-content:center;gap:20px;flex-wrap:wrap;}
+
+        /* BUTTONS */
+        .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:15px 30px;border-radius:8px;font-weight:600;font-size:1rem;text-decoration:none;transition:var(--transition);cursor:pointer;border:none;font-family:'Inter',sans-serif;}
+        .btn-primary{background:linear-gradient(135deg,var(--accent-purple),var(--accent-blue));color:white;}
+        .btn-primary:hover{transform:translateY(-3px);box-shadow:var(--shadow-medium);}
+        .btn-secondary{background-color:transparent;color:var(--light-text);border:2px solid rgba(138,43,226,0.5);}
+        .btn-secondary:hover{background-color:rgba(138,43,226,0.1);border-color:var(--accent-purple);}
+        .btn-small{padding:10px 20px;font-size:0.9rem;}
+        .btn:disabled{opacity:0.6;cursor:not-allowed;transform:none !important;}
+
+        /* PRODUCTS */
+        .section-title{text-align:center;margin-bottom:60px;}
+        .section-title h2{font-size:2.5rem;margin-bottom:15px;color:var(--light-text);}
+        .section-title p{color:var(--muted-text);max-width:600px;margin:0 auto;}
+        .products-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(350px,1fr));gap:30px;margin-bottom:80px;}
+        .product-card{background-color:var(--card-bg);border-radius:12px;overflow:hidden;border:1px solid var(--card-border);transition:var(--transition);position:relative;}
+        .product-card:hover{transform:translateY(-10px);box-shadow:var(--shadow-heavy);border-color:var(--accent-purple);}
+        .product-badge{position:absolute;top:15px;left:15px;padding:5px 12px;border-radius:20px;font-size:0.8rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;z-index:2;}
+        .badge-best{background-color:var(--accent-red);color:white;}
+        .badge-new{background-color:var(--accent-blue);color:white;}
+        .badge-promo{background:linear-gradient(135deg,#ff6b6b,#ffa726);color:white;}
+        .badge-off{background:#ffd700;color:#0f0f1a; font-weight:800;}
+        .product-image{height:200px;background:linear-gradient(135deg,#1e1e3a,#2a2a4a);display:flex;align-items:center;justify-content:center;font-size:3.5rem;color:var(--accent-purple);}
+        .product-info{padding:25px;}
+        .product-info h3{font-size:1.5rem;margin-bottom:15px;color:var(--light-text);}
+        .product-price{margin-bottom:20px;}
+        .current-price{font-size:2rem;font-weight:700;color:var(--accent-purple);font-family:'Orbitron',sans-serif;}
+        .original-price{font-size:1.1rem;text-decoration:line-through;color:var(--muted-text);margin-left:10px;}
+        .product-features{margin-bottom:25px;}
+        .feature{display:flex;align-items:flex-start;gap:10px;margin-bottom:10px;font-size:0.95rem;}
+        .feature i{color:var(--accent-purple);margin-top:3px;flex-shrink:0;}
+        .product-actions{display:flex;flex-direction:column;gap:15px;}
+        .btn-buy{width:100%;padding:12px;font-size:1rem;}
+        .video-container{margin:25px 0;border-radius:8px;overflow:hidden;background-color:#000;position:relative;padding-bottom:56.25%;height:0;}
+        .video-container iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:none;}
+
+        /* CHANNELS / SECURITY / TESTIMONIALS */
+        .channel-links{padding:80px 0;background-color:rgba(26,26,46,0.5);}
+        .channels-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:30px;}
+        .channel-card{background-color:var(--card-bg);border-radius:12px;padding:30px;text-align:center;border:1px solid var(--card-border);transition:var(--transition);}
+        .channel-card:hover{transform:translateY(-5px);border-color:var(--accent-purple);box-shadow:var(--shadow-medium);}
+        .channel-card i{font-size:3rem;color:var(--accent-purple);margin-bottom:20px;}
+        .channel-card h3{margin-bottom:15px;font-size:1.5rem;}
+        .channel-card p{color:var(--muted-text);margin-bottom:25px;}
+        .security{padding:80px 0;}
+        .security-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:30px;}
+        .security-item{text-align:center;padding:30px;background-color:var(--card-bg);border-radius:12px;border:1px solid var(--card-border);}
+        .security-item i{font-size:2.5rem;color:var(--accent-green);margin-bottom:20px;}
+        .security-item h3{margin-bottom:15px;font-size:1.3rem;}
+        .security-item p{color:var(--muted-text);font-size:0.95rem;}
+        .testimonials{padding:80px 0;background-color:rgba(26,26,46,0.5);}
+        .testimonials-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:30px;}
+        .testimonial-card{background-color:var(--card-bg);border-radius:12px;padding:30px;border:1px solid var(--card-border);position:relative;}
+        .testimonial-card::before{content:'"';position:absolute;top:20px;left:20px;font-size:4rem;color:rgba(138,43,226,0.2);font-family:serif;line-height:1;}
+        .testimonial-text{margin-bottom:20px;font-style:italic;color:var(--muted-text);line-height:1.7;}
+        .testimonial-author{font-weight:600;color:var(--accent-purple);text-align:right;}
+
+        /* FAQ */
+        .faq{padding:80px 0;}
+        .faq-item{margin-bottom:15px;border:1px solid var(--card-border);border-radius:8px;overflow:hidden;background-color:var(--card-bg);}
+        .faq-question{padding:20px;font-weight:600;cursor:pointer;display:flex;justify-content:space-between;align-items:center;transition:var(--transition);}
+        .faq-question:hover{background-color:rgba(138,43,226,0.05);}
+        .faq-question i{transition:var(--transition);}
+        .faq-answer{padding:0 20px;max-height:0;overflow:hidden;transition:max-height 0.3s ease,padding 0.3s ease;color:var(--muted-text);line-height:1.7;}
+        .faq-item.active .faq-question{background-color:rgba(138,43,226,0.1);}
+        .faq-item.active .faq-question i{transform:rotate(180deg);}
+        .faq-item.active .faq-answer{padding:0 20px 20px;max-height:500px;}
+
+        /* MODAL SIGILOPAY (original) */
+        .modal{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background-color:rgba(10,10,18,0.96);z-index:2000;align-items:flex-start;justify-content:center;padding:30px 20px;overflow-y:auto;}
+        .modal.active{display:flex;}
+        .modal-content{background-color:var(--card-bg);border-radius:16px;padding:40px;max-width:520px;width:100%;position:relative;border:1px solid var(--card-border);box-shadow:var(--shadow-heavy);margin:auto;}
+        .close-modal{position:absolute;top:16px;right:16px;font-size:1.4rem;color:var(--muted-text);background:none;border:none;cursor:pointer;transition:var(--transition);}
+        .close-modal:hover{color:var(--light-text);transform:rotate(90deg);}
+        .modal-title{font-size:1.6rem;margin-bottom:10px;text-align:center;color:var(--light-text);}
+        .modal-subtitle{text-align:center;color:var(--muted-text);margin-bottom:30px;font-size:0.95rem;}
+        .modal-product-info{background-color:rgba(138,43,226,0.1);padding:15px 20px;border-radius:10px;display:flex;justify-content:space-between;align-items:center;margin-bottom:30px;border:1px solid rgba(138,43,226,0.2);}
+        .modal-product-name{font-weight:600;color:var(--light-text);}
+        .modal-product-price{font-weight:700;color:var(--accent-purple);font-family:'Orbitron',sans-serif;}
+        .form-section-title{font-size:0.9rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--muted-text);margin-bottom:15px;display:flex;align-items:center;gap:10px;}
+        .form-section-title::after{content:'';height:1px;flex:1;background-color:var(--card-border);}
+        .form-group{margin-bottom:20px;}
+        .form-group label{display:block;margin-bottom:8px;font-size:0.85rem;font-weight:600;color:var(--muted-text);}
+        .form-group input{width:100%;padding:12px 15px;background-color:var(--darker-bg);border:1px solid var(--card-border);border-radius:8px;color:var(--light-text);font-family:'Inter',sans-serif;font-size:1rem;transition:var(--transition);}
+        .form-group input:focus{outline:none;border-color:var(--accent-purple);box-shadow:0 0 0 3px rgba(138,43,226,0.2);}
+        .form-row{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
+        .form-error{color:var(--accent-red);font-size:0.75rem;margin-top:5px;display:none;}
+        .has-error input{border-color:var(--accent-red);}
+        .has-error .form-error{display:block;}
+        .btn-gerar-pix{width:100%;padding:16px;background:linear-gradient(135deg,var(--accent-purple),var(--accent-blue));color:white;border:none;border-radius:8px;font-weight:700;font-size:1.1rem;cursor:pointer;transition:var(--transition);margin-top:10px;display:flex;align-items:center;justify-content:center;gap:10px;}
+        .btn-gerar-pix:hover{transform:translateY(-3px);box-shadow:var(--shadow-medium);}
+        .btn-gerar-pix:disabled{opacity:0.7;cursor:not-allowed;transform:none;}
+        #pixArea{display:none;text-align:center;}
+        .pix-success-row{display:flex;align-items:center;justify-content:center;gap:10px;color:var(--accent-green);font-weight:600;margin-bottom:25px;font-size:1.1rem;}
+        .qr-wrapper{background-color:white;padding:20px;border-radius:12px;display:inline-block;margin-bottom:20px;box-shadow:var(--shadow-medium);}
+        #qrCodeImg{width:220px;height:220px;display:block;}
+        .qr-label{color:var(--dark-bg);font-size:0.8rem;font-weight:700;margin-top:10px;}
+        .or-divider{margin:20px 0;color:var(--muted-text);font-size:0.9rem;position:relative;display:flex;align-items:center;gap:15px;}
+        .or-divider::before, .or-divider::after{content:'';height:1px;flex:1;background-color:var(--card-border);}
+        .pix-code-label{text-align:left;font-size:0.85rem;font-weight:600;color:var(--muted-text);margin-bottom:8px;}
+        .pix-code-box{background-color:var(--darker-bg);padding:15px;border-radius:8px;border:1px dashed var(--accent-purple);color:var(--light-text);font-family:monospace;font-size:0.85rem;word-break:break-all;margin-bottom:15px;max-height:100px;overflow-y:auto;text-align:left;}
+        .btn-copiar-pix{width:100%;padding:12px;background-color:rgba(138,43,226,0.1);color:var(--accent-purple);border:1px solid var(--accent-purple);border-radius:8px;font-weight:600;cursor:pointer;transition:var(--transition);display:flex;align-items:center;justify-content:center;gap:10px;}
+        .btn-copiar-pix:hover{background-color:var(--accent-purple);color:white;}
+        .btn-copiar-pix.copied{background-color:var(--accent-green);border-color:var(--accent-green);color:white;}
+        .payment-status{margin-top:30px;padding:20px;border-radius:10px;text-align:left;display:flex;flex-direction:column;gap:5px;}
+        .payment-status.pending{background-color:rgba(243,156,18,0.1);border:1px solid rgba(243,156,18,0.2);}
+        .payment-status.paid{background-color:rgba(46,204,113,0.1);border:1px solid rgba(46,204,113,0.2);}
+        .status-icon{font-size:1.5rem;margin-bottom:5px;}
+        .status-text{font-weight:700;font-size:1.1rem;}
+        .status-sub{font-size:0.85rem;color:var(--muted-text);}
+        .btn-verificar{width:100%;padding:12px;background-color:var(--card-border);color:var(--light-text);border:none;border-radius:8px;font-weight:600;cursor:pointer;transition:var(--transition);margin-top:15px;display:flex;align-items:center;justify-content:center;gap:10px;}
+        .btn-verificar:hover{background-color:var(--accent-purple);}
+        .expiry-note{margin-top:20px;font-size:0.8rem;color:var(--muted-text);display:flex;align-items:center;justify-content:center;gap:5px;}
+        .modal-telegram{margin-top:30px;padding-top:20px;border-top:1px solid var(--card-border);text-align:center;}
+
+        /* FOOTER */
+        footer{background-color:var(--darker-bg);padding:60px 0 30px;border-top:1px solid var(--card-border);}
+        .footer-content{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:40px;margin-bottom:40px;}
+        .footer-column h4{margin-bottom:20px;font-size:1.2rem;color:var(--light-text);}
+        .footer-links{list-style:none;}
+        .footer-links li{margin-bottom:10px;}
+        .footer-links a{color:var(--muted-text);text-decoration:none;transition:var(--transition);}
+        .footer-links a:hover{color:var(--accent-purple);}
+        .footer-bottom{text-align:center;padding-top:30px;border-top:1px solid var(--card-border);color:var(--muted-text);font-size:0.9rem;}
+
+        /* MUSIC + SUPPORT */
+        .music-player{position:fixed;bottom:100px;right:20px;z-index:100;}
+        .music-toggle{width:50px;height:50px;border-radius:50%;background:linear-gradient(135deg,var(--accent-purple),var(--accent-blue));color:white;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:1.2rem;box-shadow:var(--shadow-light);transition:var(--transition);}
+        .music-toggle:hover{transform:scale(1.1);}
+        .support-btn{position:fixed;bottom:30px;right:20px;width:60px;height:60px;border-radius:50%;background-color:var(--accent-blue);color:white;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:1.5rem;box-shadow:var(--shadow-medium);transition:var(--transition);z-index:100;}
+        .support-btn:hover{transform:scale(1.1);background-color:var(--accent-purple);}
+        .support-tooltip{position:absolute;right:70px;background-color:var(--card-bg);color:var(--light-text);padding:10px 15px;border-radius:6px;font-size:0.9rem;white-space:nowrap;opacity:0;pointer-events:none;transition:var(--transition);border:1px solid var(--card-border);}
+        .support-btn:hover .support-tooltip{opacity:1;right:80px;}
+        .toast{position:fixed;bottom:30px;left:50%;transform:translateX(-50%);background-color:var(--accent-green);color:white;padding:14px 24px;border-radius:8px;font-weight:600;z-index:3000;opacity:0;transition:opacity 0.3s ease;box-shadow:var(--shadow-medium);pointer-events:none;white-space:nowrap;}
+        .toast.show{opacity:1;}
+
+        /* RESPONSIVE */
+        @media(max-width:992px){.hero h1{font-size:2.8rem;}.products-grid{grid-template-columns:repeat(auto-fill,minmax(320px,1fr));}}
+        @media(max-width:768px){
+            body{padding-top:70px;}
+            .nav-links{position:fixed;top:70px;left:0;width:100%;background-color:var(--dark-bg);flex-direction:column;padding:20px;gap:20px;transform:translateY(-100%);opacity:0;transition:var(--transition);border-bottom:1px solid var(--card-border);z-index:999;}
+            .nav-links.active{transform:translateY(0);opacity:1;}
+            .mobile-menu-btn{display:block;}
+            .hero h1{font-size:2.2rem;}.hero p{font-size:1.1rem;}
+            .hero-badges{flex-direction:column;align-items:center;}
+            .hero-cta{flex-direction:column;align-items:center;}
+            .section-title h2{font-size:2rem;}
+            .products-grid{grid-template-columns:1fr;}
+            .modal-content{padding:28px 18px;}
+            .form-row{grid-template-columns:1fr;}
+            .promo-banner .container{flex-direction:column;}
+        }
+        @media(max-width:576px){
+            .hero{padding:80px 0 60px;}.hero h1{font-size:1.8rem;}.hero p{font-size:1rem;}
+            .music-player{bottom:90px;right:15px;}
+            .support-btn{bottom:20px;right:15px;width:50px;height:50px;font-size:1.3rem;}
+        }
+    </style>
+</head>
+<body>
+
+    <header id="mainHeader">
+        <div class="container header-container">
+            <a href="#" class="logo">COLAB HOT<span>PRO</span><span class="pro-badge">PRO</span></a>
+            <button class="mobile-menu-btn" id="mobileMenuBtn"><i class="fas fa-bars"></i></button>
+            <div class="nav-links" id="navLinks">
+                <a href="#products" class="nav-link">Produtos</a>
+                <a href="#channels" class="nav-link">Canais</a>
+                <a href="#security" class="nav-link">Segurança</a>
+                <a href="#testimonials" class="nav-link">Avaliações</a>
+                <a href="#faq" class="nav-link">FAQ</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- PROMO BANNER - 3 DIAS, R$15 OFF (exceto clonador/espelhador) -->
+    <div class="promo-banner">
+        <div class="container">
+            <span class="promo-text"><i class="fas fa-fire"></i> 🔥 SUPER DESCONTO PRO 🔥</span>
+            <span class="promo-timer" id="countdown-promo">03d 00h 00m 00s</span>
+            <a href="#products" class="promo-cta"><i class="fas fa-tag"></i> GARANTIR R$15 OFF</a>
+        </div>
+    </div>
+
+    <section class="hero">
+        <div class="container">
+            <h1>FERRAMENTAS PROFISSIONAIS PARA TELEGRAM</h1>
+            <p>Automatize e escale seus canais no Telegram com nossas soluções premium. Tecnologia avançada para resultados excepcionais no seu negócio digital.</p>
+            <div class="hero-badges">
+                <div class="badge"><i class="fas fa-shield-alt"></i><span>Ambiente 100% Seguro</span></div>
+                <div class="badge"><i class="fas fa-rocket"></i><span>Entrega Automática</span></div>
+                <div class="badge"><i class="fas fa-headset"></i><span>Suporte 24/7</span></div>
+                <div class="badge"><i class="fas fa-gem"></i><span>Garantia de 7 Dias</span></div>
+            </div>
+            <div class="hero-cta">
+                <a href="#products" class="btn btn-primary"><i class="fas fa-shopping-cart"></i> Ver Produtos</a>
+                <a href="#security" class="btn btn-secondary"><i class="fas fa-lock"></i> Segurança</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="products" class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>NOSSAS FERRAMENTAS</h2>
+                <p>Escolha a solução perfeita para o seu negócio no Telegram</p>
+            </div>
+            <div class="products-grid">
+
+                <!-- 1. ManyCam PRO - com desconto -->
+                <div class="product-card">
+                    <div class="product-badge badge-off">R$15 OFF</div>
+                    <div class="product-image"><i class="fas fa-video"></i></div>
+                    <div class="product-info">
+                        <h3>ManyCam PRO</h3>
+                        <div class="product-price">
+                            <span class="current-price">R$24,90</span>
+                            <span class="original-price">R$39,90</span>
+                        </div>
+                        <div class="product-features">
+                            <div class="feature"><i class="fas fa-check"></i><span>Versão PRO completa desbloqueada</span></div>
+                            <div class="feature"><i class="fas fa-check"></i><span>Todos os efeitos e funções liberados</span></div>
+                            <div class="feature"><i class="fas fa-check"></i><span>Uso ilimitado sem restrições</span></div>
+                            <div class="feature"><i class="fas fa-check"></i><span>Atualizações gratuitas</span></div>
+                        </div>
+                        <div class="product-actions">
+                            <button class="btn btn-primary btn-buy" data-product="ManyCam PRO" data-price="24.90"><i class="fas fa-shopping-cart"></i> Comprar Agora</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2. Método Tela Cheia WhatsApp - com desconto -->
+                <div class="product-card">
+                    <div class="product-badge badge-off">R$15 OFF</div>
+                    <div class="product-image"><i class="fab fa-whatsapp"></i></div>
+                    <div class="product-info">
+                        <h3>Método Tela Cheia WhatsApp</h3>
+                        <div class="product-price">
+                            <span class="current-price">R$15,00</span>
+                            <span class="original-price">R$30,00</span>
+                        </div>
+                        <div class="product-features">
+                            <div class="feature"><i class="fas fa-check"></i><span>Videochamada em tela cheia no WhatsApp pelo PC</span></div>
+                            <div class="feature"><i class="fas fa-check"></i><span>Necessário ter o ManyCam instalado</span></div>
+                            <div class="feature"><i class="fas fa-check"></i><span>Chamada perfeita sem bordas pretas</span></div>
+                            <div class="feature"><i class="fas fa-check"></i><span>Configuração simples e rápida</span></div>
+                        </div>
+                        <div class="product-actions">
+                            <button class="btn btn-primary btn-buy" data-product="Método Tela Cheia WhatsApp" data-price="15.00"><i class="fas fa-shopping-cart"></i> Comprar Agora</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 3. ManyCam PRO + WhatsApp (Promoção) - com desconto -->
+                <div class="product-card">
+                    <div class="product-badge badge-promo">Promoção</div>
+                    <div class="product-badge badge-off" style="top:50px;">R$15 OFF</div>
+                    <div class="product-image"><i class="fas fa-star"></i></div>
+                    <div class="product-info">
+                        <h3>ManyCam PRO + WhatsApp</h3>
+                        <div class="product-price">
+                            <span class="current-price">R$34,90</span>
+                            <span class="original-price">R$69,90</span>
+                        </div>
+                        <div class="product-features">
+                            <div class="feature"><i class="fas fa-check"></i><span>ManyCam PRO completo desbloqueado</span></div>
+                            <div class="feature"><i class="fas fa-check"></i><span>Método Tela Cheia WhatsApp incluso</span></div>
+                            <div class="feature"><i class="fas fa-check"></i><span>Videochamadas perfeitas sem bordas pretas</span></div>
+                            <div class="feature"><i class="fas fa-check"></i><span>Economia de R$20,00 + R$15 extras</span></div>
+                        </div>
+                        <div class="product-actions">
+                            <button class="btn btn-primary btn-buy" data-product="ManyCam PRO + Método Tela Cheia WhatsApp" data-price="34.90"><i class="fas fa-gem"></i> Comprar Promoção</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 4. Espelhador de Canais - SEM DESCONTO -->
+                <div class="product-card">
+                    <div class="product-badge badge-best">Mais Vendido</div>
+                    <div class="product-image"><i class="fas fa-sync-alt"></i></div>
+                    <div class="product-info">
+                        <h3>Espelhador de Canais</h3>
+                        <div class="product-price"><span class="current-price">R$69,90</span><span class="original-price">R$249,90</span></div>
+                        <div class="product-features">
+                            <div class="feature"><i class="fas fa-check"></i><span>Clona canais em tempo real</span></div>
+                            <div class="feature"><i class="fas fa-check"></i><span>Remove links automaticamente e substitui pelos seus</span></div>
+                            <div class="feature"><i class="fas fa-check"></i><span>Sistema de "rodapé" personalizável</span></div>
+                            <div class="feature"><i class="fas fa-check"></i><span>Múltiplos links para substituição automática</span></div>
+                        </div>
+                        <div class="video-container"><iframe src="https://www.youtube.com/embed/HmgPtpo80vM" frameborder="0" allowfullscreen></iframe></div>
+                        <div class="product-actions">
+                            <button class="btn btn-primary btn-redirect" data-url="https://clonagram.com"><i class="fas fa-shopping-cart"></i> Comprar Agora</button>
+                            <a href="https://www.youtube.com/watch?v=HmgPtpo80vM" target="_blank" class="btn btn-secondary btn-small"><i class="fab fa-youtube"></i> Ver Tutorial</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 5. Clonador de Canais - SEM DESCONTO -->
+                <div class="product-card">
+                    <div class="product-badge badge-best">Mais Vendido</div>
+                    <div class="product-image"><i class="fas fa-copy"></i></div>
+                    <div class="product-info">
+                        <h3>Clonador de Canais</h3>
+                        <div class="product-price"><span class="current-price">R$59,90</span><span class="original-price">R$199,90</span></div>
+                        <div class="product-features">
+                            <div class="feature"><i class="fas fa-check"></i><span>Clona conteúdo de canais e Grupos</span></div>
+                            <div class="feature"><i class="fas fa-check"></i><span>Reenvia tudo para qualquer canal ou grupo seu</span></div>
+                            <div class="feature"><i class="fas fa-check"></i><span>Sem limite de uso — ideal pra crescer vários canais</span></div>
+                            <div class="feature"><i class="fas fa-check"></i><span>Filtros avançados para seleção de conteúdo</span></div>
+                        </div>
+                        <div class="video-container"><iframe src="https://www.youtube.com/embed/S65f1lhob8w?start=2" frameborder="0" allowfullscreen></iframe></div>
+                        <div class="product-actions">
+                            <button class="btn btn-primary btn-redirect" data-url="https://clonagram.com"><i class="fas fa-shopping-cart"></i> Comprar Agora</button>
+                            <a href="https://www.youtube.com/watch?v=S65f1lhob8w&t=2s" target="_blank" class="btn btn-secondary btn-small"><i class="fab fa-youtube"></i> Ver Tutorial</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 6. Editor de Mídia em Massa - com desconto -->
+                <div class="product-card">
+                    <div class="product-badge badge-off">R$15 OFF</div>
+                    <div class="product-image"><i class="fas fa-cut"></i></div>
+                    <div class="product-info">
+                        <h3>Editor de Mídia em Massa</h3>
+                        <div class="product-price">
+                            <span class="current-price">R$14,90</span>
+                            <span class="original-price">R$49,90</span>
+                        </div>
+                        <div class="product-features">
+                            <div class="feature"><i class="fas fa-check"></i><span>Corta mais de 1000 imagens de uma vez</span></div>
+                            <div class="feature"><i class="fas fa-check"></i><span>Adiciona marca d'água automaticamente</span></div>
+                            <div class="feature"><i class="fas fa-check"></i><span>Agilidade e proteção de conteúdo</span></div>
+                            <div class="feature"><i class="fas fa-check"></i><span>Múltiplos formatos de imagem</span></div>
+                        </div>
+                        <div class="video-container"><iframe src="https://www.youtube.com/embed/O8DK-F4r6hw?start=3" frameborder="0" allowfullscreen></iframe></div>
+                        <div class="product-actions">
+                            <button class="btn btn-primary btn-buy" data-product="Editor de Mídia em Massa" data-price="14.90"><i class="fas fa-shopping-cart"></i> Comprar Agora</button>
+                            <a href="https://www.youtube.com/watch?v=O8DK-F4r6hw&t=3s" target="_blank" class="btn btn-secondary btn-small"><i class="fab fa-youtube"></i> Ver Tutorial</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 7. Extrator de Membros - com desconto -->
+                <div class="product-card">
+                    <div class="product-badge badge-new">Novo</div>
+                    <div class="product-badge badge-off" style="top:50px;">R$15 OFF</div>
+                    <div class="product-image"><i class="fas fa-users"></i></div>
+                    <div class="product-info">
+                        <h3>Extrator de Membros</h3>
+                        <div class="product-price">
+                            <span class="current-price">R$235,00</span>
+                            <span class="original-price">R$250,00</span>
+                        </div>
+                        <div class="product-features">
+                            <div class="feature"><i class="fas fa-check"></i><span>Extrai membros de grupos e canais do Telegram</span></div>
+                            <div class="feature"><i class="fas fa-check"></i><span>Adiciona automaticamente em seu grupo/canal</span></div>
+                            <div class="feature"><i class="fas fa-check"></i><span>Licença vitalícia com atualizações gratuitas</span></div>
+                            <div class="feature"><i class="fas fa-check"></i><span>Tutorial completo incluso</span></div>
+                        </div>
+                        <div class="product-actions">
+                            <button class="btn btn-primary btn-buy" data-product="Extrator de Membros" data-price="235.00"><i class="fas fa-shopping-cart"></i> Comprar Agora</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 8. Combo Completo - com desconto -->
+                <div class="product-card">
+                    <div class="product-badge badge-promo">Oferta Especial</div>
+                    <div class="product-badge badge-off" style="top:50px;">R$15 OFF</div>
+                    <div class="product-image"><i class="fas fa-crown"></i></div>
+                    <div class="product-info">
+                        <h3>Combo Completo</h3>
+                        <div class="product-price">
+                            <span class="current-price">R$284,90</span>
+                            <span class="original-price">R$549,90</span>
+                        </div>
+                        <div class="product-features">
+                            <div class="feature"><i class="fas fa-check"></i><span>Espelhador de Canais</span></div>
+                            <div class="feature"><i class="fas fa-check"></i><span>Clonador de Canais</span></div>
+                            <div class="feature"><i class="fas fa-check"></i><span>Editor de Mídia em Massa</span></div>
+                            <div class="feature"><i class="fas fa-check"></i><span>ManyCam PRO + Método WhatsApp</span></div>
+                            <div class="feature"><i class="fas fa-check"></i><span>Extrator de Membros</span></div>
+                        </div>
+                        <div class="product-actions">
+                            <button class="btn btn-primary btn-buy" data-product="Combo Completo" data-price="284.90"><i class="fas fa-gem"></i> Comprar Combo</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 9. Membros para Telegram - com desconto -->
+                <div class="product-card">
+                    <div class="product-badge badge-off">R$15 OFF</div>
+                    <div class="product-image"><i class="fab fa-telegram"></i></div>
+                    <div class="product-info">
+                        <h3>Membros para Telegram</h3>
+                        <div class="product-price"><span class="current-price">A partir de R$15,00</span></div>
+                        <div class="product-features">
+                            <div class="feature"><i class="fas fa-check"></i><span>Membros para grupos e canais</span></div>
+                            <div class="feature"><i class="fas fa-check"></i><span>Entrega manual após confirmação</span></div>
+                            <div class="feature"><i class="fas fa-check"></i><span>Opções de pacotes disponíveis</span></div>
+                        </div>
+                        <div class="product-actions">
+                            <select id="telegram-members-option" class="btn btn-secondary" style="margin-bottom:15px;width:100%;text-align:center;">
+                                <option value="15.00" data-product="1.000 membros para Telegram">1.000 membros — R$15,00</option>
+                                <option value="45.00" data-product="2.000 membros para Telegram">2.000 membros — R$45,00</option>
+                                <option value="114.90" data-product="5.000 membros para Telegram">5.000 membros — R$114,90</option>
+                                <option value="182.00" data-product="10.000 membros para Telegram">10.000 membros — R$182,00</option>
+                            </select>
+                            <button class="btn btn-primary btn-buy" id="buy-telegram-members" data-product="1.000 membros para Telegram" data-price="15.00"><i class="fas fa-shopping-cart"></i> Comprar Agora</button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="channels" class="channel-links">
+        <div class="container">
+            <div class="section-title"><h2>CANAL OFICIAL E FEEDBACKS</h2><p>Conecte-se com nossa comunidade e veja avaliações reais</p></div>
+            <div class="channels-grid">
+                <div class="channel-card"><i class="fab fa-telegram"></i><h3>Canal Oficial</h3><p>Entre no nosso canal oficial no Telegram para novidades, atualizações e suporte exclusivo.</p><a href="https://t.me/+Dij9Byo_W4k1ZWYx" target="_blank" class="btn btn-primary"><i class="fab fa-telegram"></i> Acessar Canal</a></div>
+                <div class="channel-card"><i class="fas fa-comment-dots"></i><h3>Feedbacks Reais</h3><p>Veja avaliações e depoimentos de clientes que já adquiriram nossos produtos.</p><a href="https://t.me/+NcURgd7COrVhYTUx" target="_blank" class="btn btn-primary"><i class="fab fa-telegram"></i> Ver Feedbacks</a></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="security" class="security">
+        <div class="container">
+            <div class="section-title"><h2>COMPRA 100% SEGURA</h2><p>Todas as transações são protegidas e seus dados estão sempre seguros</p></div>
+            <div class="security-grid">
+                <div class="security-item"><i class="fas fa-lock"></i><h3>Pagamento Seguro</h3><p>Processamento com criptografia de ponta a ponta. Nenhum dado bancário é armazenado em nossos sistemas.</p></div>
+                <div class="security-item"><i class="fas fa-shield-alt"></i><h3>Garantia de 7 Dias</h3><p>Se não gostar do produto por qualquer motivo, devolvemos seu dinheiro sem burocracia.</p></div>
+                <div class="security-item"><i class="fas fa-headset"></i><h3>Suporte 24/7</h3><p>Equipe especializada disponível no Telegram para ajudar com qualquer dúvida.</p></div>
+                <div class="security-item"><i class="fas fa-bolt"></i><h3>Entrega Imediata</h3><p>Após a confirmação do pagamento, você recebe o acesso ao produto automaticamente.</p></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="testimonials" class="testimonials">
+        <div class="container">
+            <div class="section-title"><h2>AVALIAÇÕES REAIS</h2><p>Veja o que nossos clientes estão dizendo</p></div>
+            <div class="testimonials-grid">
+                <div class="testimonial-card"><p class="testimonial-text">Comprei o ManyCam PRO e funcionou perfeitamente! Entrega rápida e suporte excelente.</p><p class="testimonial-author">Carlos M.</p></div>
+                <div class="testimonial-card"><p class="testimonial-text">O Espelhador de Canais revolucionou meu negócio no Telegram. Agora consigo gerenciar múltiplos canais com facilidade.</p><p class="testimonial-author">Maria L.</p></div>
+                <div class="testimonial-card"><p class="testimonial-text">Produto chegou no prazo, funcionou como prometido. Recomendo muito!</p><p class="testimonial-author">Ana P.</p></div>
+                <div class="testimonial-card"><p class="testimonial-text">Fácil de usar e exatamente o que eu precisava para automatizar meus canais. Economizei muito tempo!</p><p class="testimonial-author">João S.</p></div>
+                <div class="testimonial-card"><p class="testimonial-text">Suporte resolveu minha dúvida na hora. Com certeza voltarei a comprar!</p><p class="testimonial-author">Fernanda R.</p></div>
+                <div class="testimonial-card"><p class="testimonial-text">O Método Tela Cheia WhatsApp é incrível! Videochamadas perfeitas sem bordas pretas.</p><p class="testimonial-author">Ricardo F.</p></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="faq" class="faq">
+        <div class="container">
+            <div class="section-title"><h2>DÚVIDAS FREQUENTES</h2><p>Tire suas dúvidas sobre nossos produtos e serviços</p></div>
+            <div class="faq-item active">
+                <div class="faq-question"><span>Como faço para comprar?</span><i class="fas fa-chevron-down"></i></div>
+                <div class="faq-answer"><p>É simples! Basta clicar no botão "Comprar Agora" do produto desejado e seguir o processo de pagamento via PIX. Após a confirmação do pagamento, você receberá automaticamente o acesso ao produto.</p></div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question"><span>Como recebo os produtos após o pagamento?</span><i class="fas fa-chevron-down"></i></div>
+                <div class="faq-answer"><p>Todos os produtos são entregues automaticamente após a confirmação do pagamento, com arquivos de instalação e instruções detalhadas.</p></div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question"><span>Quanto tempo leva para o produto ser liberado?</span><i class="fas fa-chevron-down"></i></div>
+                <div class="faq-answer"><p>O processo é instantâneo! Em caso de dúvida, entre em contato com <strong>@suphotvip</strong> no Telegram.</p></div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question"><span>Os produtos têm garantia?</span><i class="fas fa-chevron-down"></i></div>
+                <div class="faq-answer"><p>Sim! Todos os produtos têm garantia de 7 dias. Se houver problemas causados por nós, devolvemos seu dinheiro imediatamente.</p></div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question"><span>Os produtos são permanentes?</span><i class="fas fa-chevron-down"></i></div>
+                <div class="faq-answer"><p>Sim! Pagamento único e acesso permanente, sem mensalidades ou taxas recorrentes.</p></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MODAL SIGILOPAY (original) -->
+    <div id="paymentModal" class="modal">
+        <div class="modal-content">
+            <button class="close-modal" id="closeModal" aria-label="Fechar">&times;</button>
+            <h3 class="modal-title">FINALIZAR COMPRA</h3>
+            <p class="modal-subtitle">Preencha seus dados para gerar o PIX</p>
+            <div class="modal-product-info">
+                <span class="modal-product-name" id="modalProductName">—</span>
+                <span class="modal-product-price" id="modalProductPrice">R$0,00</span>
+            </div>
+
+            <div id="formSection">
+                <p class="form-section-title">Seus dados</p>
+                <div class="form-group" id="grp-name">
+                    <label for="inputName">Nome completo *</label>
+                    <input type="text" id="inputName" placeholder="Ex: João da Silva" autocomplete="name">
+                    <span class="form-error">Informe seu nome completo.</span>
+                </div>
+                <div class="form-row">
+                    <div class="form-group" id="grp-cpf">
+                        <label for="inputCPF">CPF *</label>
+                        <input type="text" id="inputCPF" placeholder="000.000.000-00" maxlength="14">
+                        <span class="form-error">CPF inválido.</span>
+                    </div>
+                    <div class="form-group" id="grp-phone">
+                        <label for="inputPhone">Celular *</label>
+                        <input type="text" id="inputPhone" placeholder="(11) 99999-9999" maxlength="15">
+                        <span class="form-error">Celular inválido.</span>
+                    </div>
+                </div>
+                <div class="form-group" id="grp-email">
+                    <label for="inputEmail">E-mail *</label>
+                    <input type="email" id="inputEmail" placeholder="seuemail@exemplo.com">
+                    <span class="form-error">E-mail inválido.</span>
+                </div>
+                <button class="btn-gerar-pix" id="btnGerarPix">
+                    <i class="fas fa-qrcode"></i> Gerar PIX agora
+                </button>
+            </div>
+
+            <div id="pixArea">
+                <div class="pix-success-row">
+                    <i class="fas fa-check-circle"></i>
+                    <span>PIX gerado! Pague agora e receba acesso imediato.</span>
+                </div>
+                <div class="qr-wrapper">
+                    <img id="qrCodeImg" src="" alt="QR Code PIX">
+                    <p class="qr-label">Escaneie com o app do seu banco</p>
+                </div>
+                <div class="or-divider">ou copie o código abaixo</div>
+                <p class="pix-code-label"><i class="fas fa-align-left" style="margin-right:4px;color:var(--accent-purple)"></i> Pix Copia e Cola</p>
+                <div class="pix-code-box" id="pixCopyCode">—</div>
+                <button class="btn-copiar-pix" id="btnCopiarPix">
+                    <i class="fas fa-copy"></i> Copiar código PIX
+                </button>
+                <div class="payment-status pending" id="paymentStatus">
+                    <div class="status-icon">⏳</div>
+                    <div class="status-text">Aguardando pagamento</div>
+                    <div class="status-sub">O PIX expira em 30 minutos. Após pagar, o status atualiza automaticamente.</div>
+                </div>
+                <button class="btn-verificar" id="btnVerificar">
+                    <i class="fas fa-sync-alt"></i> Verificar pagamento
+                </button>
+                <p class="expiry-note"><i class="fas fa-clock"></i> PIX válido por 30 minutos</p>
+            </div>
+
+            <div class="modal-telegram">
+                <p>Dúvidas? Fale com nosso suporte:</p>
+                <a href="https://t.me/suphotvip" target="_blank" class="btn btn-secondary btn-small">
+                    <i class="fab fa-telegram"></i> @suphotvip
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h4>COLAB HOT PRO</h4>
+                    <p>Ferramentas profissionais para automatização e gestão de canais no Telegram.</p>
+                    <div style="margin-top:20px;"><a href="https://t.me/suphotvip" target="_blank" class="btn btn-secondary btn-small"><i class="fab fa-telegram"></i> Suporte</a></div>
+                </div>
+                <div class="footer-column">
+                    <h4>Links Rápidos</h4>
+                    <ul class="footer-links">
+                        <li><a href="#products">Produtos</a></li>
+                        <li><a href="#channels">Canais</a></li>
+                        <li><a href="#security">Segurança</a></li>
+                        <li><a href="#testimonials">Avaliações</a></li>
+                        <li><a href="#faq">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Produtos</h4>
+                    <ul class="footer-links">
+                        <li><a href="#" class="btn-buy" data-product="Clonador de Canais" data-price="59.90">Clonador de Canais</a></li>
+                        <li><a href="#" class="btn-buy" data-product="Espelhador de Canais" data-price="69.90">Espelhador de Canais</a></li>
+                        <li><a href="#" class="btn-buy" data-product="Editor de Mídia em Massa" data-price="14.90">Editor de Mídia</a></li>
+                        <li><a href="#" class="btn-buy" data-product="Combo Completo" data-price="284.90">Combo Completo</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2024 COLAB HOT PRO. Todos os direitos reservados.</p>
+                <p style="margin-top:10px;font-size:0.8rem;">CNPJ: 08.716.451/0001-74</p>
+            </div>
+        </div>
+    </footer>
+
+    <div class="music-player"><button class="music-toggle" id="musicToggle"><i class="fas fa-play"></i></button></div>
+    <button class="support-btn" onclick="window.open('https://t.me/suphotvip','_blank')">
+        <i class="fab fa-telegram"></i>
+        <span class="support-tooltip">Suporte 24h via Telegram</span>
+    </button>
+    <div class="toast" id="toast"></div>
+    <audio id="backgroundMusic" loop><source src="music2.mp3" type="audio/mpeg"></audio>
+
+    <script>
+    (() => {
+        'use strict';
+
+        const PROXY = '/api/sigilopay';
+
+        async function proxyCall(method, path, body) {
+            const res = await fetch(PROXY, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ method, path, body }),
+            });
+            const data = await res.json();
+            if (!res.ok) throw new Error(data?.message || data?.error || `Erro ${res.status}`);
+            return data;
+        }
+
+        let currentTransactionId = null;
+        let pollingInterval      = null;
+        let currentProduct       = null;
+
+        function showToast(msg, type = 'success') {
+            const t = document.getElementById('toast');
+            t.textContent = msg;
+            t.style.backgroundColor =
+                type === 'success' ? 'var(--accent-green)' :
+                type === 'error'   ? 'var(--accent-red)'   : 'var(--accent-blue)';
+            t.classList.add('show');
+            setTimeout(() => t.classList.remove('show'), 3500);
+        }
+
+        document.getElementById('inputCPF').addEventListener('input', function () {
+            this.value = this.value.replace(/\D/g,'')
+                .replace(/(\d{3})(\d)/,'$1.$2')
+                .replace(/(\d{3})(\d)/,'$1.$2')
+                .replace(/(\d{3})(\d{1,2})$/,'$1-$2');
+        });
+        document.getElementById('inputPhone').addEventListener('input', function () {
+            this.value = this.value.replace(/\D/g,'')
+                .replace(/^(\d{2})(\d)/,'($1) $2')
+                .replace(/(\d{5})(\d{4})$/,'$1-$2');
+        });
+
+        function cleanNum(v)    { return v.replace(/\D/g,''); }
+        function validEmail(e)  { return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(e); }
+        function validCPF(cpf) {
+            cpf = cleanNum(cpf);
+            if (cpf.length !== 11 || /^(\d)\1+$/.test(cpf)) return false;
+            let s = 0;
+            for (let i = 0; i < 9; i++) s += +cpf[i] * (10 - i);
+            let r = (s * 10) % 11; if (r >= 10) r = 0;
+            if (r !== +cpf[9]) return false;
+            s = 0;
+            for (let i = 0; i < 10; i++) s += +cpf[i] * (11 - i);
+            r = (s * 10) % 11; if (r >= 10) r = 0;
+            return r === +cpf[10];
+        }
+
+        function setErr(id, v) {
+            document.getElementById(id).classList.toggle('has-error', v);
+        }
+
+        function validateForm() {
+            const name  = document.getElementById('inputName').value.trim();
+            const cpf   = document.getElementById('inputCPF').value;
+            const phone = document.getElementById('inputPhone').value;
+            const email = document.getElementById('inputEmail').value.trim();
+            let ok = true;
+            const nameOk = name.trim().split(/\s+/).length >= 2;
+            setErr('grp-name',  !nameOk);  if (!nameOk)  ok = false;
+            setErr('grp-cpf',   !validCPF(cpf));  if (!validCPF(cpf))  ok = false;
+            setErr('grp-phone', cleanNum(phone).length < 10); if (cleanNum(phone).length < 10) ok = false;
+            setErr('grp-email', !validEmail(email)); if (!validEmail(email)) ok = false;
+            return ok;
+        }
+
+        function setStatus(type, icon, title, sub) {
+            const el = document.getElementById('paymentStatus');
+            el.className = 'payment-status ' + type;
+            el.innerHTML = `<div class="status-icon">${icon}</div>
+                            <div class="status-text">${title}</div>
+                            <div class="status-sub">${sub}</div>`;
+        }
+
+        function startPolling(txId) {
+            if (pollingInterval) clearInterval(pollingInterval);
+            pollingInterval = setInterval(async () => {
+                try {
+                    const res    = await proxyCall('GET', `/gateway/transaction/${txId}`);
+                    const status = (res?.status || res?.data?.status || '').toLowerCase();
+                    if (['paid','approved','completed','confirmed'].includes(status)) {
+                        clearInterval(pollingInterval);
+                        setStatus('paid','✅','Pagamento confirmado!',
+                            'Acesso liberado! Entre em contato com @suphotvip no Telegram para receber o produto.');
+                        document.getElementById('btnVerificar').style.display = 'none';
+                        showToast('Pagamento confirmado! ✅', 'success');
+                    }
+                } catch (_) {}
+            }, 8000);
+        }
+
+        document.getElementById('btnVerificar').addEventListener('click', async () => {
+            if (!currentTransactionId) return;
+            const btn = document.getElementById('btnVerificar');
+            btn.disabled = true;
+            btn.innerHTML = '<span class="spinner"></span> Verificando...';
+            try {
+                const res    = await proxyCall('GET', `/gateway/transaction/${currentTransactionId}`);
+                const status = (res?.status || res?.data?.status || '').toLowerCase();
+                if (['paid','approved','completed','confirmed'].includes(status)) {
+                    clearInterval(pollingInterval);
+                    setStatus('paid','✅','Pagamento confirmado!',
+                        'Acesso liberado! Entre em contato com @suphotvip no Telegram para receber o produto.');
+                    btn.style.display = 'none';
+                    showToast('Pagamento confirmado! ✅','success');
+                } else {
+                    setStatus('pending','⏳','Ainda não identificamos o pagamento',
+                        'Se você já pagou, aguarde alguns instantes e tente novamente.');
+                    showToast('Pagamento ainda não identificado','info');
+                }
+            } catch (e) {
+                showToast('Erro ao verificar: ' + e.message,'error');
+            }
+            btn.disabled = false;
+            btn.innerHTML = '<i class="fas fa-sync-alt"></i> Verificar pagamento';
+        });
+
+        document.getElementById('btnCopiarPix').addEventListener('click', async () => {
+            const code = document.getElementById('pixCopyCode').textContent.trim();
+            if (!code || code === '—') return;
+            try {
+                await navigator.clipboard.writeText(code);
+                const btn = document.getElementById('btnCopiarPix');
+                btn.classList.add('copied');
+                btn.innerHTML = '<i class="fas fa-check"></i> Copiado!';
+                showToast('Código PIX copiado!','success');
+                setTimeout(() => {
+                    btn.classList.remove('copied');
+                    btn.innerHTML = '<i class="fas fa-copy"></i> Copiar código PIX';
+                }, 3000);
+            } catch { showToast('Copie manualmente o código acima.','error'); }
+        });
+
+        function openModal(productName, price) {
+            currentProduct       = { productName, price };
+            currentTransactionId = null;
+            if (pollingInterval) clearInterval(pollingInterval);
+
+            document.getElementById('formSection').style.display  = 'block';
+            document.getElementById('pixArea').style.display      = 'none';
+            document.getElementById('btnVerificar').style.display = 'block';
+            document.getElementById('btnGerarPix').disabled       = false;
+            document.getElementById('btnGerarPix').innerHTML      = '<i class="fas fa-qrcode"></i> Gerar PIX agora';
+            ['grp-name','grp-cpf','grp-phone','grp-email'].forEach(id => setErr(id, false));
+
+            setStatus('pending','⏳','Aguardando pagamento',
+                'O PIX expira em 30 minutos. Após pagar, o status atualiza automaticamente.');
+
+            document.getElementById('modalProductName').textContent  = productName;
+            document.getElementById('modalProductPrice').textContent =
+                'R$' + parseFloat(price).toFixed(2).replace('.',',');
+
+            document.getElementById('paymentModal').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            document.getElementById('paymentModal').classList.remove('active');
+            document.body.style.overflow = '';
+            if (pollingInterval) clearInterval(pollingInterval);
+        }
+
+        document.getElementById('btnGerarPix').addEventListener('click', async () => {
+            if (!validateForm()) { showToast('Preencha todos os campos corretamente.','error'); return; }
+
+            const btn = document.getElementById('btnGerarPix');
+            btn.disabled = true;
+            btn.innerHTML = '<span class="spinner"></span> Gerando PIX...';
+
+            const name   = document.getElementById('inputName').value.trim();
+            const cpf    = cleanNum(document.getElementById('inputCPF').value);
+            const phone  = cleanNum(document.getElementById('inputPhone').value);
+            const email  = document.getElementById('inputEmail').value.trim();
+            const price  = parseFloat(currentProduct.price);
+
+            const payload = {
+                identifier:  'ID_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9),
+                amount:      parseFloat(price).toFixed(2),
+                description: currentProduct.productName,
+                client: {
+                    name:     name,
+                    email:    email,
+                    document: cpf,
+                    phone:    phone,
+                },
+            };
+
+            try {
+                const data = await proxyCall('POST', '/gateway/pix/receive', payload);
+                const pixCode = data?.pix?.code || data?.data?.pix?.code || '';
+                const qrImg   = data?.pix?.base64 || data?.data?.pix?.base64 || '';
+                const txId    = data?.transactionId || data?.data?.transactionId || null;
+
+                currentTransactionId = txId;
+
+                if (qrImg) {
+                    document.getElementById('qrCodeImg').src =
+                        qrImg.startsWith('data:') ? qrImg : 'data:image/png;base64,' + qrImg;
+                }
+
+                document.getElementById('pixCopyCode').textContent = pixCode || 'Código não disponível';
+                document.getElementById('formSection').style.display = 'none';
+                document.getElementById('pixArea').style.display     = 'block';
+
+                if (txId) startPolling(txId);
+                showToast('PIX gerado! Realize o pagamento agora 🎉','success');
+
+            } catch (err) {
+                showToast('Erro ao gerar PIX: ' + err.message, 'error');
+                btn.disabled = false;
+                btn.innerHTML = '<i class="fas fa-qrcode"></i> Gerar PIX agora';
+            }
+        });
+
+        document.getElementById('closeModal').addEventListener('click', closeModal);
+        document.getElementById('paymentModal').addEventListener('click', e => { if (e.target.id === 'paymentModal') closeModal(); });
+
+        document.querySelectorAll('.btn-buy').forEach(btn =>
+            btn.addEventListener('click', function(e) {
+                e.preventDefault();
+                openModal(this.dataset.product, this.dataset.price);
+            })
+        );
+
+        // Lógica de Redirecionamento
+        document.querySelectorAll('.btn-redirect').forEach(btn =>
+            btn.addEventListener('click', function(e) {
+                e.preventDefault();
+                window.location.href = this.dataset.url;
+            })
+        );
+
+        const selMem = document.getElementById('telegram-members-option');
+        const btnMem = document.getElementById('buy-telegram-members');
+        if (selMem) selMem.addEventListener('change', function() {
+            const opt = this.options[this.selectedIndex];
+            btnMem.dataset.price   = opt.value;
+            btnMem.dataset.product = opt.dataset.product;
+        });
+
+        window.addEventListener('scroll', () => {
+            document.getElementById('mainHeader').style.boxShadow =
+                window.scrollY > 50 ? '0 5px 20px rgba(0,0,0,0.2)' : 'none';
+        });
+
+        const mBtn = document.getElementById('mobileMenuBtn');
+        const nav  = document.getElementById('navLinks');
+        mBtn.addEventListener('click', () => {
+            nav.classList.toggle('active');
+            mBtn.innerHTML = nav.classList.contains('active')
+                ? '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+        });
+        document.querySelectorAll('.nav-link').forEach(l => l.addEventListener('click', () => {
+            nav.classList.remove('active'); mBtn.innerHTML = '<i class="fas fa-bars"></i>';
+        }));
+
+        document.querySelectorAll('a[href^="#"]').forEach(a => a.addEventListener('click', function(e) {
+            if (this.classList.contains('btn-buy')) return;
+            e.preventDefault();
+            const t = document.querySelector(this.getAttribute('href'));
+            if (t) window.scrollTo({ top: t.offsetTop - 80, behavior: 'smooth' });
+        }));
+
+        document.querySelectorAll('.faq-item').forEach(item =>
+            item.querySelector('.faq-question').addEventListener('click', () => {
+                document.querySelectorAll('.faq-item').forEach(i => { if (i !== item) i.classList.remove('active'); });
+                item.classList.toggle('active');
+            })
+        );
+
+        const anim = document.querySelectorAll('.product-card,.channel-card,.security-item,.testimonial-card');
+        function doAnim() { anim.forEach(el => { if (el.getBoundingClientRect().top < window.innerHeight/1.2) { el.style.opacity='1'; el.style.transform='translateY(0)'; }}); }
+        window.addEventListener('load', () => { anim.forEach(el => { el.style.opacity='0'; el.style.transform='translateY(20px)'; el.style.transition='opacity 0.6s ease,transform 0.6s ease'; }); doAnim(); });
+        window.addEventListener('scroll', doAnim);
+
+        const music  = document.getElementById('backgroundMusic');
+        const mToggle = document.getElementById('musicToggle');
+        let playing = false;
+        music.volume = 0.3;
+        mToggle.addEventListener('click', () => {
+            playing ? (music.pause(), mToggle.innerHTML='<i class="fas fa-play"></i>', playing=false)
+                    : music.play().then(() => { mToggle.innerHTML='<i class="fas fa-pause"></i>'; playing=true; }).catch(()=>{});
+        });
+        document.addEventListener('click', () => {
+            if (!playing) music.play().then(() => { mToggle.innerHTML='<i class="fas fa-pause"></i>'; playing=true; }).catch(()=>{});
+        }, { once: true });
+
+        // NOTIFICAÇÕES DE COMPRA (intervalo aumentado para 3-5 minutos, mais profissional)
+        const fp = [{n:'Clonador de Canais',p:'R$59,90'},{n:'Espelhador de Canais',p:'R$69,90'},{n:'Editor de Mídia',p:'R$14,90'},{n:'ManyCam PRO',p:'R$24,90'},{n:'Combo Completo',p:'R$284,90'}];
+        const fn = ['Carlos','Ana','João','Maria','Pedro','Fernanda','Ricardo','Juliana'];
+        const fi = ['S.','M.','P.','R.','F.','G.','L.','C.'];
+        function fakeBuy() {
+            const p=fp[Math.random()*fp.length|0], n=fn[Math.random()*fn.length|0]+' '+fi[Math.random()*fi.length|0];
+            showToast(`${n} comprou ${p.n} por ${p.p}`,'info');
+            // reexecuta entre 3 a 5 minutos (180000 a 300000 ms)
+            setTimeout(fakeBuy, 180000 + Math.random()*120000);
+        }
+        // inicia após 1 minuto e depois respeita o intervalo acima
+        setTimeout(fakeBuy, 60000);
+
+        // Timer regressivo para 15/03/2026 23:59:59
+        function updateCountdown() {
+            const endDate = new Date(2026, 2, 15, 23, 59, 59); // 15 de Março de 2026
+            const now = new Date();
+            const diff = endDate - now;
+            if (diff <= 0) {
+                document.getElementById('countdown-promo').innerText = '00d 00h 00m 00s';
+                return;
+            }
+            const days = Math.floor(diff / (1000*60*60*24));
+            const hours = Math.floor((diff % (1000*60*60*24)) / (1000*60*60));
+            const minutes = Math.floor((diff % (1000*60*60)) / (1000*60));
+            const seconds = Math.floor((diff % (1000*60)) / 1000);
+            document.getElementById('countdown-promo').innerText = 
+                `${days.toString().padStart(2,'0')}d ${hours.toString().padStart(2,'0')}h ${minutes.toString().padStart(2,'0')}m ${seconds.toString().padStart(2,'0')}s`;
+        }
+        updateCountdown();
+        setInterval(updateCountdown, 1000);
+    })();
+    </script>
+</body>
+</html>
