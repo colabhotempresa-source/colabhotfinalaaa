@@ -506,6 +506,14 @@
             font-size: 1rem;
         }
 
+        .btn-dual {
+            display: flex;
+            gap: 10px;
+        }
+        .btn-dual .btn {
+            flex: 1;
+        }
+
         .video-container {
             margin: 20px 0 15px;
             border-radius: 10px;
@@ -534,6 +542,29 @@
         .section-special .section-title h2 {
             color: var(--gold);
             text-shadow: 0 0 10px rgba(255,215,0,0.3);
+        }
+
+        /* Aviso em destaque (piscante) */
+        .warning-message {
+            background-color: #c0392b;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-bottom: 40px;
+            border-radius: 12px;
+            font-weight: 800;
+            font-size: 1.3rem;
+            border: 3px solid #e74c3c;
+            box-shadow: 0 0 20px rgba(192, 57, 43, 0.5);
+            animation: blinkWarning 1.5s infinite;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        @keyframes blinkWarning {
+            0% { opacity: 1; background-color: #c0392b; }
+            50% { opacity: 0.8; background-color: #e74c3c; box-shadow: 0 0 30px #e74c3c; }
+            100% { opacity: 1; background-color: #c0392b; }
         }
 
         /* ========== CANAIS, SEGURANÇA, TESTEMUNHOS ========== */
@@ -1511,7 +1542,185 @@
         </div>
     </section>
 
-    <!-- SEÇÃO PRODUTOS REGULARES (mantida igual à versão anterior) -->
+    <!-- SEÇÃO FERRAMENTAS ESPECIAIS -->
+    <section id="especiais" class="section section-special">
+        <div class="container">
+            <!-- AVISO EM DESTAQUE (PISCANTE) -->
+            <div class="warning-message">
+                ⚠️ SÓ PARA QUEM ENTENDE. CURIOSOS, PASSEM RETO. ⚠️
+            </div>
+
+            <div class="section-title">
+                <h2>⚡ FERRAMENTAS ESPECIAIS</h2>
+                <p>Produtos de alto valor com retorno garantido.</p>
+            </div>
+
+            <div class="products-grid">
+                <!-- 1. KL REMOTA BT MOB + BYPASS (COM DUAS OPÇÕES DE PREÇO E DESCRIÇÃO ATUALIZADA) -->
+                <div class="product-card special-card">
+                    <div class="product-badge badge-special">⚡ ESPECIAL</div>
+                    <div class="product-image"><i class="fas fa-keyboard"></i></div>
+                    <div class="product-info">
+                        <h3>KL REMOTA BT MOB + BYPASS (já incluso na própria BT MOB)</h3>
+                        <!-- Preço duplo: Mensal R$3500 / Vitalício R$5200 -->
+                        <div class="product-price" style="justify-content: space-around;">
+                            <span class="current-price" style="font-size:1.5rem;">R$3.500/mês</span>
+                            <span class="current-price" style="font-size:1.5rem;">R$5.200 vitalício</span>
+                        </div>
+                        <div class="product-features">
+                            <div class="feature"><i class="fas fa-key"></i><span>⌨️ Registro completo de teclas (keystroke logging)</span></div>
+                            <div class="feature"><i class="fas fa-globe"></i><span>🌐 Monitoramento de sites acessados</span></div>
+                            <div class="feature"><i class="fas fa-camera"></i><span>📸 Captura de tela automática</span></div>
+                            <div class="feature"><i class="fas fa-eye"></i><span>🖥️ Visualização remota da atividade</span></div>
+                            <div class="feature"><i class="fas fa-file-alt"></i><span>📂 Relatórios e histórico detalhados</span></div>
+                            <div class="feature"><i class="fas fa-clock"></i><span>⏱️ Registro de horários de uso</span></div>
+                            <div class="feature"><i class="fas fa-upload"></i><span>📤 Envio automático para painel</span></div>
+                            <div class="feature"><i class="fas fa-mouse-pointer"></i><span>➕ Possibilidade de controle remoto</span></div>
+                            <div class="feature"><i class="fas fa-check-circle"></i><span>🔓 Na própria BTMOB já tem o bypass incluso</span></div>
+                            <div class="feature"><i class="fas fa-camera-retro"></i><span>📱 Ver câmera do celular do alvo em tempo real</span></div>
+                            <div class="feature"><i class="fas fa-star"></i><span>✨ E muito mais...</span></div>
+                        </div>
+                        <div class="product-actions btn-dual">
+                            <button class="btn btn-gold btn-special-buy" data-product="KL REMOTA BT MOB + BYPASS (Mensal)" data-price="3500.00"><i class="fas fa-shopping-cart"></i> Mensal R$3500</button>
+                            <button class="btn btn-gold btn-special-buy" data-product="KL REMOTA BT MOB + BYPASS (Vitalício)" data-price="5200.00"><i class="fas fa-shopping-cart"></i> Vitalício R$5200</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2. ESQUEMA HONDA (com câmera fake incluso) -->
+                <div class="product-card special-card">
+                    <div class="product-badge badge-special">⚡ ESPECIAL</div>
+                    <div class="product-image"><i class="fas fa-motorcycle"></i></div>
+                    <div class="product-info">
+                        <h3>ESQUEMA HONDA</h3>
+                        <div class="product-price">
+                            <span class="current-price">R$1.500,00</span>
+                        </div>
+                        <div class="product-features">
+                            <div class="feature"><i class="fas fa-check-circle"></i><span>🔧 Incluso todos os detalhes da operação</span></div>
+                            <div class="feature"><i class="fas fa-tools"></i><span>🛠️ Ferramentas exclusivas e atualizadas</span></div>
+                            <div class="feature"><i class="fas fa-headset"></i><span>🎧 Auxílio técnico completo</span></div>
+                            <div class="feature"><i class="fas fa-chart-line"></i><span>💰 Potencial de faturamento: até R$5.000 por dia!</span></div>
+                            <div class="feature"><i class="fas fa-star"></i><span>📈 Método testado e aprovado</span></div>
+                            <div class="feature"><i class="fas fa-camera"></i><span>📷 Câmera fake inclusa</span></div>
+                        </div>
+                        <div class="product-actions">
+                            <button class="btn btn-gold btn-special-buy" data-product="ESQUEMA HONDA" data-price="1500.00"><i class="fas fa-shopping-cart"></i> Comprar Agora</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 3. ESQUEMA VIVA SORTE + MODIFICADOR DE VOZ -->
+                <div class="product-card special-card">
+                    <div class="product-badge badge-special">⚡ ESPECIAL</div>
+                    <div class="product-image"><i class="fas fa-phone-alt"></i></div>
+                    <div class="product-info">
+                        <h3>ESQUEMA VIVA SORTE + MODIFICADOR DE VOZ</h3>
+                        <div class="product-price">
+                            <span class="current-price">R$1.900,00</span>
+                        </div>
+                        <div class="product-features">
+                            <div class="feature"><i class="fas fa-check-circle"></i><span>📦 Esquema completo, passo a passo</span></div>
+                            <div class="feature"><i class="fas fa-robot"></i><span>🎤 Modificador de voz profissional incluso</span></div>
+                            <div class="feature"><i class="fas fa-camera-retro"></i><span>📷 Câmera fake inclusa</span></div>
+                            <div class="feature"><i class="fas fa-life-ring"></i><span>🛠️ Suporte técnico especializado</span></div>
+                            <div class="feature"><i class="fas fa-dollar-sign"></i><span>💰 Fatura até 50k em uma única operação!</span></div>
+                        </div>
+                        <div class="product-actions">
+                            <button class="btn btn-gold btn-special-buy" data-product="ESQUEMA VIVA SORTE + MODIFICADOR DE VOZ" data-price="1900.00"><i class="fas fa-shopping-cart"></i> Comprar Agora</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 4. DEEPFAKE EM TEMPO REAL -->
+                <div class="product-card special-card">
+                    <div class="product-badge badge-special">⚡ ESPECIAL</div>
+                    <div class="product-image"><i class="fas fa-robot"></i></div>
+                    <div class="product-info">
+                        <h3>DEEPFAKE EM TEMPO REAL</h3>
+                        <div class="product-price">
+                            <span class="current-price">R$700,00</span>
+                        </div>
+                        <div class="product-features">
+                            <div class="feature"><i class="fas fa-check-circle"></i><span>🎭 Software completo + atualizações vitalícias</span></div>
+                            <div class="feature"><i class="fas fa-download"></i><span>⚙️ Instalação inclusa (remota ou guiada)</span></div>
+                            <div class="feature"><i class="fas fa-video"></i><span>📘 Tutorial completo em vídeo</span></div>
+                            <div class="feature"><i class="fas fa-infinity"></i><span>🔁 Produto lifetime (sem mensalidades)</span></div>
+                        </div>
+                        <div class="product-actions">
+                            <button class="btn btn-gold btn-special-buy" data-product="DEEPFAKE EM TEMPO REAL" data-price="700.00"><i class="fas fa-shopping-cart"></i> Comprar Agora</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 5. CLONADOR DE VOZ EM TEMPO REAL IA -->
+                <div class="product-card special-card">
+                    <div class="product-badge badge-special">⚡ ESPECIAL</div>
+                    <div class="product-image"><i class="fas fa-microphone-alt"></i></div>
+                    <div class="product-info">
+                        <h3>CLONADOR DE VOZ EM TEMPO REAL IA</h3>
+                        <div class="product-price">
+                            <span class="current-price">R$499,00</span>
+                        </div>
+                        <div class="product-features">
+                            <div class="feature"><i class="fas fa-check-circle"></i><span>🧠 Clona qualquer voz em tempo real</span></div>
+                            <div class="feature"><i class="fas fa-download"></i><span>🔧 Instalação inclusa</span></div>
+                            <div class="feature"><i class="fas fa-chalkboard-teacher"></i><span>📚 Tutorial completo</span></div>
+                            <div class="feature"><i class="fas fa-headset"></i><span>🆘 Suporte técnico incluso</span></div>
+                            <div class="feature"><i class="fas fa-credit-card"></i><span>💳 Pagamento único, sem taxas extras</span></div>
+                        </div>
+                        <div class="product-actions">
+                            <button class="btn btn-gold btn-special-buy" data-product="CLONADOR DE VOZ EM TEMPO REAL IA" data-price="499.00"><i class="fas fa-shopping-cart"></i> Comprar Agora</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 6. MODIFICADOR DE VOZ BÁSICO IA -->
+                <div class="product-card special-card">
+                    <div class="product-badge badge-special">⚡ ESPECIAL</div>
+                    <div class="product-image"><i class="fas fa-wave-square"></i></div>
+                    <div class="product-info">
+                        <h3>MODIFICADOR DE VOZ BÁSICO IA</h3>
+                        <div class="product-price">
+                            <span class="current-price">R$249,00</span>
+                        </div>
+                        <div class="product-features">
+                            <div class="feature"><i class="fas fa-check-circle"></i><span>⏳ Válido por 90 dias</span></div>
+                            <div class="feature"><i class="fas fa-download"></i><span>🔧 Instalação inclusa</span></div>
+                            <div class="feature"><i class="fas fa-headset"></i><span>🎧 Suporte técnico incluso</span></div>
+                            <div class="feature"><i class="fas fa-edit"></i><span>🎛️ Diversos efeitos de voz</span></div>
+                        </div>
+                        <div class="product-actions">
+                            <button class="btn btn-gold btn-special-buy" data-product="MODIFICADOR DE VOZ BÁSICO IA" data-price="249.00"><i class="fas fa-shopping-cart"></i> Comprar Agora</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 7. HOT MILIONARIO -->
+                <div class="product-card special-card">
+                    <div class="product-badge badge-special">⚡ ESPECIAL</div>
+                    <div class="product-image"><i class="fas fa-fire"></i></div>
+                    <div class="product-info">
+                        <h3>HOT MILIONARIO</h3>
+                        <div class="product-price">
+                            <span class="current-price">R$449,00</span>
+                        </div>
+                        <div class="product-features">
+                            <div class="feature"><i class="fas fa-check-circle"></i><span>📘 Curso completo de Hot</span></div>
+                            <div class="feature"><i class="fas fa-images"></i><span>📸 Pack de modelos exclusivo</span></div>
+                            <div class="feature"><i class="fas fa-users"></i><span>🤝 Grupo de networking vip</span></div>
+                            <div class="feature"><i class="fas fa-trophy"></i><span>🏆 Suporte até a sua primeira venda!</span></div>
+                        </div>
+                        <div class="product-actions">
+                            <button class="btn btn-gold btn-special-buy" data-product="HOT MILIONARIO" data-price="449.00"><i class="fas fa-shopping-cart"></i> Comprar Agora</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEÇÃO PRODUTOS REGULARES (mantida igual) -->
     <section id="products" class="section">
         <div class="container">
             <div class="section-title">
@@ -1723,172 +1932,6 @@
                                 <option value="250.00" data-product="10.000 membros para Telegram">10.000 membros — R$250,00</option>
                             </select>
                             <button class="btn btn-primary btn-buy" id="buy-telegram-members" data-product="1.000 membros para Telegram" data-price="30.00"><i class="fas fa-shopping-cart"></i> Comprar Agora</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- SEÇÃO FERRAMENTAS ESPECIAIS (COM PAGAMENTO MANUAL) -->
-    <section id="especiais" class="section section-special">
-        <div class="container">
-            <div class="section-title">
-                <h2>⚡ FERRAMENTAS ESPECIAIS</h2>
-                <p>Produtos de alto valor com retorno garantido.</p>
-            </div>
-
-            <div class="products-grid">
-                <!-- 1. KL Remota (Keylogger Remoto) -->
-                <div class="product-card special-card">
-                    <div class="product-badge badge-special">⚡ ESPECIAL</div>
-                    <div class="product-image"><i class="fas fa-keyboard"></i></div>
-                    <div class="product-info">
-                        <h3>KL Remota (Keylogger Remoto)</h3>
-                        <div class="product-price">
-                            <span class="current-price">R$2.900,00</span>
-                        </div>
-                        <div class="product-features">
-                            <div class="feature"><i class="fas fa-key"></i><span>⌨️ Registro completo de teclas (keystroke logging)</span></div>
-                            <div class="feature"><i class="fas fa-globe"></i><span>🌐 Monitoramento de sites acessados</span></div>
-                            <div class="feature"><i class="fas fa-camera"></i><span>📸 Captura de tela automática</span></div>
-                            <div class="feature"><i class="fas fa-eye"></i><span>🖥️ Visualização remota da atividade</span></div>
-                            <div class="feature"><i class="fas fa-file-alt"></i><span>📂 Relatórios e histórico detalhados</span></div>
-                            <div class="feature"><i class="fas fa-clock"></i><span>⏱️ Registro de horários de uso</span></div>
-                            <div class="feature"><i class="fas fa-upload"></i><span>📤 Envio automático para painel</span></div>
-                            <div class="feature"><i class="fas fa-mouse-pointer"></i><span>➕ Possibilidade de controle remoto</span></div>
-                        </div>
-                        <div class="product-actions">
-                            <button class="btn btn-gold btn-special-buy" data-product="KL Remota (Keylogger Remoto)" data-price="2900.00"><i class="fas fa-shopping-cart"></i> Comprar Agora</button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- 2. ESQUEMA HONDA -->
-                <div class="product-card special-card">
-                    <div class="product-badge badge-special">⚡ ESPECIAL</div>
-                    <div class="product-image"><i class="fas fa-motorcycle"></i></div>
-                    <div class="product-info">
-                        <h3>ESQUEMA HONDA</h3>
-                        <div class="product-price">
-                            <span class="current-price">R$1.500,00</span>
-                        </div>
-                        <div class="product-features">
-                            <div class="feature"><i class="fas fa-check-circle"></i><span>🔧 Incluso todos os detalhes da operação</span></div>
-                            <div class="feature"><i class="fas fa-tools"></i><span>🛠️ Ferramentas exclusivas e atualizadas</span></div>
-                            <div class="feature"><i class="fas fa-headset"></i><span>🎧 Auxílio técnico completo</span></div>
-                            <div class="feature"><i class="fas fa-chart-line"></i><span>💰 Potencial de faturamento: até R$5.000 por dia!</span></div>
-                            <div class="feature"><i class="fas fa-star"></i><span>📈 Método testado e aprovado</span></div>
-                        </div>
-                        <div class="product-actions">
-                            <button class="btn btn-gold btn-special-buy" data-product="ESQUEMA HONDA" data-price="1500.00"><i class="fas fa-shopping-cart"></i> Comprar Agora</button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- 3. ESQUEMA VIVA SORTE + MODIFICADOR DE VOZ -->
-                <div class="product-card special-card">
-                    <div class="product-badge badge-special">⚡ ESPECIAL</div>
-                    <div class="product-image"><i class="fas fa-phone-alt"></i></div>
-                    <div class="product-info">
-                        <h3>ESQUEMA VIVA SORTE + MODIFICADOR DE VOZ</h3>
-                        <div class="product-price">
-                            <span class="current-price">R$1.900,00</span>
-                        </div>
-                        <div class="product-features">
-                            <div class="feature"><i class="fas fa-check-circle"></i><span>📦 Esquema completo, passo a passo</span></div>
-                            <div class="feature"><i class="fas fa-robot"></i><span>🎤 Modificador de voz profissional incluso</span></div>
-                            <div class="feature"><i class="fas fa-camera-retro"></i><span>📷 Câmera fake inclusa</span></div>
-                            <div class="feature"><i class="fas fa-life-ring"></i><span>🛠️ Suporte técnico especializado</span></div>
-                            <div class="feature"><i class="fas fa-dollar-sign"></i><span>💰 Fatura até 50k em uma única operação!</span></div>
-                        </div>
-                        <div class="product-actions">
-                            <button class="btn btn-gold btn-special-buy" data-product="ESQUEMA VIVA SORTE + MODIFICADOR DE VOZ" data-price="1900.00"><i class="fas fa-shopping-cart"></i> Comprar Agora</button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- 4. DEEPFAKE EM TEMPO REAL -->
-                <div class="product-card special-card">
-                    <div class="product-badge badge-special">⚡ ESPECIAL</div>
-                    <div class="product-image"><i class="fas fa-robot"></i></div>
-                    <div class="product-info">
-                        <h3>DEEPFAKE EM TEMPO REAL</h3>
-                        <div class="product-price">
-                            <span class="current-price">R$700,00</span>
-                        </div>
-                        <div class="product-features">
-                            <div class="feature"><i class="fas fa-check-circle"></i><span>🎭 Software completo + atualizações vitalícias</span></div>
-                            <div class="feature"><i class="fas fa-download"></i><span>⚙️ Instalação inclusa (remota ou guiada)</span></div>
-                            <div class="feature"><i class="fas fa-video"></i><span>📘 Tutorial completo em vídeo</span></div>
-                            <div class="feature"><i class="fas fa-infinity"></i><span>🔁 Produto lifetime (sem mensalidades)</span></div>
-                        </div>
-                        <div class="product-actions">
-                            <button class="btn btn-gold btn-special-buy" data-product="DEEPFAKE EM TEMPO REAL" data-price="700.00"><i class="fas fa-shopping-cart"></i> Comprar Agora</button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- 5. CLONADOR DE VOZ EM TEMPO REAL IA -->
-                <div class="product-card special-card">
-                    <div class="product-badge badge-special">⚡ ESPECIAL</div>
-                    <div class="product-image"><i class="fas fa-microphone-alt"></i></div>
-                    <div class="product-info">
-                        <h3>CLONADOR DE VOZ EM TEMPO REAL IA</h3>
-                        <div class="product-price">
-                            <span class="current-price">R$499,00</span>
-                        </div>
-                        <div class="product-features">
-                            <div class="feature"><i class="fas fa-check-circle"></i><span>🧠 Clona qualquer voz em tempo real</span></div>
-                            <div class="feature"><i class="fas fa-download"></i><span>🔧 Instalação inclusa</span></div>
-                            <div class="feature"><i class="fas fa-chalkboard-teacher"></i><span>📚 Tutorial completo</span></div>
-                            <div class="feature"><i class="fas fa-headset"></i><span>🆘 Suporte técnico incluso</span></div>
-                            <div class="feature"><i class="fas fa-credit-card"></i><span>💳 Pagamento único, sem taxas extras</span></div>
-                        </div>
-                        <div class="product-actions">
-                            <button class="btn btn-gold btn-special-buy" data-product="CLONADOR DE VOZ EM TEMPO REAL IA" data-price="499.00"><i class="fas fa-shopping-cart"></i> Comprar Agora</button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- 6. MODIFICADOR DE VOZ BÁSICO IA -->
-                <div class="product-card special-card">
-                    <div class="product-badge badge-special">⚡ ESPECIAL</div>
-                    <div class="product-image"><i class="fas fa-wave-square"></i></div>
-                    <div class="product-info">
-                        <h3>MODIFICADOR DE VOZ BÁSICO IA</h3>
-                        <div class="product-price">
-                            <span class="current-price">R$249,00</span>
-                        </div>
-                        <div class="product-features">
-                            <div class="feature"><i class="fas fa-check-circle"></i><span>⏳ Válido por 90 dias</span></div>
-                            <div class="feature"><i class="fas fa-download"></i><span>🔧 Instalação inclusa</span></div>
-                            <div class="feature"><i class="fas fa-headset"></i><span>🎧 Suporte técnico incluso</span></div>
-                            <div class="feature"><i class="fas fa-edit"></i><span>🎛️ Diversos efeitos de voz</span></div>
-                        </div>
-                        <div class="product-actions">
-                            <button class="btn btn-gold btn-special-buy" data-product="MODIFICADOR DE VOZ BÁSICO IA" data-price="249.00"><i class="fas fa-shopping-cart"></i> Comprar Agora</button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- 7. HOT MILIONARIO -->
-                <div class="product-card special-card">
-                    <div class="product-badge badge-special">⚡ ESPECIAL</div>
-                    <div class="product-image"><i class="fas fa-fire"></i></div>
-                    <div class="product-info">
-                        <h3>HOT MILIONARIO</h3>
-                        <div class="product-price">
-                            <span class="current-price">R$449,00</span>
-                        </div>
-                        <div class="product-features">
-                            <div class="feature"><i class="fas fa-check-circle"></i><span>📘 Curso completo de Hot</span></div>
-                            <div class="feature"><i class="fas fa-images"></i><span>📸 Pack de modelos exclusivo</span></div>
-                            <div class="feature"><i class="fas fa-users"></i><span>🤝 Grupo de networking vip</span></div>
-                            <div class="feature"><i class="fas fa-trophy"></i><span>🏆 Suporte até a sua primeira venda!</span></div>
-                        </div>
-                        <div class="product-actions">
-                            <button class="btn btn-gold btn-special-buy" data-product="HOT MILIONARIO" data-price="449.00"><i class="fas fa-shopping-cart"></i> Comprar Agora</button>
                         </div>
                     </div>
                 </div>
@@ -2498,7 +2541,8 @@
             {n:'Clonador de Canais', p:'R$59,90'},
             {n:'Editor de Mídia', p:'R$29,90'},
             {n:'Combo Completo', p:'R$299,90'},
-            {n:'KL Remota', p:'R$2.900,00'},
+            {n:'KL REMOTA BT MOB + BYPASS (Mensal)', p:'R$3.500,00'},
+            {n:'KL REMOTA BT MOB + BYPASS (Vitalício)', p:'R$5.200,00'},
             {n:'Esquema Honda', p:'R$1.500,00'},
             {n:'Deepfake', p:'R$700,00'}
         ];
