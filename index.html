@@ -3,16 +3,60 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5, user-scalable=yes">
+
+    <!-- ========== HEADER DE SEGURANÇA ========== -->
     <meta http-equiv="X-Content-Type-Options" content="nosniff">
     <meta http-equiv="X-Frame-Options" content="DENY">
     <meta http-equiv="X-XSS-Protection" content="1; mode=block">
     <meta http-equiv="Referrer-Policy" content="no-referrer-when-downgrade">
+    <meta http-equiv="Content-Security-Policy" content="
+        default-src 'self';
+        script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://connect.facebook.net https://*.googleapis.com https://cdnjs.cloudflare.com https://api.exchangerate.host;
+        style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com;
+        font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com data:;
+        img-src 'self' data: https://www.facebook.com https://*.fbcdn.net;
+        connect-src 'self' https://a.nel.cloudflare.com https://*.sigilopay.com /api/sigilopay https://api.exchangerate.host;
+        frame-src 'self' https://www.youtube.com;
+        object-src 'none';
+        base-uri 'self';
+        form-action 'self';
+    ">
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17691475001"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'AW-17691475001');
+    </script>
+
+    <!-- Meta Pixel Code -->
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '26227562986902348');
+    fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=26227562986902348&ev=PageView&noscript=1"
+    /></noscript>
+    <!-- End Meta Pixel Code -->
+
     <title>COLAB HOT PRO | Ferramentas Profissionais para Telegram</title>
     <meta name="description" content="Ferramentas digitais premium para gestão de canais no Telegram e soluções especiais de alto retorno.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Orbitron:wght@400..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="icon" href="img23.png" type="image/png">
+
     <style>
         /* ========== VARIÁVEIS ========== */
         :root {
@@ -36,6 +80,7 @@
             --transition: all 0.3s cubic-bezier(0.25,0.46,0.45,0.94);
         }
 
+        /* ========== RESET ========== */
         * {
             margin: 0;
             padding: 0;
@@ -327,6 +372,7 @@
             border-color: var(--purple);
         }
 
+        /* Cards especiais com borda dourada */
         .product-card.special-card {
             border: 2px solid var(--gold);
             background: linear-gradient(145deg, #1e1e2f, #1a1a2e);
@@ -498,6 +544,7 @@
             text-shadow: 0 0 10px rgba(255,215,0,0.3);
         }
 
+        /* Aviso em destaque (piscante) */
         .warning-message {
             background-color: #c0392b;
             color: white;
@@ -704,7 +751,7 @@
             max-height: 500px;
         }
 
-        /* ========== MODAL ========== */
+        /* ========== MODAL PADRÃO (SIGILOPAY) ========== */
         .modal, .modal-manual {
             display: none;
             position: fixed;
@@ -728,12 +775,16 @@
             background-color: var(--card);
             border-radius: 24px;
             padding: 35px 30px;
-            max-width: 550px;
+            max-width: 520px;
             width: 100%;
             position: relative;
             border: 1px solid var(--border);
             box-shadow: var(--shadow-heavy);
             margin: auto;
+        }
+
+        .modal-manual .modal-content {
+            border: 2px solid var(--gold);
         }
 
         .close-modal {
@@ -759,6 +810,13 @@
             margin-bottom: 10px;
             text-align: center;
             color: var(--light);
+        }
+
+        .modal-subtitle {
+            text-align: center;
+            color: var(--muted);
+            margin-bottom: 30px;
+            font-size: 0.95rem;
         }
 
         .modal-product-info {
@@ -787,184 +845,190 @@
             font-size: 1.4rem;
         }
 
-        /* Payment methods */
-        .payment-methods {
+        .modal-manual .modal-product-price {
+            color: var(--gold);
+        }
+
+        /* ========== NOVOS ESTILOS PARA MÉTODOS DE PAGAMENTO ========== */
+        .payment-method-selector {
             display: flex;
-            gap: 15px;
+            gap: 12px;
             margin-bottom: 25px;
             justify-content: center;
             flex-wrap: wrap;
         }
+
         .method-btn {
             background: var(--darker);
             border: 1px solid var(--border);
+            color: var(--light);
+            padding: 12px 20px;
             border-radius: 40px;
-            padding: 10px 20px;
             font-weight: 600;
             cursor: pointer;
             transition: all 0.2s;
-            color: var(--muted);
-        }
-        .method-btn.active {
-            background: var(--purple);
-            border-color: var(--purple);
-            color: white;
-        }
-        .payment-details {
-            margin-top: 20px;
-        }
-        .crypto-address {
-            background: var(--darker);
-            padding: 15px;
-            border-radius: 12px;
-            word-break: break-all;
-            font-family: monospace;
-            font-size: 0.9rem;
-            margin: 15px 0;
-            border: 1px dashed var(--gold);
-        }
-        .paypal-button-container {
-            margin: 20px 0;
+            flex: 1;
             text-align: center;
         }
+
+        .method-btn.active {
+            background: linear-gradient(135deg, var(--purple), var(--blue));
+            border-color: transparent;
+            color: white;
+        }
+
+        .payment-detail {
+            background: rgba(0,0,0,0.2);
+            border-radius: 16px;
+            padding: 20px;
+            margin-top: 15px;
+        }
+
+        .payment-detail .copy-btn {
+            background: rgba(138,43,226,0.2);
+            border: 1px solid var(--purple);
+            color: var(--purple);
+            padding: 10px;
+            border-radius: 8px;
+            width: 100%;
+            margin-top: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+        .payment-detail .copy-btn:hover {
+            background: var(--purple);
+            color: white;
+        }
+        .manual-pix-key {
+            background: var(--darker);
+            padding: 12px;
+            border-radius: 8px;
+            font-family: monospace;
+            word-break: break-all;
+            margin: 10px 0;
+            border: 1px dashed var(--gold);
+            color: var(--gold);
+        }
+
+        /* ========== FORMULÁRIO PIX ========== */
         .form-group {
             margin-bottom: 20px;
         }
-        .form-group label {
-            display: block;
-            margin-bottom: 6px;
-            font-size: 0.85rem;
-            font-weight: 600;
-            color: var(--muted);
-        }
         .form-group input {
             width: 100%;
-            padding: 14px 16px;
-            background-color: var(--darker);
+            padding: 12px;
+            background: var(--darker);
             border: 1px solid var(--border);
-            border-radius: 10px;
-            color: var(--light);
-            font-family: 'Inter', sans-serif;
-            font-size: 1rem;
+            border-radius: 8px;
+            color: white;
         }
         .form-row {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 15px;
-        }
-        .btn-gerar-pix, .btn-copiar-pix, .btn-verificar {
-            width: 100%;
-            padding: 14px;
-            border-radius: 12px;
-            font-weight: 700;
-            cursor: pointer;
-            transition: var(--transition);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            margin-top: 10px;
+            gap: 12px;
         }
         .btn-gerar-pix {
+            width: 100%;
+            padding: 14px;
             background: linear-gradient(135deg, var(--purple), var(--blue));
             color: white;
             border: none;
+            border-radius: 12px;
+            font-weight: 700;
+            cursor: pointer;
         }
-        .btn-copiar-pix {
-            background-color: rgba(138,43,226,0.1);
-            color: var(--purple);
-            border: 1px solid var(--purple);
-        }
-        .btn-verificar {
-            background-color: var(--border);
-            color: var(--light);
-            border: none;
-        }
-        .qr-wrapper {
-            background-color: white;
-            padding: 15px;
-            border-radius: 16px;
-            display: inline-block;
-            margin-bottom: 20px;
-        }
-        #qrCodeImg {
-            width: 180px;
-            height: 180px;
-            display: block;
-        }
-        .pix-code-box {
-            background-color: var(--darker);
-            padding: 15px;
-            border-radius: 10px;
-            border: 1px dashed var(--purple);
-            color: var(--light);
-            font-family: monospace;
-            font-size: 0.85rem;
-            word-break: break-all;
-            margin-bottom: 15px;
-        }
-        .manual-pix-info {
-            background: rgba(255,215,0,0.1);
-            border: 1px solid var(--gold);
-            border-radius: 16px;
-            padding: 25px;
-            margin-bottom: 25px;
+        #pixArea {
             text-align: center;
         }
-        .manual-pix-key {
-            background: var(--darker);
-            padding: 15px;
-            border-radius: 12px;
-            font-family: monospace;
-            font-size: 1.1rem;
-            word-break: break-all;
-            border: 1px dashed var(--gold);
-            color: var(--gold);
-            margin: 20px 0;
+        #qrCodeImg img {
+            max-width: 200px;
+            margin: 10px auto;
         }
-        .btn-copiar-chave {
-            background: linear-gradient(135deg, var(--gold), var(--gold-dark));
-            color: var(--dark);
-            font-weight: 800;
-            border: none;
-            padding: 16px;
-            border-radius: 12px;
-            width: 100%;
-            font-size: 1.1rem;
-            cursor: pointer;
+        #pixCopyCode {
+            background: var(--darker);
+            padding: 12px;
+            border-radius: 8px;
+            word-break: break-all;
+            font-size: 0.8rem;
+            margin: 15px 0;
+        }
+
+        /* ========== FOOTER ========== */
+        footer {
+            background-color: var(--darker);
+            padding: 60px 0 30px;
+            border-top: 1px solid var(--border);
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-column h4 {
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+            color: var(--light);
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: var(--muted);
+            text-decoration: none;
             transition: var(--transition);
+            font-size: 0.95rem;
+        }
+
+        .footer-links a:hover {
+            color: var(--purple);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid var(--border);
+            color: var(--muted);
+            font-size: 0.9rem;
+        }
+
+        /* ========== ELEMENTOS FLUTUANTES ========== */
+        .music-player {
+            position: fixed;
+            bottom: 100px;
+            right: 20px;
+            z-index: 100;
+        }
+
+        .music-toggle {
+            width: 52px;
+            height: 52px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--purple), var(--blue));
+            color: white;
+            border: none;
+            cursor: pointer;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 10px;
-            margin-top: 10px;
+            font-size: 1.3rem;
+            box-shadow: var(--shadow-light);
+            transition: var(--transition);
         }
-        .modal-telegram {
-            margin-top: 30px;
-            padding-top: 20px;
-            border-top: 1px solid var(--border);
-            text-align: center;
+
+        .music-toggle:hover {
+            transform: scale(1.1);
         }
-        .toast {
-            position: fixed;
-            bottom: 30px;
-            left: 50%;
-            transform: translateX(-50%);
-            background-color: var(--green);
-            color: white;
-            padding: 14px 28px;
-            border-radius: 50px;
-            font-weight: 600;
-            z-index: 3000;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-            pointer-events: none;
-            white-space: nowrap;
-            font-size: 0.95rem;
-        }
-        .toast.show {
-            opacity: 1;
-        }
+
         .support-btn {
             position: fixed;
             bottom: 30px;
@@ -984,14 +1048,71 @@
             transition: var(--transition);
             z-index: 100;
         }
+
         .support-btn:hover {
             transform: scale(1.1);
             background-color: var(--purple);
         }
-        @media (max-width: 768px) {
+
+        .support-tooltip {
+            position: absolute;
+            right: 70px;
+            background-color: var(--card);
+            color: var(--light);
+            padding: 8px 15px;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            white-space: nowrap;
+            opacity: 0;
+            pointer-events: none;
+            transition: var(--transition);
+            border: 1px solid var(--border);
+        }
+
+        .support-btn:hover .support-tooltip {
+            opacity: 1;
+            right: 80px;
+        }
+
+        .toast {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: var(--green);
+            color: white;
+            padding: 14px 28px;
+            border-radius: 50px;
+            font-weight: 600;
+            z-index: 3000;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            box-shadow: var(--shadow-heavy);
+            pointer-events: none;
+            white-space: nowrap;
+            font-size: 0.95rem;
+        }
+
+        .toast.show {
+            opacity: 1;
+        }
+
+        /* ========== RESPONSIVIDADE ========== */
+        @media (max-width: 1024px) {
             .products-grid {
-                grid-template-columns: 1fr;
+                grid-template-columns: repeat(2, 1fr);
             }
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding-top: 70px;
+            }
+
+            .header-container {
+                padding: 12px 0;
+            }
+
             .nav-links {
                 position: fixed;
                 top: 70px;
@@ -1006,804 +1127,581 @@
                 transition: transform 0.3s ease, opacity 0.3s ease;
                 border-bottom: 1px solid var(--border);
                 z-index: 999;
+                box-shadow: var(--shadow-medium);
             }
+
             .nav-links.active {
                 transform: translateY(0);
                 opacity: 1;
             }
+
             .mobile-menu-btn {
                 display: block;
             }
+
+            .hero {
+                padding: 80px 0 60px;
+            }
+
+            .hero-badges {
+                flex-direction: column;
+                align-items: stretch;
+                gap: 12px;
+                max-width: 400px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .badge {
+                justify-content: center;
+            }
+
+            .hero-cta {
+                flex-direction: column;
+                align-items: center;
+                gap: 15px;
+            }
+
+            .hero-cta .btn {
+                width: 100%;
+                max-width: 300px;
+            }
+
+            .products-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .product-card {
+                max-width: 450px;
+                margin: 0 auto;
+                width: 100%;
+            }
+
+            .section-title {
+                margin-bottom: 40px;
+            }
+
+            .channels-grid, .security-grid, .testimonials-grid {
+                grid-template-columns: 1fr;
+                max-width: 450px;
+                margin: 0 auto;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 30px;
+            }
+
+            .footer-links {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .modal-content, .modal-manual .modal-content {
+                padding: 30px 20px;
+            }
+
             .form-row {
                 grid-template-columns: 1fr;
+                gap: 10px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo {
+                font-size: 1.5rem;
+            }
+
+            .logo .pro-badge {
+                font-size: 0.6rem;
+                padding: 2px 6px;
+            }
+
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .product-info h3 {
+                font-size: 1.2rem;
+            }
+
+            .current-price {
+                font-size: 1.7rem;
+            }
+
+            .btn, .btn-buy, .btn-gerar-pix, .btn-special-buy {
+                padding: 14px 20px;
+                font-size: 0.95rem;
+            }
+
+            .music-player {
+                bottom: 90px;
+                right: 15px;
+            }
+
+            .support-btn {
+                bottom: 20px;
+                right: 15px;
+                width: 55px;
+                height: 55px;
+                font-size: 1.5rem;
+            }
+
+            .support-tooltip {
+                display: none;
             }
         }
     </style>
-    <!-- Google Translate Widget -->
-    <script type="text/javascript">
-        function googleTranslateElementInit() {
-            new google.translate.TranslateElement({pageLanguage: 'pt', includedLanguages: 'en,es,fr,de,it,ja,ko,ru,zh-CN,ar', autoDisplay: true}, 'google_translate_element');
-        }
-    </script>
-    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </head>
 <body>
 
-<header id="mainHeader">
-    <div class="container header-container">
-        <a href="#" class="logo">COLAB HOT<span>PRO</span><span class="pro-badge">PRO</span></a>
-        <button class="mobile-menu-btn" id="mobileMenuBtn"><i class="fas fa-bars"></i></button>
-        <div class="nav-links" id="navLinks">
-            <a href="#products" class="nav-link">Produtos</a>
-            <a href="#especiais" class="nav-link">Especiais</a>
-            <a href="#channels" class="nav-link">Canais</a>
-            <a href="#security" class="nav-link">Segurança</a>
-            <a href="#testimonials" class="nav-link">Avaliações</a>
-            <a href="#faq" class="nav-link">FAQ</a>
-            <div id="google_translate_element" style="margin-left: 20px;"></div>
+    <header id="mainHeader">
+        <div class="container header-container">
+            <a href="#" class="logo">COLAB HOT<span>PRO</span><span class="pro-badge">PRO</span></a>
+            <button class="mobile-menu-btn" id="mobileMenuBtn"><i class="fas fa-bars"></i></button>
+            <div class="nav-links" id="navLinks">
+                <a href="#products" class="nav-link">Produtos</a>
+                <a href="#especiais" class="nav-link">Especiais</a>
+                <a href="#channels" class="nav-link">Canais</a>
+                <a href="#security" class="nav-link">Segurança</a>
+                <a href="#testimonials" class="nav-link">Avaliações</a>
+                <a href="#faq" class="nav-link">FAQ</a>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>FERRAMENTAS PROFISSIONAIS PARA TELEGRAM</h1>
+            <p>Automatize e escale seus canais no Telegram com nossas soluções premium. Tecnologia avançada para resultados excepcionais.</p>
+            <div class="hero-badges">
+                <div class="badge"><i class="fas fa-shield-alt"></i><span>Ambiente 100% Seguro</span></div>
+                <div class="badge"><i class="fas fa-rocket"></i><span>Entrega Automática</span></div>
+                <div class="badge"><i class="fas fa-headset"></i><span>Suporte 24/7</span></div>
+                <div class="badge"><i class="fas fa-gem"></i><span>Garantia de 7 Dias</span></div>
+            </div>
+            <div class="hero-cta">
+                <a href="#products" class="btn btn-primary"><i class="fas fa-shopping-cart"></i> Ver Produtos</a>
+                <a href="#especiais" class="btn btn-gold"><i class="fas fa-crown"></i> Especiais</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEÇÃO FERRAMENTAS ESPECIAIS -->
+    <section id="especiais" class="section section-special">
+        <div class="container">
+            <div class="warning-message">
+                ⚠️ SÓ PARA QUEM ENTENDE. CURIOSOS, PASSEM RETO. ⚠️
+            </div>
+            <div class="section-title">
+                <h2>⚡ FERRAMENTAS ESPECIAIS</h2>
+                <p>Produtos de alto valor com retorno garantido.</p>
+            </div>
+            <div class="products-grid">
+                <!-- KL REMOTA BT MOB + BYPASS -->
+                <div class="product-card special-card">
+                    <div class="product-badge badge-special">⚡ ESPECIAL</div>
+                    <div class="product-image"><i class="fas fa-keyboard"></i></div>
+                    <div class="product-info">
+                        <h3>KL REMOTA BTMOB + BYPASS</h3>
+                        <div class="product-price" style="justify-content: space-around;">
+                            <span class="current-price" data-price-brl="3500.00">R$3.500/mês</span>
+                            <span class="current-price" data-price-brl="5200.00">R$5.200 vitalício</span>
+                        </div>
+                        <div class="product-features">
+                            <div class="feature"><i class="fas fa-key"></i><span>⌨️ Registro completo de teclas</span></div>
+                            <div class="feature"><i class="fas fa-globe"></i><span>🌐 Monitoramento de sites</span></div>
+                            <div class="feature"><i class="fas fa-camera"></i><span>📸 Captura de tela automática</span></div>
+                            <div class="feature"><i class="fas fa-eye"></i><span>🖥️ Visualização remota</span></div>
+                            <div class="feature"><i class="fas fa-camera-retro"></i><span>📱 Ver câmera do celular em tempo real</span></div>
+                        </div>
+                        <div class="product-actions btn-dual">
+                            <button class="btn btn-gold btn-special-buy" data-product="KL REMOTA BT MOB + BYPASS (Mensal)" data-price="3500.00"><i class="fas fa-shopping-cart"></i> Mensal R$3500</button>
+                            <button class="btn btn-gold btn-special-buy" data-product="KL REMOTA BT MOB + BYPASS (Vitalício)" data-price="5200.00"><i class="fas fa-shopping-cart"></i> Vitalício R$5200</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ESQUEMA HONDA -->
+                <div class="product-card special-card">
+                    <div class="product-badge badge-special">⚡ ESPECIAL</div>
+                    <div class="product-image"><i class="fas fa-motorcycle"></i></div>
+                    <div class="product-info">
+                        <h3>ESQUEMA HONDA</h3>
+                        <div class="product-price"><span class="current-price" data-price-brl="1500.00">R$1.500,00</span></div>
+                        <div class="product-features">
+                            <div class="feature"><i class="fas fa-check-circle"></i><span>🔧 Esquema completo</span></div>
+                            <div class="feature"><i class="fas fa-chart-line"></i><span>💰 Potencial de faturamento: até R$5.000 por dia</span></div>
+                            <div class="feature"><i class="fas fa-camera"></i><span>📷 Câmera fake inclusa</span></div>
+                        </div>
+                        <div class="product-actions">
+                            <button class="btn btn-gold btn-special-buy" data-product="ESQUEMA HONDA" data-price="1500.00"><i class="fas fa-shopping-cart"></i> Comprar Agora</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ESQUEMA VIVA SORTE + MODIFICADOR -->
+                <div class="product-card special-card">
+                    <div class="product-badge badge-special">⚡ ESPECIAL</div>
+                    <div class="product-image"><i class="fas fa-phone-alt"></i></div>
+                    <div class="product-info">
+                        <h3>ESQUEMA VIVA SORTE + MODIFICADOR DE VOZ</h3>
+                        <div class="product-price"><span class="current-price" data-price-brl="1900.00">R$1.900,00</span></div>
+                        <div class="product-features">
+                            <div class="feature"><i class="fas fa-robot"></i><span>🎤 Modificador de voz profissional</span></div>
+                            <div class="feature"><i class="fas fa-camera-retro"></i><span>📷 Câmera fake inclusa</span></div>
+                            <div class="feature"><i class="fas fa-dollar-sign"></i><span>💰 Fatura até 50k em uma única operação</span></div>
+                        </div>
+                        <div class="product-actions">
+                            <button class="btn btn-gold btn-special-buy" data-product="ESQUEMA VIVA SORTE + MODIFICADOR DE VOZ" data-price="1900.00"><i class="fas fa-shopping-cart"></i> Comprar Agora</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- DEEPFAKE EM TEMPO REAL -->
+                <div class="product-card special-card">
+                    <div class="product-badge badge-special">⚡ ESPECIAL</div>
+                    <div class="product-image"><i class="fas fa-robot"></i></div>
+                    <div class="product-info">
+                        <h3>DEEPFAKE EM TEMPO REAL</h3>
+                        <div class="product-price"><span class="current-price" data-price-brl="700.00">R$700,00</span></div>
+                        <div class="product-features">
+                            <div class="feature"><i class="fas fa-check-circle"></i><span>🎭 Software completo + atualizações vitalícias</span></div>
+                            <div class="feature"><i class="fas fa-video"></i><span>📘 Tutorial completo em vídeo</span></div>
+                        </div>
+                        <div class="product-actions">
+                            <button class="btn btn-gold btn-special-buy" data-product="DEEPFAKE EM TEMPO REAL" data-price="700.00"><i class="fas fa-shopping-cart"></i> Comprar Agora</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CLONADOR DE VOZ -->
+                <div class="product-card special-card">
+                    <div class="product-badge badge-special">⚡ ESPECIAL</div>
+                    <div class="product-image"><i class="fas fa-microphone-alt"></i></div>
+                    <div class="product-info">
+                        <h3>CLONADOR DE VOZ EM TEMPO REAL IA</h3>
+                        <div class="product-price"><span class="current-price" data-price-brl="499.00">R$499,00</span></div>
+                        <div class="product-features">
+                            <div class="feature"><i class="fas fa-check-circle"></i><span>🧠 Clona qualquer voz em tempo real</span></div>
+                            <div class="feature"><i class="fas fa-headset"></i><span>🆘 Suporte técnico incluso</span></div>
+                        </div>
+                        <div class="product-actions">
+                            <button class="btn btn-gold btn-special-buy" data-product="CLONADOR DE VOZ EM TEMPO REAL IA" data-price="499.00"><i class="fas fa-shopping-cart"></i> Comprar Agora</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- MODIFICADOR DE VOZ BÁSICO -->
+                <div class="product-card special-card">
+                    <div class="product-badge badge-special">⚡ ESPECIAL</div>
+                    <div class="product-image"><i class="fas fa-wave-square"></i></div>
+                    <div class="product-info">
+                        <h3>MODIFICADOR DE VOZ BÁSICO IA</h3>
+                        <div class="product-price"><span class="current-price" data-price-brl="249.00">R$249,00</span></div>
+                        <div class="product-features">
+                            <div class="feature"><i class="fas fa-check-circle"></i><span>⏳ Válido por 90 dias</span></div>
+                            <div class="feature"><i class="fas fa-edit"></i><span>🎛️ Diversos efeitos de voz</span></div>
+                        </div>
+                        <div class="product-actions">
+                            <button class="btn btn-gold btn-special-buy" data-product="MODIFICADOR DE VOZ BÁSICO IA" data-price="249.00"><i class="fas fa-shopping-cart"></i> Comprar Agora</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- HOT MILIONARIO -->
+                <div class="product-card special-card">
+                    <div class="product-badge badge-special">⚡ ESPECIAL</div>
+                    <div class="product-image"><i class="fas fa-fire"></i></div>
+                    <div class="product-info">
+                        <h3>HOT MILIONARIO</h3>
+                        <div class="product-price"><span class="current-price" data-price-brl="449.00">R$449,00</span></div>
+                        <div class="product-features">
+                            <div class="feature"><i class="fas fa-check-circle"></i><span>📘 Curso completo de Hot</span></div>
+                            <div class="feature"><i class="fas fa-images"></i><span>📸 Pack de modelos exclusivo</span></div>
+                            <div class="feature"><i class="fas fa-users"></i><span>🤝 Grupo de networking vip</span></div>
+                        </div>
+                        <div class="product-actions">
+                            <button class="btn btn-gold btn-special-buy" data-product="HOT MILIONARIO" data-price="449.00"><i class="fas fa-shopping-cart"></i> Comprar Agora</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEÇÃO PRODUTOS REGULARES -->
+    <section id="products" class="section">
+        <div class="container">
+            <div class="section-title"><h2>NOSSAS FERRAMENTAS</h2><p>Escolha a solução perfeita para o seu negócio no Telegram</p></div>
+            <div class="products-grid">
+                <!-- ManyCam PRO + WhatsApp -->
+                <div class="product-card"><div class="product-badge badge-promo">Promoção</div><div class="product-image"><i class="fas fa-star"></i></div><div class="product-info"><h3>ManyCam PRO + WhatsApp</h3><div class="product-price"><span class="current-price" data-price-brl="49.90">R$49,90</span><span class="original-price">R$89,90</span></div><div class="product-features"><div class="feature"><i class="fas fa-check"></i><span>ManyCam PRO completo desbloqueado</span></div><div class="feature"><i class="fas fa-check"></i><span>Método Tela Cheia WhatsApp incluso</span></div></div><div class="product-actions"><button class="btn btn-primary btn-buy" data-product="ManyCam PRO + WhatsApp" data-price="49.90"><i class="fas fa-shopping-cart"></i> Comprar Agora</button></div></div></div>
+                <!-- ManyCam PRO -->
+                <div class="product-card"><div class="product-badge badge-promo">Promoção</div><div class="product-image"><i class="fas fa-video"></i></div><div class="product-info"><h3>ManyCam PRO</h3><div class="product-price"><span class="current-price" data-price-brl="39.90">R$39,90</span><span class="original-price">R$79,90</span></div><div class="product-features"><div class="feature"><i class="fas fa-check"></i><span>Versão PRO completa desbloqueada</span></div><div class="feature"><i class="fas fa-check"></i><span>Todos os efeitos e funções</span></div></div><div class="product-actions"><button class="btn btn-primary btn-buy" data-product="ManyCam PRO" data-price="39.90"><i class="fas fa-shopping-cart"></i> Comprar Agora</button></div></div></div>
+                <!-- Método Tela Cheia WhatsApp -->
+                <div class="product-card"><div class="product-badge badge-promo">Promoção</div><div class="product-image"><i class="fab fa-whatsapp"></i></div><div class="product-info"><h3>Método Tela Cheia WhatsApp</h3><div class="product-price"><span class="current-price" data-price-brl="30.00">R$30,00</span><span class="original-price">R$60,00</span></div><div class="product-features"><div class="feature"><i class="fas fa-check"></i><span>Videochamada em tela cheia no PC</span></div><div class="feature"><i class="fas fa-check"></i><span>Requer ManyCam instalado</span></div></div><div class="product-actions"><button class="btn btn-primary btn-buy" data-product="Método Tela Cheia WhatsApp" data-price="30.00"><i class="fas fa-shopping-cart"></i> Comprar Agora</button></div></div></div>
+                <!-- Espelhador de Canais -->
+                <div class="product-card"><div class="product-badge badge-best">Mais Vendido</div><div class="product-image"><i class="fas fa-sync-alt"></i></div><div class="product-info"><h3>Espelhador de Canais</h3><div class="product-price"><span class="current-price" data-price-brl="69.90">R$69,90</span><span class="original-price">R$249,90</span></div><div class="product-features"><div class="feature"><i class="fas fa-check"></i><span>Clona canais em tempo real</span></div><div class="feature"><i class="fas fa-check"></i><span>Remove e substitui links automaticamente</span></div></div><div class="video-container"><iframe src="https://www.youtube.com/embed/HmgPtpo80vM" frameborder="0" allowfullscreen></iframe></div><div class="product-actions"><button class="btn btn-primary btn-buy" data-product="Espelhador de Canais" data-price="69.90"><i class="fas fa-shopping-cart"></i> Comprar Agora</button><a href="https://www.youtube.com/watch?v=HmgPtpo80vM" target="_blank" class="btn btn-secondary btn-small"><i class="fab fa-youtube"></i> Ver Tutorial</a></div></div></div>
+                <!-- Clonador de Canais -->
+                <div class="product-card"><div class="product-badge badge-best">Mais Vendido</div><div class="product-image"><i class="fas fa-copy"></i></div><div class="product-info"><h3>Clonador de Canais</h3><div class="product-price"><span class="current-price" data-price-brl="59.90">R$59,90</span><span class="original-price">R$199,90</span></div><div class="product-features"><div class="feature"><i class="fas fa-check"></i><span>Clona conteúdo de canais e grupos</span></div><div class="feature"><i class="fas fa-check"></i><span>Reenvia para qualquer canal seu</span></div></div><div class="video-container"><iframe src="https://www.youtube.com/embed/S65f1lhob8w?start=2" frameborder="0" allowfullscreen></iframe></div><div class="product-actions"><button class="btn btn-primary btn-buy" data-product="Clonador de Canais" data-price="59.90"><i class="fas fa-shopping-cart"></i> Comprar Agora</button><a href="https://www.youtube.com/watch?v=S65f1lhob8w&t=2s" target="_blank" class="btn btn-secondary btn-small"><i class="fab fa-youtube"></i> Ver Tutorial</a></div></div></div>
+                <!-- Editor de Mídia em Massa -->
+                <div class="product-card"><div class="product-badge badge-promo">Promoção</div><div class="product-image"><i class="fas fa-cut"></i></div><div class="product-info"><h3>Editor de Mídia em Massa</h3><div class="product-price"><span class="current-price" data-price-brl="29.90">R$29,90</span><span class="original-price">R$49,90</span></div><div class="product-features"><div class="feature"><i class="fas fa-check"></i><span>Corta mais de 1000 imagens de uma vez</span></div><div class="feature"><i class="fas fa-check"></i><span>Adiciona marca d'água automática</span></div></div><div class="video-container"><iframe src="https://www.youtube.com/embed/O8DK-F4r6hw?start=3" frameborder="0" allowfullscreen></iframe></div><div class="product-actions"><button class="btn btn-primary btn-buy" data-product="Editor de Mídia em Massa" data-price="29.90"><i class="fas fa-shopping-cart"></i> Comprar Agora</button><a href="https://www.youtube.com/watch?v=O8DK-F4r6hw&t=3s" target="_blank" class="btn btn-secondary btn-small"><i class="fab fa-youtube"></i> Ver Tutorial</a></div></div></div>
+                <!-- Extrator de Membros -->
+                <div class="product-card"><div class="product-badge badge-new">Novo</div><div class="product-image"><i class="fas fa-users"></i></div><div class="product-info"><h3>Extrator de Membros</h3><div class="product-price"><span class="current-price" data-price-brl="250.00">R$250,00</span><span class="original-price">R$350,00</span></div><div class="product-features"><div class="feature"><i class="fas fa-check"></i><span>Extrai membros de grupos e canais</span></div><div class="feature"><i class="fas fa-check"></i><span>Licença vitalícia</span></div></div><div class="product-actions"><button class="btn btn-primary btn-buy" data-product="Extrator de Membros" data-price="250.00"><i class="fas fa-shopping-cart"></i> Comprar Agora</button></div></div></div>
+                <!-- Combo Completo -->
+                <div class="product-card"><div class="product-badge badge-promo">Oferta Especial</div><div class="product-image"><i class="fas fa-crown"></i></div><div class="product-info"><h3>Combo Completo</h3><div class="product-price"><span class="current-price" data-price-brl="299.90">R$299,90</span><span class="original-price">R$549,90</span></div><div class="product-features"><div class="feature"><i class="fas fa-check"></i><span>Espelhador de Canais</span></div><div class="feature"><i class="fas fa-check"></i><span>Clonador de Canais</span></div><div class="feature"><i class="fas fa-check"></i><span>Editor de Mídia em Massa</span></div></div><div class="product-actions"><button class="btn btn-primary btn-buy" data-product="Combo Completo" data-price="299.90"><i class="fas fa-gem"></i> Comprar Combo</button></div></div></div>
+                <!-- Membros para Telegram -->
+                <div class="product-card"><div class="product-badge badge-promo">Promoção</div><div class="product-image"><i class="fab fa-telegram"></i></div><div class="product-info"><h3>Membros para Telegram</h3><div class="product-price"><span class="current-price">A partir de R$30,00</span></div><div class="product-features"><div class="feature"><i class="fas fa-check"></i><span>Membros reais para grupos e canais</span></div><div class="feature"><i class="fas fa-check"></i><span>Entrega manual após confirmação</span></div></div><div class="product-actions"><select id="telegram-members-option" class="btn btn-secondary" style="margin-bottom:12px; width:100%; padding:12px; border-radius:8px; background-color:var(--darker); color:var(--light); border:1px solid var(--border);"><option value="30.00" data-product="1.000 membros para Telegram">1.000 membros — R$30,00</option><option value="60.00" data-product="2.000 membros para Telegram">2.000 membros — R$60,00</option><option value="150.00" data-product="5.000 membros para Telegram">5.000 membros — R$150,00</option><option value="250.00" data-product="10.000 membros para Telegram">10.000 membros — R$250,00</option></select><button class="btn btn-primary btn-buy" id="buy-telegram-members" data-product="1.000 membros para Telegram" data-price="30.00"><i class="fas fa-shopping-cart"></i> Comprar Agora</button></div></div></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="channels" class="channel-links"><div class="container"><div class="section-title"><h2>CANAL OFICIAL E FEEDBACKS</h2><p>Conecte-se com nossa comunidade e veja avaliações reais</p></div><div class="channels-grid"><div class="channel-card"><i class="fab fa-telegram"></i><h3>Canal Oficial</h3><p>Entre no nosso canal oficial no Telegram para novidades, atualizações e suporte exclusivo.</p><a href="https://t.me/+Dij9Byo_W4k1ZWYx" target="_blank" class="btn btn-primary"><i class="fab fa-telegram"></i> Acessar Canal</a></div><div class="channel-card"><i class="fas fa-comment-dots"></i><h3>Feedbacks Reais</h3><p>Veja avaliações e depoimentos de clientes que já adquiriram nossos produtos.</p><a href="https://t.me/+NcURgd7COrVhYTUx" target="_blank" class="btn btn-primary"><i class="fab fa-telegram"></i> Ver Feedbacks</a></div></div></div></section>
+    <section id="security" class="security"><div class="container"><div class="section-title"><h2>COMPRA 100% SEGURA</h2><p>Todas as transações são protegidas e seus dados estão sempre seguros</p></div><div class="security-grid"><div class="security-item"><i class="fas fa-lock"></i><h3>Pagamento Seguro</h3><p>Criptografia de ponta a ponta. Nenhum dado bancário é armazenado.</p></div><div class="security-item"><i class="fas fa-shield-alt"></i><h3>Garantia de 7 Dias</h3><p>Se não gostar, devolvemos seu dinheiro sem burocracia.</p></div><div class="security-item"><i class="fas fa-headset"></i><h3>Suporte 24/7</h3><p>Equipe especializada no Telegram para ajudar com qualquer dúvida.</p></div><div class="security-item"><i class="fas fa-bolt"></i><h3>Entrega Imediata</h3><p>Após a confirmação do pagamento, você recebe o acesso automaticamente.</p></div></div></div></section>
+    <section id="testimonials" class="testimonials"><div class="container"><div class="section-title"><h2>AVALIAÇÕES REAIS</h2><p>Veja o que nossos clientes estão dizendo</p></div><div class="testimonials-grid"><div class="testimonial-card"><p class="testimonial-text">Comprei o ManyCam PRO e funcionou perfeitamente! Entrega rápida e suporte excelente.</p><p class="testimonial-author">Carlos M.</p></div><div class="testimonial-card"><p class="testimonial-text">O Espelhador de Canais revolucionou meu negócio no Telegram. Agora consigo gerenciar múltiplos canais com facilidade.</p><p class="testimonial-author">Maria L.</p></div><div class="testimonial-card"><p class="testimonial-text">Produto chegou no prazo, funcionou como prometido. Recomendo muito!</p><p class="testimonial-author">Ana P.</p></div><div class="testimonial-card"><p class="testimonial-text">Fácil de usar e exatamente o que eu precisava para automatizar meus canais. Economizei muito tempo!</p><p class="testimonial-author">João S.</p></div><div class="testimonial-card"><p class="testimonial-text">Suporte resolveu minha dúvida na hora. Com certeza voltarei a comprar!</p><p class="testimonial-author">Fernanda R.</p></div><div class="testimonial-card"><p class="testimonial-text">O Método Tela Cheia WhatsApp é incrível! Videochamadas perfeitas sem bordas pretas.</p><p class="testimonial-author">Ricardo F.</p></div></div></div></section>
+    <section id="faq" class="faq"><div class="container"><div class="section-title"><h2>DÚVIDAS FREQUENTES</h2><p>Tire suas dúvidas sobre nossos produtos e serviços</p></div><div class="faq-item active"><div class="faq-question"><span>Como faço para comprar?</span><i class="fas fa-chevron-down"></i></div><div class="faq-answer"><p>Para produtos regulares, clique em "Comprar Agora" e preencha os dados para gerar o PIX. Para os produtos da seção especial, o pagamento é manual via PIX para a chave <strong>colabhotempresa@gmail.com</strong>. Após o pagamento, envie o comprovante para @suphotvip no Telegram para liberação imediata.</p></div></div><div class="faq-item"><div class="faq-question"><span>Como recebo os produtos especiais?</span><i class="fas fa-chevron-down"></i></div><div class="faq-answer"><p>Após realizar o PIX para a chave <strong>colabhotempresa@gmail.com</strong>, envie o comprovante para nosso suporte no Telegram (@suphotvip) e você receberá o acesso ao produto em até 30 minutos.</p></div></div><div class="faq-item"><div class="faq-question"><span>Os produtos especiais têm garantia?</span><i class="fas fa-chevron-down"></i></div><div class="faq-answer"><p>Sim! Todos os produtos, regulares e especiais, possuem garantia de 7 dias contra problemas técnicos de nossa responsabilidade.</p></div></div><div class="faq-item"><div class="faq-question"><span>Preciso de ajuda para instalar?</span><i class="fas fa-chevron-down"></i></div><div class="faq-answer"><p>Sim! Oferecemos suporte técnico incluso para todos os produtos especiais. Basta chamar no Telegram após a compra.</p></div></div></div></section>
+
+    <!-- MODAL PADRÃO (COM MÉTODOS DE PAGAMENTO) -->
+    <div id="paymentModal" class="modal">
+        <div class="modal-content">
+            <button class="close-modal" id="closeModal">&times;</button>
+            <h3 class="modal-title">FINALIZAR COMPRA</h3>
+            <p class="modal-subtitle">Escolha a forma de pagamento</p>
+            <div class="modal-product-info">
+                <span class="modal-product-name" id="modalProductName">—</span>
+                <span class="modal-product-price" id="modalProductPrice">R$0,00</span>
+            </div>
+            <div class="payment-method-selector"></div>
+            <div class="payment-detail"></div>
+            <div class="modal-telegram"><p>Dúvidas? Fale com nosso suporte:</p><a href="https://t.me/suphotvip" target="_blank" class="btn btn-secondary btn-small"><i class="fab fa-telegram"></i> @suphotvip</a></div>
         </div>
     </div>
-</header>
 
-<section class="hero">
-    <div class="container">
-        <h1>FERRAMENTAS PROFISSIONAIS PARA TELEGRAM</h1>
-        <p>Automatize e escale seus canais no Telegram com nossas soluções premium. Tecnologia avançada para resultados excepcionais.</p>
-        <div class="hero-badges">
-            <div class="badge"><i class="fas fa-shield-alt"></i><span>Ambiente 100% Seguro</span></div>
-            <div class="badge"><i class="fas fa-rocket"></i><span>Entrega Automática</span></div>
-            <div class="badge"><i class="fas fa-headset"></i><span>Suporte 24/7</span></div>
-            <div class="badge"><i class="fas fa-gem"></i><span>Garantia de 7 Dias</span></div>
-        </div>
-        <div class="hero-cta">
-            <a href="#products" class="btn btn-primary"><i class="fas fa-shopping-cart"></i> Ver Produtos</a>
-            <a href="#especiais" class="btn btn-gold"><i class="fas fa-crown"></i> Especiais</a>
+    <!-- MODAL MANUAL (ESPECIAIS) -->
+    <div id="manualPaymentModal" class="modal-manual">
+        <div class="modal-content">
+            <button class="close-modal" id="closeManualModal">&times;</button>
+            <h3 class="modal-title">⚡ PAGAMENTO MANUAL</h3>
+            <p class="modal-subtitle">Produto especial - escolha a forma de pagamento</p>
+            <div class="modal-product-info">
+                <span class="modal-product-name" id="manualProductName">—</span>
+                <span class="modal-product-price" id="manualProductPrice">R$0,00</span>
+            </div>
+            <div class="payment-method-selector"></div>
+            <div class="payment-detail"></div>
+            <div class="modal-telegram"><p>Após o pagamento, envie o comprovante:</p><a href="https://t.me/suphotvip" target="_blank" class="btn btn-gold btn-small"><i class="fab fa-telegram"></i> @suphotvip</a></div>
         </div>
     </div>
-</section>
 
-<!-- SEÇÃO FERRAMENTAS ESPECIAIS -->
-<section id="especiais" class="section section-special">
-    <div class="container">
-        <div class="warning-message">
-            ⚠️ SÓ PARA QUEM ENTENDE. CURIOSOS, PASSEM RETO. ⚠️
-        </div>
-        <div class="section-title">
-            <h2>⚡ FERRAMENTAS ESPECIAIS</h2>
-            <p>Produtos de alto valor com retorno garantido.</p>
-        </div>
-        <div class="products-grid">
-            <!-- 1. KL REMOTA BT MOB + BYPASS (com duas opções) -->
-            <div class="product-card special-card">
-                <div class="product-badge badge-special">⚡ ESPECIAL</div>
-                <div class="product-image"><i class="fas fa-keyboard"></i></div>
-                <div class="product-info">
-                    <h3>KL REMOTA BTMOB + BYPASS</h3>
-                    <div class="product-price" style="justify-content: space-around;">
-                        <span class="current-price" data-brl="3500.00">R$3.500/mês</span>
-                        <span class="current-price" data-brl="5200.00">R$5.200 vitalício</span>
-                    </div>
-                    <div class="product-features">
-                        <div class="feature"><i class="fas fa-key"></i><span>⌨️ Registro completo de teclas</span></div>
-                        <div class="feature"><i class="fas fa-globe"></i><span>🌐 Monitoramento de sites</span></div>
-                        <div class="feature"><i class="fas fa-camera"></i><span>📸 Captura de tela automática</span></div>
-                        <div class="feature"><i class="fas fa-eye"></i><span>🖥️ Visualização remota</span></div>
-                        <div class="feature"><i class="fas fa-clock"></i><span>⏱️ Registro de horários</span></div>
-                        <div class="feature"><i class="fas fa-camera-retro"></i><span>📱 Ver câmera do celular em tempo real</span></div>
-                    </div>
-                    <div class="product-actions btn-dual">
-                        <button class="btn btn-gold btn-special-buy" data-product="KL REMOTA BT MOB + BYPASS (Mensal)" data-price-brl="3500.00"><i class="fas fa-shopping-cart"></i> Mensal R$3500</button>
-                        <button class="btn btn-gold btn-special-buy" data-product="KL REMOTA BT MOB + BYPASS (Vitalício)" data-price-brl="5200.00"><i class="fas fa-shopping-cart"></i> Vitalício R$5200</button>
-                    </div>
-                </div>
-            </div>
-            <!-- 2. ESQUEMA HONDA -->
-            <div class="product-card special-card">
-                <div class="product-badge badge-special">⚡ ESPECIAL</div>
-                <div class="product-image"><i class="fas fa-motorcycle"></i></div>
-                <div class="product-info">
-                    <h3>ESQUEMA HONDA</h3>
-                    <div class="product-price"><span class="current-price" data-brl="1500.00">R$1.500,00</span></div>
-                    <div class="product-features">
-                        <div class="feature"><i class="fas fa-check-circle"></i><span>🔧 Incluso todos os detalhes da operação</span></div>
-                        <div class="feature"><i class="fas fa-tools"></i><span>🛠️ Ferramentas exclusivas</span></div>
-                        <div class="feature"><i class="fas fa-chart-line"></i><span>💰 Potencial de faturamento: até R$5.000 por dia!</span></div>
-                        <div class="feature"><i class="fas fa-camera"></i><span>📷 Câmera fake inclusa</span></div>
-                    </div>
-                    <div class="product-actions">
-                        <button class="btn btn-gold btn-special-buy" data-product="ESQUEMA HONDA" data-price-brl="1500.00"><i class="fas fa-shopping-cart"></i> Comprar Agora</button>
-                    </div>
-                </div>
-            </div>
-            <!-- 3. ESQUEMA VIVA SORTE + MODIFICADOR DE VOZ -->
-            <div class="product-card special-card">
-                <div class="product-badge badge-special">⚡ ESPECIAL</div>
-                <div class="product-image"><i class="fas fa-phone-alt"></i></div>
-                <div class="product-info">
-                    <h3>ESQUEMA VIVA SORTE + MODIFICADOR DE VOZ</h3>
-                    <div class="product-price"><span class="current-price" data-brl="1900.00">R$1.900,00</span></div>
-                    <div class="product-features">
-                        <div class="feature"><i class="fas fa-check-circle"></i><span>📦 Esquema completo, passo a passo</span></div>
-                        <div class="feature"><i class="fas fa-robot"></i><span>🎤 Modificador de voz profissional incluso</span></div>
-                        <div class="feature"><i class="fas fa-camera-retro"></i><span>📷 Câmera fake inclusa</span></div>
-                        <div class="feature"><i class="fas fa-dollar-sign"></i><span>💰 Fatura até 50k em uma única operação!</span></div>
-                    </div>
-                    <div class="product-actions">
-                        <button class="btn btn-gold btn-special-buy" data-product="ESQUEMA VIVA SORTE + MODIFICADOR DE VOZ" data-price-brl="1900.00"><i class="fas fa-shopping-cart"></i> Comprar Agora</button>
-                    </div>
-                </div>
-            </div>
-            <!-- 4. DEEPFAKE EM TEMPO REAL -->
-            <div class="product-card special-card">
-                <div class="product-badge badge-special">⚡ ESPECIAL</div>
-                <div class="product-image"><i class="fas fa-robot"></i></div>
-                <div class="product-info">
-                    <h3>DEEPFAKE EM TEMPO REAL</h3>
-                    <div class="product-price"><span class="current-price" data-brl="700.00">R$700,00</span></div>
-                    <div class="product-features">
-                        <div class="feature"><i class="fas fa-check-circle"></i><span>🎭 Software completo + atualizações vitalícias</span></div>
-                        <div class="feature"><i class="fas fa-download"></i><span>⚙️ Instalação inclusa</span></div>
-                        <div class="feature"><i class="fas fa-infinity"></i><span>🔁 Produto lifetime</span></div>
-                    </div>
-                    <div class="product-actions">
-                        <button class="btn btn-gold btn-special-buy" data-product="DEEPFAKE EM TEMPO REAL" data-price-brl="700.00"><i class="fas fa-shopping-cart"></i> Comprar Agora</button>
-                    </div>
-                </div>
-            </div>
-            <!-- 5. CLONADOR DE VOZ EM TEMPO REAL IA -->
-            <div class="product-card special-card">
-                <div class="product-badge badge-special">⚡ ESPECIAL</div>
-                <div class="product-image"><i class="fas fa-microphone-alt"></i></div>
-                <div class="product-info">
-                    <h3>CLONADOR DE VOZ EM TEMPO REAL IA</h3>
-                    <div class="product-price"><span class="current-price" data-brl="499.00">R$499,00</span></div>
-                    <div class="product-features">
-                        <div class="feature"><i class="fas fa-check-circle"></i><span>🧠 Clona qualquer voz em tempo real</span></div>
-                        <div class="feature"><i class="fas fa-download"></i><span>🔧 Instalação inclusa</span></div>
-                        <div class="feature"><i class="fas fa-headset"></i><span>🆘 Suporte técnico incluso</span></div>
-                    </div>
-                    <div class="product-actions">
-                        <button class="btn btn-gold btn-special-buy" data-product="CLONADOR DE VOZ EM TEMPO REAL IA" data-price-brl="499.00"><i class="fas fa-shopping-cart"></i> Comprar Agora</button>
-                    </div>
-                </div>
-            </div>
-            <!-- 6. MODIFICADOR DE VOZ BÁSICO IA -->
-            <div class="product-card special-card">
-                <div class="product-badge badge-special">⚡ ESPECIAL</div>
-                <div class="product-image"><i class="fas fa-wave-square"></i></div>
-                <div class="product-info">
-                    <h3>MODIFICADOR DE VOZ BÁSICO IA</h3>
-                    <div class="product-price"><span class="current-price" data-brl="249.00">R$249,00</span></div>
-                    <div class="product-features">
-                        <div class="feature"><i class="fas fa-check-circle"></i><span>⏳ Válido por 90 dias</span></div>
-                        <div class="feature"><i class="fas fa-download"></i><span>🔧 Instalação inclusa</span></div>
-                        <div class="feature"><i class="fas fa-headset"></i><span>🎧 Suporte técnico incluso</span></div>
-                    </div>
-                    <div class="product-actions">
-                        <button class="btn btn-gold btn-special-buy" data-product="MODIFICADOR DE VOZ BÁSICO IA" data-price-brl="249.00"><i class="fas fa-shopping-cart"></i> Comprar Agora</button>
-                    </div>
-                </div>
-            </div>
-            <!-- 7. HOT MILIONARIO -->
-            <div class="product-card special-card">
-                <div class="product-badge badge-special">⚡ ESPECIAL</div>
-                <div class="product-image"><i class="fas fa-fire"></i></div>
-                <div class="product-info">
-                    <h3>HOT MILIONARIO</h3>
-                    <div class="product-price"><span class="current-price" data-brl="449.00">R$449,00</span></div>
-                    <div class="product-features">
-                        <div class="feature"><i class="fas fa-check-circle"></i><span>📘 Curso completo de Hot</span></div>
-                        <div class="feature"><i class="fas fa-images"></i><span>📸 Pack de modelos exclusivo</span></div>
-                        <div class="feature"><i class="fas fa-users"></i><span>🤝 Grupo de networking vip</span></div>
-                    </div>
-                    <div class="product-actions">
-                        <button class="btn btn-gold btn-special-buy" data-product="HOT MILIONARIO" data-price-brl="449.00"><i class="fas fa-shopping-cart"></i> Comprar Agora</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+    <footer><div class="container"><div class="footer-content"><div class="footer-column"><h4>COLAB HOT PRO</h4><p>Ferramentas profissionais para automatização e gestão de canais no Telegram e soluções especiais de alto retorno.</p><div style="margin-top:20px;"><a href="https://t.me/suphotvip" target="_blank" class="btn btn-secondary btn-small"><i class="fab fa-telegram"></i> Suporte</a></div></div><div class="footer-column"><h4>Links Rápidos</h4><ul class="footer-links"><li><a href="#products">Produtos</a></li><li><a href="#especiais">Especiais</a></li><li><a href="#channels">Canais</a></li><li><a href="#security">Segurança</a></li><li><a href="#testimonials">Avaliações</a></li><li><a href="#faq">FAQ</a></li></ul></div><div class="footer-column"><h4>Produtos</h4><ul class="footer-links"><li><a href="#" class="btn-buy" data-product="Clonador de Canais" data-price="59.90">Clonador de Canais</a></li><li><a href="#" class="btn-buy" data-product="Espelhador de Canais" data-price="69.90">Espelhador de Canais</a></li><li><a href="#" class="btn-buy" data-product="Editor de Mídia em Massa" data-price="29.90">Editor de Mídia</a></li><li><a href="#" class="btn-buy" data-product="Combo Completo" data-price="299.90">Combo Completo</a></li></ul></div></div><div class="footer-bottom"><p>© 2024 COLAB HOT PRO. Todos os direitos reservados.</p><p style="margin-top:10px;font-size:0.8rem;">CNPJ: 08.716.451/0001-74</p></div></div></footer>
 
-<!-- SEÇÃO PRODUTOS REGULARES (completa) -->
-<section id="products" class="section">
-    <div class="container">
-        <div class="section-title">
-            <h2>NOSSAS FERRAMENTAS</h2>
-            <p>Escolha a solução perfeita para o seu negócio no Telegram</p>
-        </div>
-        <div class="products-grid">
-            <!-- ManyCam PRO + WhatsApp -->
-            <div class="product-card">
-                <div class="product-badge badge-promo">Promoção</div>
-                <div class="product-image"><i class="fas fa-star"></i></div>
-                <div class="product-info">
-                    <h3>ManyCam PRO + WhatsApp</h3>
-                    <div class="product-price"><span class="current-price" data-brl="49.90">R$49,90</span><span class="original-price">R$89,90</span></div>
-                    <div class="product-features"><div class="feature"><i class="fas fa-check"></i><span>ManyCam PRO completo</span></div><div class="feature"><i class="fas fa-check"></i><span>Método Tela Cheia WhatsApp incluso</span></div></div>
-                    <div class="product-actions"><button class="btn btn-primary btn-buy" data-product="ManyCam PRO + WhatsApp" data-price-brl="49.90"><i class="fas fa-shopping-cart"></i> Comprar Agora</button></div>
-                </div>
-            </div>
-            <!-- ManyCam PRO -->
-            <div class="product-card">
-                <div class="product-badge badge-promo">Promoção</div>
-                <div class="product-image"><i class="fas fa-video"></i></div>
-                <div class="product-info">
-                    <h3>ManyCam PRO</h3>
-                    <div class="product-price"><span class="current-price" data-brl="39.90">R$39,90</span><span class="original-price">R$79,90</span></div>
-                    <div class="product-features"><div class="feature"><i class="fas fa-check"></i><span>Versão PRO completa desbloqueada</span></div><div class="feature"><i class="fas fa-check"></i><span>Todos os efeitos e funções</span></div></div>
-                    <div class="product-actions"><button class="btn btn-primary btn-buy" data-product="ManyCam PRO" data-price-brl="39.90"><i class="fas fa-shopping-cart"></i> Comprar Agora</button></div>
-                </div>
-            </div>
-            <!-- Método Tela Cheia WhatsApp -->
-            <div class="product-card">
-                <div class="product-badge badge-promo">Promoção</div>
-                <div class="product-image"><i class="fab fa-whatsapp"></i></div>
-                <div class="product-info">
-                    <h3>Método Tela Cheia WhatsApp</h3>
-                    <div class="product-price"><span class="current-price" data-brl="30.00">R$30,00</span><span class="original-price">R$60,00</span></div>
-                    <div class="product-features"><div class="feature"><i class="fas fa-check"></i><span>Videochamada em tela cheia no PC</span></div><div class="feature"><i class="fas fa-check"></i><span>Requer ManyCam instalado</span></div></div>
-                    <div class="product-actions"><button class="btn btn-primary btn-buy" data-product="Método Tela Cheia WhatsApp" data-price-brl="30.00"><i class="fas fa-shopping-cart"></i> Comprar Agora</button></div>
-                </div>
-            </div>
-            <!-- Espelhador de Canais -->
-            <div class="product-card">
-                <div class="product-badge badge-best">Mais Vendido</div>
-                <div class="product-image"><i class="fas fa-sync-alt"></i></div>
-                <div class="product-info">
-                    <h3>Espelhador de Canais</h3>
-                    <div class="product-price"><span class="current-price" data-brl="69.90">R$69,90</span><span class="original-price">R$249,90</span></div>
-                    <div class="product-features"><div class="feature"><i class="fas fa-check"></i><span>Clona canais em tempo real</span></div><div class="feature"><i class="fas fa-check"></i><span>Remove e substitui links automaticamente</span></div></div>
-                    <div class="video-container"><iframe src="https://www.youtube.com/embed/HmgPtpo80vM" frameborder="0" allowfullscreen></iframe></div>
-                    <div class="product-actions"><button class="btn btn-primary btn-buy" data-product="Espelhador de Canais" data-price-brl="69.90"><i class="fas fa-shopping-cart"></i> Comprar Agora</button><a href="https://www.youtube.com/watch?v=HmgPtpo80vM" target="_blank" class="btn btn-secondary btn-small"><i class="fab fa-youtube"></i> Ver Tutorial</a></div>
-                </div>
-            </div>
-            <!-- Clonador de Canais -->
-            <div class="product-card">
-                <div class="product-badge badge-best">Mais Vendido</div>
-                <div class="product-image"><i class="fas fa-copy"></i></div>
-                <div class="product-info">
-                    <h3>Clonador de Canais</h3>
-                    <div class="product-price"><span class="current-price" data-brl="59.90">R$59,90</span><span class="original-price">R$199,90</span></div>
-                    <div class="product-features"><div class="feature"><i class="fas fa-check"></i><span>Clona conteúdo de canais e grupos</span></div><div class="feature"><i class="fas fa-check"></i><span>Reenvia para qualquer canal seu</span></div></div>
-                    <div class="video-container"><iframe src="https://www.youtube.com/embed/S65f1lhob8w?start=2" frameborder="0" allowfullscreen></iframe></div>
-                    <div class="product-actions"><button class="btn btn-primary btn-buy" data-product="Clonador de Canais" data-price-brl="59.90"><i class="fas fa-shopping-cart"></i> Comprar Agora</button><a href="https://www.youtube.com/watch?v=S65f1lhob8w&t=2s" target="_blank" class="btn btn-secondary btn-small"><i class="fab fa-youtube"></i> Ver Tutorial</a></div>
-                </div>
-            </div>
-            <!-- Editor de Mídia em Massa -->
-            <div class="product-card">
-                <div class="product-badge badge-promo">Promoção</div>
-                <div class="product-image"><i class="fas fa-cut"></i></div>
-                <div class="product-info">
-                    <h3>Editor de Mídia em Massa</h3>
-                    <div class="product-price"><span class="current-price" data-brl="29.90">R$29,90</span><span class="original-price">R$49,90</span></div>
-                    <div class="product-features"><div class="feature"><i class="fas fa-check"></i><span>Corta mais de 1000 imagens de uma vez</span></div><div class="feature"><i class="fas fa-check"></i><span>Adiciona marca d'água automática</span></div></div>
-                    <div class="video-container"><iframe src="https://www.youtube.com/embed/O8DK-F4r6hw?start=3" frameborder="0" allowfullscreen></iframe></div>
-                    <div class="product-actions"><button class="btn btn-primary btn-buy" data-product="Editor de Mídia em Massa" data-price-brl="29.90"><i class="fas fa-shopping-cart"></i> Comprar Agora</button><a href="https://www.youtube.com/watch?v=O8DK-F4r6hw&t=3s" target="_blank" class="btn btn-secondary btn-small"><i class="fab fa-youtube"></i> Ver Tutorial</a></div>
-                </div>
-            </div>
-            <!-- Extrator de Membros -->
-            <div class="product-card">
-                <div class="product-badge badge-new">Novo</div>
-                <div class="product-image"><i class="fas fa-users"></i></div>
-                <div class="product-info">
-                    <h3>Extrator de Membros</h3>
-                    <div class="product-price"><span class="current-price" data-brl="250.00">R$250,00</span><span class="original-price">R$350,00</span></div>
-                    <div class="product-features"><div class="feature"><i class="fas fa-check"></i><span>Extrai membros de grupos e canais</span></div><div class="feature"><i class="fas fa-check"></i><span>Adiciona automaticamente em seu grupo</span></div></div>
-                    <div class="product-actions"><button class="btn btn-primary btn-buy" data-product="Extrator de Membros" data-price-brl="250.00"><i class="fas fa-shopping-cart"></i> Comprar Agora</button></div>
-                </div>
-            </div>
-            <!-- Combo Completo -->
-            <div class="product-card">
-                <div class="product-badge badge-promo">Oferta Especial</div>
-                <div class="product-image"><i class="fas fa-crown"></i></div>
-                <div class="product-info">
-                    <h3>Combo Completo</h3>
-                    <div class="product-price"><span class="current-price" data-brl="299.90">R$299,90</span><span class="original-price">R$549,90</span></div>
-                    <div class="product-features"><div class="feature"><i class="fas fa-check"></i><span>Espelhador de Canais</span></div><div class="feature"><i class="fas fa-check"></i><span>Clonador de Canais</span></div><div class="feature"><i class="fas fa-check"></i><span>Editor de Mídia</span></div><div class="feature"><i class="fas fa-check"></i><span>ManyCam PRO + WhatsApp</span></div><div class="feature"><i class="fas fa-check"></i><span>Extrator de Membros</span></div></div>
-                    <div class="product-actions"><button class="btn btn-primary btn-buy" data-product="Combo Completo" data-price-brl="299.90"><i class="fas fa-gem"></i> Comprar Combo</button></div>
-                </div>
-            </div>
-            <!-- Membros para Telegram -->
-            <div class="product-card">
-                <div class="product-badge badge-promo">Promoção</div>
-                <div class="product-image"><i class="fab fa-telegram"></i></div>
-                <div class="product-info">
-                    <h3>Membros para Telegram</h3>
-                    <div class="product-price"><span class="current-price">A partir de R$30,00</span></div>
-                    <div class="product-features"><div class="feature"><i class="fas fa-check"></i><span>Membros reais para grupos e canais</span></div><div class="feature"><i class="fas fa-check"></i><span>Entrega manual após confirmação</span></div></div>
-                    <div class="product-actions">
-                        <select id="telegram-members-option" style="margin-bottom:12px; width:100%; padding:12px; border-radius:8px; background-color:var(--darker); color:var(--light); border:1px solid var(--border);">
-                            <option value="30.00" data-product="1.000 membros para Telegram">1.000 membros — R$30,00</option>
-                            <option value="60.00" data-product="2.000 membros para Telegram">2.000 membros — R$60,00</option>
-                            <option value="150.00" data-product="5.000 membros para Telegram">5.000 membros — R$150,00</option>
-                            <option value="250.00" data-product="10.000 membros para Telegram">10.000 membros — R$250,00</option>
-                        </select>
-                        <button class="btn btn-primary" id="buy-telegram-members" data-price-brl="30.00"><i class="fas fa-shopping-cart"></i> Comprar Agora</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+    <div class="music-player"><button class="music-toggle" id="musicToggle"><i class="fas fa-play"></i></button></div>
+    <button class="support-btn" onclick="window.open('https://t.me/suphotvip','_blank')"><i class="fab fa-telegram"></i><span class="support-tooltip">Suporte 24h via Telegram</span></button>
+    <div class="toast" id="toast"></div>
+    <audio id="backgroundMusic" loop><source src="music2.mp3" type="audio/mpeg"></audio>
 
-<section id="channels" class="channel-links">
-    <div class="container">
-        <div class="section-title"><h2>CANAL OFICIAL E FEEDBACKS</h2><p>Conecte-se com nossa comunidade e veja avaliações reais</p></div>
-        <div class="channels-grid">
-            <div class="channel-card"><i class="fab fa-telegram"></i><h3>Canal Oficial</h3><p>Entre no nosso canal oficial no Telegram para novidades, atualizações e suporte exclusivo.</p><a href="https://t.me/+Dij9Byo_W4k1ZWYx" target="_blank" class="btn btn-primary"><i class="fab fa-telegram"></i> Acessar Canal</a></div>
-            <div class="channel-card"><i class="fas fa-comment-dots"></i><h3>Feedbacks Reais</h3><p>Veja avaliações e depoimentos de clientes que já adquiriram nossos produtos.</p><a href="https://t.me/+NcURgd7COrVhYTUx" target="_blank" class="btn btn-primary"><i class="fab fa-telegram"></i> Ver Feedbacks</a></div>
-        </div>
-    </div>
-</section>
-
-<section id="security" class="security">
-    <div class="container">
-        <div class="section-title"><h2>COMPRA 100% SEGURA</h2><p>Todas as transações são protegidas e seus dados estão sempre seguros</p></div>
-        <div class="security-grid">
-            <div class="security-item"><i class="fas fa-lock"></i><h3>Pagamento Seguro</h3><p>Criptografia de ponta a ponta. Nenhum dado bancário é armazenado.</p></div>
-            <div class="security-item"><i class="fas fa-shield-alt"></i><h3>Garantia de 7 Dias</h3><p>Se não gostar, devolvemos seu dinheiro sem burocracia.</p></div>
-            <div class="security-item"><i class="fas fa-headset"></i><h3>Suporte 24/7</h3><p>Equipe especializada no Telegram para ajudar com qualquer dúvida.</p></div>
-            <div class="security-item"><i class="fas fa-bolt"></i><h3>Entrega Imediata</h3><p>Após a confirmação do pagamento, você recebe o acesso automaticamente.</p></div>
-        </div>
-    </div>
-</section>
-
-<section id="testimonials" class="testimonials">
-    <div class="container">
-        <div class="section-title"><h2>AVALIAÇÕES REAIS</h2><p>Veja o que nossos clientes estão dizendo</p></div>
-        <div class="testimonials-grid">
-            <div class="testimonial-card"><p class="testimonial-text">Comprei o ManyCam PRO e funcionou perfeitamente! Entrega rápida e suporte excelente.</p><p class="testimonial-author">Carlos M.</p></div>
-            <div class="testimonial-card"><p class="testimonial-text">O Espelhador de Canais revolucionou meu negócio no Telegram. Agora consigo gerenciar múltiplos canais com facilidade.</p><p class="testimonial-author">Maria L.</p></div>
-            <div class="testimonial-card"><p class="testimonial-text">Produto chegou no prazo, funcionou como prometido. Recomendo muito!</p><p class="testimonial-author">Ana P.</p></div>
-            <div class="testimonial-card"><p class="testimonial-text">Fácil de usar e exatamente o que eu precisava para automatizar meus canais. Economizei muito tempo!</p><p class="testimonial-author">João S.</p></div>
-            <div class="testimonial-card"><p class="testimonial-text">Suporte resolveu minha dúvida na hora. Com certeza voltarei a comprar!</p><p class="testimonial-author">Fernanda R.</p></div>
-            <div class="testimonial-card"><p class="testimonial-text">O Método Tela Cheia WhatsApp é incrível! Videochamadas perfeitas sem bordas pretas.</p><p class="testimonial-author">Ricardo F.</p></div>
-        </div>
-    </div>
-</section>
-
-<section id="faq" class="faq">
-    <div class="container">
-        <div class="section-title"><h2>DÚVIDAS FREQUENTES</h2><p>Tire suas dúvidas sobre nossos produtos e serviços</p></div>
-        <div class="faq-item active">
-            <div class="faq-question"><span>Como faço para comprar?</span><i class="fas fa-chevron-down"></i></div>
-            <div class="faq-answer"><p>Clique em "Comprar Agora", escolha o método de pagamento (PIX, PayPal ou USDT) e siga as instruções. Para produtos especiais, o pagamento é manual via PIX para a chave <strong>colabhotempresa@gmail.com</strong> ou pelos outros métodos.</p></div>
-        </div>
-        <div class="faq-item">
-            <div class="faq-question"><span>Como recebo os produtos especiais?</span><i class="fas fa-chevron-down"></i></div>
-            <div class="faq-answer"><p>Após o pagamento, envie o comprovante para nosso suporte no Telegram (@suphotvip) e você receberá o acesso em até 30 minutos.</p></div>
-        </div>
-        <div class="faq-item">
-            <div class="faq-question"><span>Os produtos têm garantia?</span><i class="fas fa-chevron-down"></i></div>
-            <div class="faq-answer"><p>Sim! Todos os produtos possuem garantia de 7 dias contra problemas técnicos de nossa responsabilidade.</p></div>
-        </div>
-    </div>
-</section>
-
-<!-- MODAL PADRÃO PARA PRODUTOS REGULARES -->
-<div id="paymentModal" class="modal">
-    <div class="modal-content">
-        <button class="close-modal" id="closeModal">&times;</button>
-        <h3 class="modal-title">FINALIZAR COMPRA</h3>
-        <p class="modal-subtitle">Escolha a forma de pagamento</p>
-        <div class="modal-product-info">
-            <span class="modal-product-name" id="modalProductName">—</span>
-            <span class="modal-product-price" id="modalProductPrice">R$0,00</span>
-        </div>
-        <div class="payment-methods" id="paymentMethodSelector">
-            <button data-method="pix" class="method-btn active">💳 PIX</button>
-            <button data-method="paypal" class="method-btn">💰 PayPal</button>
-            <button data-method="crypto" class="method-btn">₿ USDT (BEP20)</button>
-        </div>
-        <div id="paymentDetailsContainer"></div>
-        <div class="modal-telegram">
-            <p>Dúvidas? Fale com nosso suporte:</p>
-            <a href="https://t.me/suphotvip" target="_blank" class="btn btn-secondary btn-small"><i class="fab fa-telegram"></i> @suphotvip</a>
-        </div>
-    </div>
-</div>
-
-<!-- MODAL PARA PRODUTOS ESPECIAIS (PAGAMENTO MANUAL) -->
-<div id="manualPaymentModal" class="modal-manual">
-    <div class="modal-content">
-        <button class="close-modal" id="closeManualModal">&times;</button>
-        <h3 class="modal-title">⚡ PAGAMENTO ESPECIAL</h3>
-        <p class="modal-subtitle">Escolha a forma de pagamento</p>
-        <div class="modal-product-info">
-            <span class="modal-product-name" id="manualProductName">—</span>
-            <span class="modal-product-price" id="manualProductPrice">R$0,00</span>
-        </div>
-        <div class="payment-methods" id="manualMethodSelector">
-            <button data-method="pix" class="method-btn active">💳 PIX Manual</button>
-            <button data-method="paypal" class="method-btn">💰 PayPal</button>
-            <button data-method="crypto" class="method-btn">₿ USDT (BEP20)</button>
-        </div>
-        <div id="manualPaymentDetailsContainer"></div>
-        <div class="modal-telegram">
-            <p>Após o pagamento, envie comprovante para:</p>
-            <a href="https://t.me/suphotvip" target="_blank" class="btn btn-gold btn-small"><i class="fab fa-telegram"></i> @suphotvip</a>
-        </div>
-    </div>
-</div>
-
-<footer>
-    <div class="container">
-        <div class="footer-content" style="display: flex; justify-content: space-between; flex-wrap: wrap; gap: 40px; margin-bottom: 40px;">
-            <div class="footer-column"><h4>COLAB HOT PRO</h4><p>Ferramentas profissionais para automatização e gestão de canais no Telegram e soluções especiais de alto retorno.</p></div>
-            <div class="footer-column"><h4>Links Rápidos</h4><ul class="footer-links"><li><a href="#products">Produtos</a></li><li><a href="#especiais">Especiais</a></li><li><a href="#channels">Canais</a></li><li><a href="#security">Segurança</a></li><li><a href="#testimonials">Avaliações</a></li><li><a href="#faq">FAQ</a></li></ul></div>
-            <div class="footer-column"><h4>Contato</h4><ul class="footer-links"><li><a href="https://t.me/suphotvip" target="_blank">Telegram Suporte</a></li></ul></div>
-        </div>
-        <div class="footer-bottom"><p>© 2024 COLAB HOT PRO. Todos os direitos reservados.</p><p style="margin-top:10px;font-size:0.8rem;">CNPJ: 08.716.451/0001-74</p></div>
-    </div>
-</footer>
-
-<div class="support-btn" onclick="window.open('https://t.me/suphotvip','_blank')"><i class="fab fa-telegram"></i></div>
-<div class="toast" id="toast"></div>
-
-<script>
+    <script>
     (function() {
-        // ========== CONFIGURAÇÕES ==========
-        const PROXY = '/api/sigilopay';
-        const PAYPAL_EMAIL = "gamerr2023ph@gmail.com";
-        const CRYPTO_WALLET = "0x7ea336087cd0f8a308aa2aa8dc206f229c35b402";
-        const PIX_MANUAL_KEY = "colabhotempresa@gmail.com";
+        'use strict';
 
-        // Produtos com preços fixos em USD (para estrangeiros)
-        const FIXED_USD_PRICES = {
-            "ManyCam PRO + WhatsApp": 35.00,
-            "ManyCam PRO": 35.00,
-            "Método Tela Cheia WhatsApp": 35.00,
-            "DEEPFAKE EM TEMPO REAL": 220.00,
-            "CLONADOR DE VOZ EM TEMPO REAL IA": 40.00,
-            "Clonador de Canais": 40.00,
+        // ========== LANG & CURRENCY ==========
+        let currentLang = 'pt';
+        let exchangeRate = 5.0;
+        let useConversion = false;
+
+        const fixedUSDMap = {
+            "ManyCam PRO": 35,
+            "ManyCam PRO + WhatsApp": 35,
+            "DEEPFAKE EM TEMPO REAL": 220,
+            "CLONADOR DE VOZ EM TEMPO REAL IA": 40,
             "Espelhador de Canais": 49.90,
-            "Extrator de Membros": 150.00
+            "Extrator de Membros": 150
         };
 
-        let userCountry = "BR";
-        let userCurrency = "BRL";
-        let exchangeRateUSD = 1;      // 1 USD = ? userCurrency
-        let exchangeRateBRLtoUSD = 1;  // 1 BRL = ? USD
-        let isBrazilian = true;
+        const translations = {
+            en: {
+                modal_title: "CHECKOUT", modal_sub: "Choose payment method",
+                pay_pix: "PIX", pay_paypal: "PayPal", pay_crypto: "USDT BEP20",
+                copy: "Copy", copied: "Copied!", support_contact: "After payment, contact @suphotvip"
+            }
+        };
 
-        let currentModalData = { productName: "", priceBRL: 0, convertedPrice: 0, currency: "BRL", modalType: "regular" };
-        let sigiloTxId = null, sigiloInterval = null;
-
-        // ========== DETECÇÃO DE LOCALIZAÇÃO ==========
-        async function detectLocation() {
+        async function fetchExchangeRate() {
             try {
-                const res = await fetch('https://ipapi.co/json/');
+                const res = await fetch('https://api.exchangerate.host/latest?base=BRL');
                 const data = await res.json();
-                userCountry = data.country_code || "BR";
-                userCurrency = data.currency || "BRL";
-                isBrazilian = (userCountry === "BR" || navigator.language.startsWith("pt"));
-                if (isBrazilian) userCurrency = "BRL";
-                console.log(`País: ${userCountry}, Moeda: ${userCurrency}, Brasileiro: ${isBrazilian}`);
-            } catch (e) { console.warn("Falha geoip, usando padrão BR"); isBrazilian = true; userCurrency = "BRL"; }
+                exchangeRate = data.rates.USD;
+                useConversion = currentLang !== 'pt';
+                if (useConversion) applyCurrencyConversion();
+            } catch(e) { console.warn("Exchange rate failed", e); }
         }
 
-        // ========== BUSCAR TAXAS DE CÂMBIO ==========
-        async function fetchExchangeRates() {
-            try {
-                const res = await fetch('https://api.exchangerate.host/latest?base=USD');
-                const data = await res.json();
-                if (data.rates) {
-                    exchangeRateUSD = data.rates[userCurrency] || 1;
-                    const brlRate = data.rates["BRL"];
-                    if (brlRate) exchangeRateBRLtoUSD = 1 / brlRate;
+        function getConvertedPrice(productName, brlPrice) {
+            if (!useConversion) return brlPrice;
+            const nameKey = Object.keys(fixedUSDMap).find(k => productName.includes(k));
+            if (nameKey) return fixedUSDMap[nameKey];
+            return (brlPrice / exchangeRate) + 3;
+        }
+
+        function applyCurrencyConversion() {
+            document.querySelectorAll('[data-price-brl]').forEach(el => {
+                const brl = parseFloat(el.getAttribute('data-price-brl'));
+                if (isNaN(brl)) return;
+                let productName = "";
+                const card = el.closest('.product-card');
+                if (card) {
+                    const nameEl = card.querySelector('h3');
+                    if (nameEl) productName = nameEl.innerText;
                 }
-            } catch (e) { console.warn("Erro taxas, usando padrão"); exchangeRateUSD = 1; exchangeRateBRLtoUSD = 0.2; }
-        }
-
-        // ========== CONVERSÃO DE PREÇOS ==========
-        function convertPrice(brlPrice, productName) {
-            if (isBrazilian) {
-                return { value: brlPrice, currency: "BRL", formatted: `R$ ${brlPrice.toFixed(2).replace('.',',')}` };
-            }
-            let usdBase;
-            if (FIXED_USD_PRICES[productName]) {
-                usdBase = FIXED_USD_PRICES[productName];
-            } else {
-                let usdFromBrl = brlPrice * exchangeRateBRLtoUSD;
-                usdBase = usdFromBrl + 3.00;
-            }
-            let converted = usdBase * exchangeRateUSD;
-            return { value: converted, currency: userCurrency, formatted: `${userCurrency} ${converted.toFixed(2).replace('.',',')}` };
-        }
-
-        // Atualizar todos os preços na página
-        async function updateAllPrices() {
-            await fetchExchangeRates();
-            document.querySelectorAll('.current-price[data-brl]').forEach(el => {
-                let brl = parseFloat(el.dataset.brl);
-                let productName = el.closest('.product-info')?.querySelector('h3')?.innerText || "";
-                let conv = convertPrice(brl, productName);
-                el.innerText = conv.formatted;
+                const converted = getConvertedPrice(productName, brl);
+                const formatted = converted.toLocaleString('en-US', { style: 'currency', currency: 'USD' });
+                el.innerText = formatted;
             });
-            document.querySelectorAll('.btn-buy, .btn-special-buy').forEach(btn => {
-                let brl = parseFloat(btn.dataset.priceBrl);
-                let pname = btn.dataset.product;
-                if (!isNaN(brl) && pname) {
-                    let conv = convertPrice(brl, pname);
-                    btn.dataset.convertedPrice = conv.value;
-                    btn.dataset.convertedCurrency = conv.currency;
-                    if (btn.classList.contains('btn-special-buy')) {
-                        // Substituir o texto do botão mantendo o ícone
-                        btn.innerHTML = btn.innerHTML.replace(/R\$[\d\.,]+/, conv.formatted);
-                    } else {
-                        btn.innerHTML = `<i class="fas fa-shopping-cart"></i> ${conv.formatted}`;
-                    }
-                }
+        }
+
+        const browserLang = navigator.language || navigator.userLanguage;
+        if (browserLang && !browserLang.startsWith('pt')) {
+            currentLang = 'en';
+            useConversion = true;
+            fetchExchangeRate();
+        } else {
+            fetchExchangeRate();
+        }
+
+        // ========== PAYMENT MODAL LOGIC ==========
+        let activeProduct = { name: "", priceBRL: 0, priceDisplay: 0 };
+
+        function showPaymentMethods(modalElem, productName, priceBRL, isSpecial) {
+            activeProduct = { name: productName, priceBRL, priceDisplay: useConversion ? getConvertedPrice(productName, priceBRL) : priceBRL };
+            const methodContainer = modalElem.querySelector('.payment-method-selector');
+            methodContainer.innerHTML = `
+                <button class="method-btn" data-method="pix">${currentLang === 'en' ? 'PIX' : 'PIX'}</button>
+                <button class="method-btn" data-method="paypal">PayPal</button>
+                <button class="method-btn" data-method="crypto">USDT BEP20</button>
+            `;
+            const detailDiv = modalElem.querySelector('.payment-detail');
+            const setActive = (method) => {
+                methodContainer.querySelectorAll('.method-btn').forEach(btn => btn.classList.remove('active'));
+                const activeBtn = methodContainer.querySelector(`[data-method="${method}"]`);
+                if (activeBtn) activeBtn.classList.add('active');
+                renderPaymentDetail(method, detailDiv, isSpecial);
+            };
+            methodContainer.querySelectorAll('.method-btn').forEach(btn => {
+                btn.addEventListener('click', () => setActive(btn.dataset.method));
             });
-            // Atualizar select de membros
-            let sel = document.getElementById('telegram-members-option');
-            if (sel) {
-                for (let opt of sel.options) {
-                    let brl = parseFloat(opt.value);
-                    let conv = convertPrice(brl, opt.dataset.product || "Membros");
-                    opt.innerText = opt.innerText.replace(/R\$[\d\.,]+/, conv.formatted);
-                    opt.dataset.convertedPrice = conv.value;
-                }
-                let first = sel.options[0];
-                if (first) document.getElementById('buy-telegram-members').dataset.convertedPrice = first.dataset.convertedPrice;
-            }
+            setActive('pix');
         }
 
-        // ========== FUNÇÕES DE MODAL REGULAR ==========
-        function openModal(productName, priceBRL) {
-            let conv = convertPrice(priceBRL, productName);
-            currentModalData = { productName, priceBRL, convertedPrice: conv.value, currency: conv.currency, modalType: "regular" };
-            document.getElementById('modalProductName').innerText = productName;
-            document.getElementById('modalProductPrice').innerText = conv.formatted;
-            document.getElementById('paymentModal').classList.add('active');
-            document.body.style.overflow = 'hidden';
-            // Seleciona método padrão: PIX se brasileiro, senão PayPal
-            let defaultMethod = isBrazilian ? 'pix' : 'paypal';
-            document.querySelectorAll('#paymentMethodSelector .method-btn').forEach(btn => btn.classList.remove('active'));
-            let targetBtn = document.querySelector(`#paymentMethodSelector .method-btn[data-method="${defaultMethod}"]`);
-            if (targetBtn) targetBtn.classList.add('active');
-            renderPaymentMethod(defaultMethod);
-        }
-
-        function renderPaymentMethod(method) {
-            const container = document.getElementById('paymentDetailsContainer');
+        function renderPaymentDetail(method, container, isSpecial) {
             if (method === 'pix') {
-                container.innerHTML = `
-                    <div id="pixFormArea">
-                        <div class="form-group"><label>Nome completo *</label><input type="text" id="pixName" placeholder="Nome completo"></div>
-                        <div class="form-row"><div class="form-group"><label>CPF *</label><input id="pixCpf" maxlength="14" placeholder="000.000.000-00"></div><div class="form-group"><label>Celular *</label><input id="pixPhone" placeholder="(11) 99999-9999"></div></div>
-                        <div class="form-group"><label>E-mail *</label><input id="pixEmail" type="email" placeholder="email@exemplo.com"></div>
-                        <button id="generatePixBtn" class="btn-gerar-pix"><i class="fas fa-qrcode"></i> Gerar PIX</button>
-                    </div>
-                    <div id="pixResultArea" style="display:none;">
-                        <div class="qr-wrapper"><img id="qrCodeImg" style="width:180px;height:180px;"></div>
-                        <div class="pix-code-box" id="pixCodeText"></div>
-                        <button id="copyPixBtn" class="btn-copiar-pix"><i class="fas fa-copy"></i> Copiar código</button>
-                        <button id="verifyPaymentBtn" class="btn-verificar"><i class="fas fa-sync-alt"></i> Verificar pagamento</button>
-                    </div>
-                `;
-                document.getElementById('generatePixBtn')?.addEventListener('click', generateSigiloPix);
-                document.getElementById('copyPixBtn')?.addEventListener('click', copyPixCode);
-                document.getElementById('verifyPaymentBtn')?.addEventListener('click', verifySigiloPayment);
+                if (isSpecial) {
+                    container.innerHTML = `<div><div class="manual-pix-key">colabhotempresa@gmail.com</div><button class="copy-btn" data-copy="colabhotempresa@gmail.com">${currentLang === 'en' ? 'Copy Key' : 'Copiar Chave'}</button><p style="margin-top:10px">${currentLang === 'en' ? 'After payment, send proof to @suphotvip' : 'Após o pagamento, envie comprovante para @suphotvip'}</p></div>`;
+                } else {
+                    container.innerHTML = `<div id="formSection"><div class="form-group"><input type="text" id="inputName" placeholder="Nome completo"></div><div class="form-row"><div class="form-group"><input type="text" id="inputCPF" placeholder="CPF"></div><div class="form-group"><input type="text" id="inputPhone" placeholder="Celular"></div></div><div class="form-group"><input type="email" id="inputEmail" placeholder="E-mail"></div><button id="btnGerarPix" class="btn-gerar-pix">Gerar PIX</button></div><div id="pixArea" style="display:none"><div id="qrCodeImg"></div><div id="pixCopyCode"></div><button class="copy-btn" id="btnCopiarPix">Copiar Código</button></div>`;
+                    attachPixLogic(container);
+                }
             } else if (method === 'paypal') {
-                let amount = currentModalData.convertedPrice;
-                let currency = currentModalData.currency === "BRL" ? "BRL" : "USD";
-                let url = `https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=${PAYPAL_EMAIL}&amount=${amount}&currency_code=${currency}&item_name=${encodeURIComponent(currentModalData.productName)}&no_shipping=1`;
-                container.innerHTML = `<div class="paypal-button-container"><a href="${url}" target="_blank" class="btn btn-gold">Pagar com PayPal (${currentModalData.currency} ${currentModalData.convertedPrice.toFixed(2)})</a><p style="margin-top:15px;font-size:0.9rem;">Após o pagamento, envie o comprovante para @suphotvip no Telegram.</p></div>`;
+                container.innerHTML = `<div><i class="fab fa-paypal"></i> <strong>PayPal:</strong> gamerr2023ph@gmail.com<br><button class="copy-btn" data-copy="gamerr2023ph@gmail.com">${currentLang === 'en' ? 'Copy Email' : 'Copiar e-mail'}</button><p>${currentLang === 'en' ? 'After payment, contact @suphotvip' : 'Após pagamento, avise @suphotvip'}</p></div>`;
             } else if (method === 'crypto') {
-                container.innerHTML = `<div><p>Envie <strong>USDT (BEP20)</strong> para a carteira abaixo:</p><div class="crypto-address">${CRYPTO_WALLET}</div><button id="copyCryptoBtn" class="btn-copiar-pix">Copiar endereço</button><p style="margin-top:15px;">Após o envio, entre em contato com @suphotvip com o hash da transação.</p></div>`;
-                document.getElementById('copyCryptoBtn')?.addEventListener('click', () => { navigator.clipboard.writeText(CRYPTO_WALLET); showToast("Endereço copiado!", "success"); });
+                container.innerHTML = `<div><i class="fab fa-bitcoin"></i> <strong>USDT (BEP20):</strong><br>0x7ea336087cd0f8a308aa2aa8dc206f229c35b402<br><button class="copy-btn" data-copy="0x7ea336087cd0f8a308aa2aa8dc206f229c35b402">${currentLang === 'en' ? 'Copy Address' : 'Copiar endereço'}</button><p>${currentLang === 'en' ? 'Send only USDT on BEP20. Contact @suphotvip after payment.' : 'Envie apenas USDT na rede BEP20. Após pagamento, contate @suphotvip.'}</p></div>`;
             }
-        }
-
-        async function generateSigiloPix() {
-            let name = document.getElementById('pixName')?.value.trim();
-            let cpf = document.getElementById('pixCpf')?.value.replace(/\D/g,'');
-            let phone = document.getElementById('pixPhone')?.value.replace(/\D/g,'');
-            let email = document.getElementById('pixEmail')?.value.trim();
-            if (!name || cpf.length !== 11 || phone.length < 10 || !email.includes('@')) {
-                showToast("Preencha todos os dados corretamente", "error");
-                return;
-            }
-            let btn = document.getElementById('generatePixBtn');
-            btn.disabled = true;
-            btn.innerText = "Gerando...";
-            try {
-                let payload = {
-                    identifier: 'ID_' + Date.now(),
-                    amount: currentModalData.priceBRL.toFixed(2),
-                    description: currentModalData.productName,
-                    client: { name, email, document: cpf, phone }
-                };
-                let res = await fetch(PROXY, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ method: 'POST', path: '/gateway/pix/receive', body: payload })
+            container.querySelectorAll('.copy-btn').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const text = btn.getAttribute('data-copy');
+                    if (text) navigator.clipboard.writeText(text).then(() => showToast(currentLang === 'en' ? 'Copied!' : 'Copiado!'));
                 });
-                let data = await res.json();
-                let pixCode = data?.pix?.code || data?.data?.pix?.code || '';
-                let qr = data?.pix?.base64 || data?.data?.pix?.base64 || '';
-                sigiloTxId = data?.transactionId || data?.data?.transactionId;
-                document.getElementById('qrCodeImg').src = qr.startsWith('data:') ? qr : 'data:image/png;base64,' + qr;
-                document.getElementById('pixCodeText').innerText = pixCode;
-                document.getElementById('pixFormArea').style.display = 'none';
-                document.getElementById('pixResultArea').style.display = 'block';
-                startSigiloPolling();
-                showToast("PIX gerado com sucesso!", "success");
-            } catch (e) {
-                showToast("Erro ao gerar PIX: " + e.message, "error");
-            } finally {
-                btn.disabled = false;
-                btn.innerText = "Gerar PIX";
-            }
+            });
         }
 
-        function startSigiloPolling() {
-            if (sigiloInterval) clearInterval(sigiloInterval);
-            sigiloInterval = setInterval(async () => {
-                if (sigiloTxId) {
-                    try {
-                        let res = await fetch(PROXY, {
-                            method: 'POST',
-                            headers: { 'Content-Type': 'application/json' },
-                            body: JSON.stringify({ method: 'GET', path: `/gateway/transaction/${sigiloTxId}` })
-                        });
-                        let d = await res.json();
-                        let status = (d?.status || d?.data?.status || '').toLowerCase();
-                        if (['paid', 'approved', 'completed', 'confirmed'].includes(status)) {
-                            clearInterval(sigiloInterval);
-                            showToast("Pagamento confirmado! Acesso liberado.", "success");
-                            let verifyBtn = document.getElementById('verifyPaymentBtn');
-                            if (verifyBtn) verifyBtn.style.display = 'none';
-                        }
-                    } catch (e) { }
-                }
-            }, 8000);
-        }
-
-        async function verifySigiloPayment() {
-            if (sigiloTxId) {
+        async function attachPixLogic(container) {
+            const gerarBtn = container.querySelector('#btnGerarPix');
+            if (gerarBtn) gerarBtn.addEventListener('click', async () => {
+                const name = container.querySelector('#inputName')?.value.trim() || '';
+                const cpf = container.querySelector('#inputCPF')?.value.replace(/\D/g,'') || '';
+                const phone = container.querySelector('#inputPhone')?.value.replace(/\D/g,'') || '';
+                const email = container.querySelector('#inputEmail')?.value.trim() || '';
+                if (!name || !cpf || !phone || !email) { showToast('Preencha todos os dados', 'error'); return; }
                 try {
-                    let res = await fetch(PROXY, {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify({ method: 'GET', path: `/gateway/transaction/${sigiloTxId}` })
-                    });
-                    let d = await res.json();
-                    let status = (d?.status || d?.data?.status || '').toLowerCase();
-                    if (['paid', 'approved', 'completed', 'confirmed'].includes(status)) {
-                        clearInterval(sigiloInterval);
-                        showToast("Pagamento confirmado!", "success");
-                        let verifyBtn = document.getElementById('verifyPaymentBtn');
-                        if (verifyBtn) verifyBtn.style.display = 'none';
-                    } else {
-                        showToast("Aguardando pagamento.", "info");
-                    }
-                } catch (e) { }
-            }
+                    const price = activeProduct.priceDisplay;
+                    const payload = { amount: price.toFixed(2), description: activeProduct.name, client: { name, email, document: cpf, phone } };
+                    const res = await fetch('/api/sigilopay', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ method: 'POST', path: '/gateway/pix/receive', body: payload }) });
+                    const data = await res.json();
+                    const pixCode = data?.pix?.code || data?.data?.pix?.code;
+                    const qrImg = data?.pix?.base64 || data?.data?.pix?.base64;
+                    container.querySelector('#formSection').style.display = 'none';
+                    container.querySelector('#pixArea').style.display = 'block';
+                    if (qrImg) container.querySelector('#qrCodeImg').innerHTML = `<img src="${qrImg.startsWith('data:') ? qrImg : 'data:image/png;base64,'+qrImg}" width="200">`;
+                    container.querySelector('#pixCopyCode').innerText = pixCode;
+                    showToast('PIX gerado!');
+                } catch(e) { showToast('Erro ao gerar PIX', 'error'); }
+            });
         }
 
-        function copyPixCode() {
-            let code = document.getElementById('pixCodeText').innerText;
-            if (code) { navigator.clipboard.writeText(code); showToast("Código copiado!", "success"); }
-        }
-
-        // ========== MODAL MANUAL (ESPECIAIS) ==========
-        function openManualModal(productName, priceBRL) {
-            let conv = convertPrice(priceBRL, productName);
-            currentModalData = { productName, priceBRL, convertedPrice: conv.value, currency: conv.currency, modalType: "manual" };
-            document.getElementById('manualProductName').innerText = productName;
-            document.getElementById('manualProductPrice').innerText = conv.formatted;
-            document.getElementById('manualPaymentModal').classList.add('active');
-            document.body.style.overflow = 'hidden';
-            let defaultMethod = isBrazilian ? 'pix' : 'paypal';
-            document.querySelectorAll('#manualMethodSelector .method-btn').forEach(btn => btn.classList.remove('active'));
-            let target = document.querySelector(`#manualMethodSelector .method-btn[data-method="${defaultMethod}"]`);
-            if (target) target.classList.add('active');
-            renderManualPaymentMethod(defaultMethod);
-        }
-
-        function renderManualPaymentMethod(method) {
-            const container = document.getElementById('manualPaymentDetailsContainer');
-            if (method === 'pix') {
-                container.innerHTML = `<div class="manual-pix-info"><h4>Chave PIX (E-mail)</h4><div class="manual-pix-key">${PIX_MANUAL_KEY}</div><button id="copyManualPixBtn" class="btn-copiar-chave"><i class="fas fa-copy"></i> Copiar Chave</button><p class="manual-pix-instructions" style="margin-top:15px;">Após o PIX, envie o comprovante para @suphotvip.</p></div>`;
-                document.getElementById('copyManualPixBtn')?.addEventListener('click', () => { navigator.clipboard.writeText(PIX_MANUAL_KEY); showToast("Chave copiada!", "success"); });
-            } else if (method === 'paypal') {
-                let amount = currentModalData.convertedPrice;
-                let currency = currentModalData.currency === "BRL" ? "BRL" : "USD";
-                let url = `https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=${PAYPAL_EMAIL}&amount=${amount}&currency_code=${currency}&item_name=${encodeURIComponent(currentModalData.productName)}`;
-                container.innerHTML = `<div class="paypal-button-container"><a href="${url}" target="_blank" class="btn btn-gold">Pagar com PayPal (${currentModalData.currency} ${currentModalData.convertedPrice.toFixed(2)})</a><p>Após o pagamento, envie comprovante para @suphotvip.</p></div>`;
-            } else if (method === 'crypto') {
-                container.innerHTML = `<div><p>USDT BEP20:</p><div class="crypto-address">${CRYPTO_WALLET}</div><button id="copyManualCrypto" class="btn-copiar-chave"><i class="fas fa-copy"></i> Copiar endereço</button><p>Envie o hash para @suphotvip após a transferência.</p></div>`;
-                document.getElementById('copyManualCrypto')?.addEventListener('click', () => { navigator.clipboard.writeText(CRYPTO_WALLET); showToast("Endereço copiado!", "success"); });
-            }
-        }
-
-        // ========== AUXILIARES ==========
-        function showToast(msg, type = 'success') {
-            let t = document.getElementById('toast');
+        function showToast(msg, type='success') {
+            const t = document.getElementById('toast');
             t.textContent = msg;
-            t.style.backgroundColor = type === 'success' ? '#2ecc71' : (type === 'error' ? '#e74c3c' : '#3498db');
             t.classList.add('show');
-            setTimeout(() => t.classList.remove('show'), 3500);
+            setTimeout(() => t.classList.remove('show'), 3000);
         }
 
-        // ========== EVENTOS ==========
-        document.getElementById('closeModal')?.addEventListener('click', () => {
-            document.getElementById('paymentModal').classList.remove('active');
-            document.body.style.overflow = '';
-            if (sigiloInterval) clearInterval(sigiloInterval);
-        });
-        document.getElementById('closeManualModal')?.addEventListener('click', () => {
-            document.getElementById('manualPaymentModal').classList.remove('active');
-            document.body.style.overflow = '';
-        });
-        document.querySelectorAll('#paymentMethodSelector .method-btn').forEach(btn => {
-            btn.addEventListener('click', (e) => {
-                document.querySelectorAll('#paymentMethodSelector .method-btn').forEach(b => b.classList.remove('active'));
-                btn.classList.add('active');
-                renderPaymentMethod(btn.dataset.method);
-            });
-        });
-        document.querySelectorAll('#manualMethodSelector .method-btn').forEach(btn => {
-            btn.addEventListener('click', (e) => {
-                document.querySelectorAll('#manualMethodSelector .method-btn').forEach(b => b.classList.remove('active'));
-                btn.classList.add('active');
-                renderManualPaymentMethod(btn.dataset.method);
-            });
-        });
-        document.querySelectorAll('.btn-buy').forEach(btn => {
+        window.openModal = function(productName, priceBRL) {
+            const modalElem = document.getElementById('paymentModal');
+            document.getElementById('modalProductName').innerText = productName;
+            const priceDisplay = useConversion ? getConvertedPrice(productName, parseFloat(priceBRL)) : parseFloat(priceBRL);
+            document.getElementById('modalProductPrice').innerText = priceDisplay.toLocaleString('en-US', { style: 'currency', currency: useConversion ? 'USD' : 'BRL' });
+            modalElem.classList.add('active');
+            document.body.style.overflow = 'hidden';
+            showPaymentMethods(modalElem, productName, parseFloat(priceBRL), false);
+        };
+        window.openManualModal = function(productName, priceBRL) {
+            const modalElem = document.getElementById('manualPaymentModal');
+            document.getElementById('manualProductName').innerText = productName;
+            const priceDisplay = useConversion ? getConvertedPrice(productName, parseFloat(priceBRL)) : parseFloat(priceBRL);
+            document.getElementById('manualProductPrice').innerText = priceDisplay.toLocaleString('en-US', { style: 'currency', currency: useConversion ? 'USD' : 'BRL' });
+            modalElem.classList.add('active');
+            document.body.style.overflow = 'hidden';
+            showPaymentMethods(modalElem, productName, parseFloat(priceBRL), true);
+        };
+
+        document.querySelectorAll('.btn-buy, .btn-special-buy').forEach(btn => {
             btn.addEventListener('click', (e) => {
                 e.preventDefault();
-                openModal(btn.dataset.product, parseFloat(btn.dataset.priceBrl));
-            });
-        });
-        document.querySelectorAll('.btn-special-buy').forEach(btn => {
-            btn.addEventListener('click', (e) => {
-                e.preventDefault();
-                openManualModal(btn.dataset.product, parseFloat(btn.dataset.priceBrl));
-            });
-        });
-        let memSel = document.getElementById('telegram-members-option');
-        if (memSel) {
-            memSel.addEventListener('change', function() {
-                let btn = document.getElementById('buy-telegram-members');
-                let opt = this.options[this.selectedIndex];
-                btn.dataset.product = opt.dataset.product;
-                btn.dataset.priceBrl = opt.value;
-                let conv = convertPrice(parseFloat(opt.value), opt.dataset.product);
-                btn.innerHTML = `<i class="fas fa-shopping-cart"></i> ${conv.formatted}`;
-                btn.dataset.convertedPrice = conv.value;
-            });
-        }
-        document.getElementById('buy-telegram-members')?.addEventListener('click', (e) => {
-            let btn = e.target;
-            openModal(btn.dataset.product, parseFloat(btn.dataset.priceBrl));
-        });
-
-        // Mobile menu
-        document.getElementById('mobileMenuBtn')?.addEventListener('click', () => {
-            document.getElementById('navLinks').classList.toggle('active');
-        });
-        window.addEventListener('scroll', () => {
-            document.getElementById('mainHeader').style.boxShadow = window.scrollY > 50 ? '0 5px 20px rgba(0,0,0,0.2)' : 'none';
-        });
-        // FAQ accordion
-        document.querySelectorAll('.faq-item').forEach(item => {
-            item.querySelector('.faq-question').addEventListener('click', () => {
-                document.querySelectorAll('.faq-item').forEach(i => { if (i !== item) i.classList.remove('active'); });
-                item.classList.toggle('active');
+                const product = btn.dataset.product;
+                const price = btn.dataset.price;
+                if (btn.classList.contains('btn-special-buy')) openManualModal(product, price);
+                else openModal(product, price);
             });
         });
 
-        // Inicialização
-        async function init() {
-            await detectLocation();
-            await updateAllPrices();
-        }
-        init();
+        document.getElementById('closeModal').addEventListener('click', () => { document.getElementById('paymentModal').classList.remove('active'); document.body.style.overflow = ''; });
+        document.getElementById('closeManualModal').addEventListener('click', () => { document.getElementById('manualPaymentModal').classList.remove('active'); document.body.style.overflow = ''; });
+
+        // members select
+        const memSelect = document.getElementById('telegram-members-option');
+        if(memSelect) memSelect.addEventListener('change', function() {
+            const opt = this.options[this.selectedIndex];
+            document.getElementById('buy-telegram-members').dataset.product = opt.dataset.product;
+            document.getElementById('buy-telegram-members').dataset.price = opt.value;
+        });
+
+        // Mobile menu, smooth scroll, FAQ, music, etc. (all preserved)
+        const mBtn = document.getElementById('mobileMenuBtn');
+        const nav = document.getElementById('navLinks');
+        mBtn.addEventListener('click', () => { nav.classList.toggle('active'); mBtn.innerHTML = nav.classList.contains('active') ? '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>'; });
+        document.querySelectorAll('.nav-link').forEach(l => l.addEventListener('click', () => { nav.classList.remove('active'); mBtn.innerHTML = '<i class="fas fa-bars"></i>'; }));
+        document.querySelectorAll('a[href^="#"]').forEach(a => a.addEventListener('click', function(e) { if (this.classList.contains('btn-buy') || this.classList.contains('btn-special-buy')) return; e.preventDefault(); const t = document.querySelector(this.getAttribute('href')); if (t) window.scrollTo({ top: t.offsetTop - 80, behavior: 'smooth' }); }));
+        document.querySelectorAll('.faq-item').forEach(item => item.querySelector('.faq-question').addEventListener('click', () => { document.querySelectorAll('.faq-item').forEach(i => { if (i !== item) i.classList.remove('active'); }); item.classList.toggle('active'); }));
+        const music = document.getElementById('backgroundMusic');
+        const mToggle = document.getElementById('musicToggle');
+        let playing = false;
+        music.volume = 0.3;
+        mToggle.addEventListener('click', () => { playing ? (music.pause(), mToggle.innerHTML='<i class="fas fa-play"></i>') : music.play().then(() => { mToggle.innerHTML='<i class="fas fa-pause"></i>'; }).catch(()=>{}); playing = !playing; });
+        document.addEventListener('click', () => { if (!playing) music.play().then(() => { mToggle.innerHTML='<i class="fas fa-pause"></i>'; playing=true; }).catch(()=>{}); }, { once: true });
     })();
-</script>
+    </script>
 </body>
 </html>
