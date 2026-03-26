@@ -571,203 +571,6 @@
             100% { transform: scale(1); }
         }
 
-        /* ========== ROLETA PREMIUM ========== */
-        .wheel-modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.85);
-            backdrop-filter: blur(5px);
-            z-index: 3000;
-            align-items: center;
-            justify-content: center;
-        }
-        .wheel-modal.active {
-            display: flex;
-        }
-        .wheel-container {
-            background: linear-gradient(145deg, #1e1e2f, #2a2a3f);
-            padding: 30px;
-            border-radius: 40px;
-            max-width: 550px;
-            width: 90%;
-            text-align: center;
-            border: 3px solid var(--gold);
-            box-shadow: 0 0 60px rgba(255,215,0,0.3), 0 20px 40px rgba(0,0,0,0.6);
-            position: relative;
-            animation: fadeIn 0.5s;
-        }
-        .close-wheel {
-            position: absolute;
-            top: 15px;
-            right: 20px;
-            font-size: 2rem;
-            color: var(--gold);
-            background: none;
-            border: none;
-            cursor: pointer;
-            transition: var(--transition);
-            line-height: 1;
-            z-index: 10;
-        }
-        .close-wheel:hover {
-            color: white;
-            transform: rotate(90deg);
-        }
-        .wheel-title {
-            font-size: 2.2rem;
-            color: var(--gold);
-            margin-bottom: 10px;
-            text-transform: uppercase;
-            text-shadow: 0 0 15px gold;
-            letter-spacing: 2px;
-        }
-        .wheel-subtitle {
-            color: var(--muted);
-            margin-bottom: 25px;
-            font-size: 1.1rem;
-        }
-        .wheel-display {
-            position: relative;
-            width: 280px;
-            height: 280px;
-            margin: 0 auto 25px;
-        }
-        .wheel {
-            width: 100%;
-            height: 100%;
-            border-radius: 50%;
-            background: conic-gradient(
-                #2ecc71 0deg 288deg,    /* 5% OFF - 80% de 360° = 288° */
-                #e74c3c 288deg 342deg,  /* Tente novamente - 15% = 54° */
-                #95a5a6 342deg 360deg    /* Sem desconto - 5% = 18° */
-            );
-            border: 6px solid var(--gold);
-            box-shadow: 0 0 30px rgba(255,215,0,0.5);
-            transition: transform 3s cubic-bezier(0.25, 0.1, 0.15, 1);
-        }
-        .wheel-pointer {
-            position: absolute;
-            top: -15px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 0;
-            height: 0;
-            border-left: 20px solid transparent;
-            border-right: 20px solid transparent;
-            border-top: 40px solid #f1c40f;
-            filter: drop-shadow(0 5px 5px rgba(0,0,0,0.3));
-            z-index: 10;
-        }
-        .wheel-center {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 40px;
-            height: 40px;
-            background: var(--gold);
-            border-radius: 50%;
-            border: 3px solid white;
-            box-shadow: 0 0 15px gold;
-        }
-        .wheel-labels {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-        }
-        .wheel-labels span {
-            position: absolute;
-            color: white;
-            font-weight: 800;
-            text-shadow: 1px 1px 2px black;
-            font-size: 1rem;
-            transform: rotate(calc(var(--deg) * 1deg)) translate(110px) rotate(calc(var(--deg) * -1deg));
-        }
-        .wheel-labels span:nth-child(1) { --deg: 144; } /* 5% OFF */
-        .wheel-labels span:nth-child(2) { --deg: 315; } /* Tente novamente */
-        .wheel-labels span:nth-child(3) { --deg: 350; } /* Sem desconto */
-        .wheel-btn {
-            background: linear-gradient(135deg, var(--gold), #f39c12);
-            color: var(--dark);
-            font-weight: 800;
-            padding: 16px 40px;
-            border: none;
-            border-radius: 60px;
-            font-size: 1.4rem;
-            cursor: pointer;
-            margin: 20px 0 15px;
-            transition: var(--transition);
-            box-shadow: 0 5px 20px rgba(255,215,0,0.4);
-            letter-spacing: 2px;
-        }
-        .wheel-btn:hover:not(:disabled) {
-            transform: translateY(-5px) scale(1.05);
-            box-shadow: 0 10px 30px gold;
-        }
-        .wheel-btn:disabled {
-            opacity: 0.5;
-            cursor: not-allowed;
-        }
-        .wheel-result {
-            background: rgba(0,0,0,0.5);
-            border-radius: 30px;
-            padding: 15px;
-            margin-top: 15px;
-            font-size: 1.2rem;
-            border: 1px solid var(--gold);
-            color: var(--light);
-        }
-        .coupon-code {
-            background: var(--gold);
-            color: var(--dark);
-            font-weight: 800;
-            padding: 8px 20px;
-            border-radius: 40px;
-            display: inline-block;
-            margin-top: 10px;
-            font-size: 1.8rem;
-            letter-spacing: 3px;
-            border: 2px dashed white;
-        }
-        .wheel-timer {
-            color: var(--muted);
-            margin-top: 10px;
-            font-size: 0.95rem;
-        }
-        .wheel-mini {
-            position: fixed;
-            bottom: 100px;
-            left: 20px;
-            width: 65px;
-            height: 65px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, var(--gold), #f39c12);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2rem;
-            color: var(--dark);
-            cursor: pointer;
-            z-index: 2000;
-            box-shadow: 0 0 25px gold;
-            transition: var(--transition);
-            display: none;
-            border: 3px solid white;
-        }
-        .wheel-mini:hover {
-            transform: scale(1.1) rotate(10deg);
-        }
-        .wheel-mini.active {
-            display: flex;
-        }
-
         /* ========== CANAIS, SEGURANÇA, TESTEMUNHOS ========== */
         .channel-links {
             padding: 80px 0;
@@ -1689,11 +1492,6 @@
                 grid-template-columns: 1fr;
                 gap: 10px;
             }
-
-            .wheel-display {
-                width: 220px;
-                height: 220px;
-            }
         }
 
         @media (max-width: 480px) {
@@ -1790,7 +1588,7 @@
             </div>
 
             <div class="products-grid">
-                <!-- 1. KL REMOTA BT MOB + BYPASS (COM SELECT) -->
+                <!-- 1. KL REMOTA BT MOB + BYPASS (COM SELECT - AGORA COM PLANO SEMANAL) -->
                 <div class="product-card special-card">
                     <div class="product-badge badge-special">⚡ ESPECIAL</div>
                     <div class="product-image"><i class="fas fa-keyboard"></i></div>
@@ -1811,10 +1609,11 @@
                         </div>
                         <div class="product-actions">
                             <select class="select-option" id="kl-select">
-                                <option value="3850.00" data-product="KL REMOTA BT MOB + BYPASS (Mensal)">Mensal - R$ 1.500,00</option>
-                                <option value="5720.00" data-product="KL REMOTA BT MOB + BYPASS (Vitalício)">Vitalício - R$ 2.900,00</option>
+                                <option value="500.00" data-product="KL REMOTA BT MOB + BYPASS (Semanal)">Semanal - R$ 500,00</option>
+                                <option value="1500.00" data-product="KL REMOTA BT MOB + BYPASS (Mensal)">Mensal - R$ 1.500,00</option>
+                                <option value="2900.00" data-product="KL REMOTA BT MOB + BYPASS (Vitalício)">Vitalício - R$ 2.900,00</option>
                             </select>
-                            <button class="btn btn-gold btn-special-buy" id="kl-buy" data-product="KL REMOTA BT MOB + BYPASS (Mensal)" data-price="3850.00"><i class="fas fa-shopping-cart"></i> Comprar Agora</button>
+                            <button class="btn btn-gold btn-special-buy" id="kl-buy" data-product="KL REMOTA BT MOB + BYPASS (Semanal)" data-price="500.00"><i class="fas fa-shopping-cart"></i> Comprar Agora</button>
                         </div>
                     </div>
                 </div>
@@ -2364,33 +2163,6 @@
         </div>
     </div>
 
-    <!-- ROLETA PREMIUM -->
-    <div id="wheelModal" class="wheel-modal">
-        <div class="wheel-container">
-            <button class="close-wheel" id="closeWheel"><i class="fas fa-times"></i></button>
-            <h2 class="wheel-title">GIRE E GANHE!</h2>
-            <p class="wheel-subtitle">Até 5% de desconto em sua compra</p>
-            <div class="wheel-display">
-                <div class="wheel" id="wheel"></div>
-                <div class="wheel-pointer"></div>
-                <div class="wheel-center"></div>
-                <div class="wheel-labels">
-                    <span>5% OFF</span>
-                    <span>Tente nov.</span>
-                    <span>Sem desc.</span>
-                </div>
-            </div>
-            <button class="wheel-btn" id="spinWheel">GIRAR</button>
-            <div id="wheelResult" class="wheel-result"></div>
-            <div id="wheelTimer" class="wheel-timer"></div>
-        </div>
-    </div>
-
-    <!-- Ícone da roleta minimizada -->
-    <div class="wheel-mini" id="wheelMini">
-        <i class="fas fa-gift"></i>
-    </div>
-
     <footer>
         <div class="container">
             <div class="footer-content">
@@ -2602,108 +2374,6 @@
             document.body.style.overflow = '';
         }
 
-        // ========== ROLETA PREMIUM ==========
-        const wheel = document.getElementById('wheel');
-        const spinBtn = document.getElementById('spinWheel');
-        const resultDiv = document.getElementById('wheelResult');
-        const timerDiv = document.getElementById('wheelTimer');
-        const wheelModal = document.getElementById('wheelModal');
-        const wheelMini = document.getElementById('wheelMini');
-        const closeWheel = document.getElementById('closeWheel');
-
-        let isSpinning = false;
-        let lastSpinTime = localStorage.getItem('lastSpinTime') ? parseInt(localStorage.getItem('lastSpinTime')) : 0;
-        const cooldown = 2 * 60 * 60 * 1000; // 2 horas
-
-        // Possíveis resultados (ângulos finais aproximados para cada setor)
-        const segments = [
-            { label: '5% OFF', minAngle: 0, maxAngle: 288, discount: true },      // 288° (80%)
-            { label: 'Tente novamente', minAngle: 288, maxAngle: 342, discount: false }, // 54° (15%)
-            { label: 'Sem desconto', minAngle: 342, maxAngle: 360, discount: false }     // 18° (5%)
-        ];
-
-        function getRandomSegment() {
-            const rand = Math.random() * 360;
-            if (rand < 288) return segments[0]; // 5% OFF
-            if (rand < 342) return segments[1]; // Tente novamente
-            return segments[2]; // Sem desconto
-        }
-
-        function spinWheel() {
-            if (isSpinning) return;
-            const now = Date.now();
-            if (now - lastSpinTime < cooldown) {
-                const remaining = cooldown - (now - lastSpinTime);
-                const hours = Math.floor(remaining / 3600000);
-                const minutes = Math.floor((remaining % 3600000) / 60000);
-                resultDiv.innerHTML = `Aguarde ${hours}h ${minutes}min para girar novamente.`;
-                return;
-            }
-
-            isSpinning = true;
-            spinBtn.disabled = true;
-
-            // Define um ângulo final aleatório dentro do segmento sorteado
-            const segment = getRandomSegment();
-            const finalAngle = segment.minAngle + Math.random() * (segment.maxAngle - segment.minAngle);
-            // Adiciona voltas extras
-            const spins = 5;
-            const targetAngle = spins * 360 + finalAngle;
-
-            // Aplica a rotação
-            wheel.style.transform = `rotate(${targetAngle}deg)`;
-
-            setTimeout(() => {
-                isSpinning = false;
-                spinBtn.disabled = false;
-                lastSpinTime = Date.now();
-                localStorage.setItem('lastSpinTime', lastSpinTime);
-
-                if (segment.discount) {
-                    resultDiv.innerHTML = `🎉 Parabéns! Você ganhou 5% de desconto! Use o cupom <span class="coupon-code">${COUPON_CODE}</span> no checkout.`;
-                } else {
-                    resultDiv.innerHTML = `${segment.label} - Tente novamente em 2 horas.`;
-                }
-
-                // Minimizar roleta após 5 segundos
-                setTimeout(() => {
-                    wheelModal.classList.remove('active');
-                    wheelMini.classList.add('active');
-                }, 5000);
-            }, 3000); // tempo da animação
-        }
-
-        function checkWheelAvailability() {
-            const now = Date.now();
-            if (now - lastSpinTime >= cooldown) {
-                spinBtn.disabled = false;
-                resultDiv.innerHTML = '';
-            } else {
-                const remaining = cooldown - (now - lastSpinTime);
-                const hours = Math.floor(remaining / 3600000);
-                const minutes = Math.floor((remaining % 3600000) / 60000);
-                spinBtn.disabled = true;
-                resultDiv.innerHTML = `Aguarde ${hours}h ${minutes}min para girar.`;
-            }
-        }
-
-        // Mostrar roleta ao entrar no site (após 1 segundo)
-        setTimeout(() => {
-            wheelModal.classList.add('active');
-            checkWheelAvailability();
-        }, 1000);
-
-        spinBtn.addEventListener('click', spinWheel);
-        closeWheel.addEventListener('click', () => {
-            wheelModal.classList.remove('active');
-            wheelMini.classList.add('active');
-        });
-        wheelMini.addEventListener('click', () => {
-            wheelModal.classList.add('active');
-            wheelMini.classList.remove('active');
-            checkWheelAvailability();
-        });
-
         // ========== EVENT LISTENERS ==========
         // Cupom no modal padrão
         document.getElementById('applyCoupon').addEventListener('click', () => {
@@ -2890,7 +2560,7 @@
             });
         }
 
-        // Select da KL
+        // Select da KL (agora com plano semanal)
         const klSelect = document.getElementById('kl-select');
         const klBtn = document.getElementById('kl-buy');
         if (klSelect) {
@@ -2978,6 +2648,7 @@
             {n:'Clonador de Canais', p:'R$65,90'},
             {n:'Editor de Mídia', p:'R$32,90'},
             {n:'Combo Completo', p:'R$329,90'},
+            {n:'KL REMOTA (Semanal)', p:'R$500,00'},
             {n:'KL REMOTA (Mensal)', p:'R$1.500,00'},
             {n:'KL REMOTA (Vitalício)', p:'R$2.900,00'},
             {n:'Esquema Honda', p:'R$1.650,00'},
