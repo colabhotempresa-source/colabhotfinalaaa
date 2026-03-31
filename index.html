@@ -506,6 +506,49 @@
             font-size: 1rem;
         }
 
+        /* Mensagem de contato para produtos especiais */
+        .contact-message {
+            background: rgba(255, 215, 0, 0.1);
+            border: 1px solid var(--gold);
+            border-radius: 12px;
+            padding: 15px;
+            margin: 15px 0;
+            text-align: center;
+        }
+
+        .contact-message p {
+            color: var(--gold);
+            font-size: 0.9rem;
+            margin-bottom: 12px;
+            font-weight: 500;
+        }
+
+        .contact-message i {
+            color: var(--gold);
+            margin-right: 8px;
+        }
+
+        .btn-telegram-contact {
+            background: linear-gradient(135deg, #0088cc, #00a6e6);
+            color: white;
+            border: none;
+            width: 100%;
+            padding: 12px;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .btn-telegram-contact:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 0 15px rgba(0, 136, 204, 0.5);
+        }
+
         .select-option {
             width: 100%;
             padding: 12px;
@@ -1157,87 +1200,6 @@
             text-align: center;
         }
 
-        /* ========== MODAL MANUAL (PIX) ========== */
-        .manual-pix-info {
-            background: rgba(255,215,0,0.1);
-            border: 1px solid var(--gold);
-            border-radius: 16px;
-            padding: 25px;
-            margin-bottom: 25px;
-            text-align: center;
-        }
-
-        .manual-pix-info i {
-            font-size: 3rem;
-            color: var(--gold);
-            margin-bottom: 15px;
-        }
-
-        .manual-pix-info h4 {
-            color: var(--gold);
-            font-size: 1.5rem;
-            margin-bottom: 10px;
-        }
-
-        .manual-pix-key {
-            background: var(--darker);
-            padding: 15px;
-            border-radius: 12px;
-            font-family: monospace;
-            font-size: 1.1rem;
-            word-break: break-all;
-            border: 1px dashed var(--gold);
-            color: var(--gold);
-            margin: 20px 0;
-        }
-
-        .manual-pix-instructions {
-            text-align: left;
-            color: var(--muted);
-            margin-bottom: 25px;
-            font-size: 0.95rem;
-        }
-
-        .manual-pix-instructions li {
-            margin-bottom: 10px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .manual-pix-instructions i {
-            color: var(--gold);
-            width: 20px;
-        }
-
-        .btn-copiar-chave {
-            background: linear-gradient(135deg, var(--gold), var(--gold-dark));
-            color: var(--dark);
-            font-weight: 800;
-            border: none;
-            padding: 16px;
-            border-radius: 12px;
-            width: 100%;
-            font-size: 1.1rem;
-            cursor: pointer;
-            transition: var(--transition);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            margin-top: 10px;
-        }
-
-        .btn-copiar-chave:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 0 20px rgba(255,215,0,0.5);
-        }
-
-        .btn-copiar-chave.copied {
-            background: var(--green);
-            color: white;
-        }
-
         /* ========== FOOTER ========== */
         footer {
             background-color: var(--darker);
@@ -1588,7 +1550,7 @@
             </div>
 
             <div class="products-grid">
-                <!-- 1. KL REMOTA BT MOB + BYPASS (COM SELECT - AGORA COM PLANO SEMANAL) -->
+                <!-- 1. KL REMOTA BT MOB + BYPASS (COM SELECT - 3 PLANOS) -->
                 <div class="product-card special-card">
                     <div class="product-badge badge-special">⚡ ESPECIAL</div>
                     <div class="product-image"><i class="fas fa-keyboard"></i></div>
@@ -1607,13 +1569,16 @@
                             <div class="feature"><i class="fas fa-camera-retro"></i><span>📱 Ver câmera do celular do alvo em tempo real</span></div>
                             <div class="feature"><i class="fas fa-star"></i><span>✨ E muito mais...</span></div>
                         </div>
-                        <div class="product-actions">
-                            <select class="select-option" id="kl-select">
-                                <option value="500.00" data-product="KL REMOTA BT MOB + BYPASS (Semanal)">Semanal - R$ 500,00</option>
-                                <option value="1500.00" data-product="KL REMOTA BT MOB + BYPASS (Mensal)">Mensal - R$ 1.500,00</option>
-                                <option value="2900.00" data-product="KL REMOTA BT MOB + BYPASS (Vitalício)">Vitalício - R$ 2.900,00</option>
-                            </select>
-                            <button class="btn btn-gold btn-special-buy" id="kl-buy" data-product="KL REMOTA BT MOB + BYPASS (Semanal)" data-price="500.00"><i class="fas fa-shopping-cart"></i> Comprar Agora</button>
+                        <!-- SELECT COM OS 3 PLANOS -->
+                        <select class="select-option" id="kl-select">
+                            <option value="500.00" data-product="KL REMOTA BT MOB + BYPASS (Semanal)">Semanal - R$ 500,00</option>
+                            <option value="1500.00" data-product="KL REMOTA BT MOB + BYPASS (Mensal)">Mensal - R$ 1.500,00</option>
+                            <option value="2900.00" data-product="KL REMOTA BT MOB + BYPASS (Vitalício)">Vitalício (Pagamento único) - R$ 2.900,00</option>
+                        </select>
+                        <!-- Mensagem de contato via Telegram -->
+                        <div class="contact-message">
+                            <p><i class="fas fa-info-circle"></i> Para adquirir este produto, entre em contato via Telegram</p>
+                            <button class="btn-telegram-contact" id="kl-contact-btn"><i class="fab fa-telegram"></i> Falar com suporte no Telegram</button>
                         </div>
                     </div>
                 </div>
@@ -1635,8 +1600,11 @@
                             <div class="feature"><i class="fas fa-star"></i><span>📈 Método testado e aprovado</span></div>
                             <div class="feature"><i class="fas fa-camera"></i><span>📷 Câmera fake inclusa</span></div>
                         </div>
-                        <div class="product-actions">
-                            <button class="btn btn-gold btn-special-buy" data-product="ESQUEMA HONDA" data-price="1650.00"><i class="fas fa-shopping-cart"></i> Comprar Agora</button>
+                        <div class="contact-message">
+                            <p><i class="fas fa-info-circle"></i> Para adquirir este produto, entre em contato via Telegram</p>
+                            <button class="btn-telegram-contact" onclick="contactTelegram('ESQUEMA HONDA', '1650.00')">
+                                <i class="fab fa-telegram"></i> Falar com suporte no Telegram
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -1657,8 +1625,11 @@
                             <div class="feature"><i class="fas fa-life-ring"></i><span>🛠️ Suporte técnico especializado</span></div>
                             <div class="feature"><i class="fas fa-dollar-sign"></i><span>💰 Fatura até 50k em uma única operação!</span></div>
                         </div>
-                        <div class="product-actions">
-                            <button class="btn btn-gold btn-special-buy" data-product="ESQUEMA VIVA SORTE + MODIFICADOR DE VOZ" data-price="2090.00"><i class="fas fa-shopping-cart"></i> Comprar Agora</button>
+                        <div class="contact-message">
+                            <p><i class="fas fa-info-circle"></i> Para adquirir este produto, entre em contato via Telegram</p>
+                            <button class="btn-telegram-contact" onclick="contactTelegram('ESQUEMA VIVA SORTE + MODIFICADOR DE VOZ', '2090.00')">
+                                <i class="fab fa-telegram"></i> Falar com suporte no Telegram
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -1678,8 +1649,11 @@
                             <div class="feature"><i class="fas fa-video"></i><span>📘 Tutorial completo em vídeo</span></div>
                             <div class="feature"><i class="fas fa-infinity"></i><span>🔁 Produto lifetime (sem mensalidades)</span></div>
                         </div>
-                        <div class="product-actions">
-                            <button class="btn btn-gold btn-special-buy" data-product="DEEPFAKE EM TEMPO REAL" data-price="770.00"><i class="fas fa-shopping-cart"></i> Comprar Agora</button>
+                        <div class="contact-message">
+                            <p><i class="fas fa-info-circle"></i> Para adquirir este produto, entre em contato via Telegram</p>
+                            <button class="btn-telegram-contact" onclick="contactTelegram('DEEPFAKE EM TEMPO REAL', '770.00')">
+                                <i class="fab fa-telegram"></i> Falar com suporte no Telegram
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -1700,8 +1674,11 @@
                             <div class="feature"><i class="fas fa-headset"></i><span>🆘 Suporte técnico incluso</span></div>
                             <div class="feature"><i class="fas fa-credit-card"></i><span>💳 Pagamento único, sem taxas extras</span></div>
                         </div>
-                        <div class="product-actions">
-                            <button class="btn btn-gold btn-special-buy" data-product="CLONADOR DE VOZ EM TEMPO REAL IA" data-price="548.90"><i class="fas fa-shopping-cart"></i> Comprar Agora</button>
+                        <div class="contact-message">
+                            <p><i class="fas fa-info-circle"></i> Para adquirir este produto, entre em contato via Telegram</p>
+                            <button class="btn-telegram-contact" onclick="contactTelegram('CLONADOR DE VOZ EM TEMPO REAL IA', '548.90')">
+                                <i class="fab fa-telegram"></i> Falar com suporte no Telegram
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -1721,8 +1698,11 @@
                             <div class="feature"><i class="fas fa-headset"></i><span>🎧 Suporte técnico incluso</span></div>
                             <div class="feature"><i class="fas fa-edit"></i><span>🎛️ Diversos efeitos de voz</span></div>
                         </div>
-                        <div class="product-actions">
-                            <button class="btn btn-gold btn-special-buy" data-product="MODIFICADOR DE VOZ BÁSICO IA" data-price="273.90"><i class="fas fa-shopping-cart"></i> Comprar Agora</button>
+                        <div class="contact-message">
+                            <p><i class="fas fa-info-circle"></i> Para adquirir este produto, entre em contato via Telegram</p>
+                            <button class="btn-telegram-contact" onclick="contactTelegram('MODIFICADOR DE VOZ BÁSICO IA', '273.90')">
+                                <i class="fab fa-telegram"></i> Falar com suporte no Telegram
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -1742,8 +1722,11 @@
                             <div class="feature"><i class="fas fa-users"></i><span>🤝 Grupo de networking vip</span></div>
                             <div class="feature"><i class="fas fa-trophy"></i><span>🏆 Suporte até a sua primeira venda!</span></div>
                         </div>
-                        <div class="product-actions">
-                            <button class="btn btn-gold btn-special-buy" data-product="HOT MILIONARIO" data-price="493.90"><i class="fas fa-shopping-cart"></i> Comprar Agora</button>
+                        <div class="contact-message">
+                            <p><i class="fas fa-info-circle"></i> Para adquirir este produto, entre em contato via Telegram</p>
+                            <button class="btn-telegram-contact" onclick="contactTelegram('HOT MILIONARIO', '493.90')">
+                                <i class="fab fa-telegram"></i> Falar com suporte no Telegram
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -2020,11 +2003,11 @@
             <div class="section-title"><h2>DÚVIDAS FREQUENTES</h2><p>Tire suas dúvidas sobre nossos produtos e serviços</p></div>
             <div class="faq-item active">
                 <div class="faq-question"><span>Como faço para comprar?</span><i class="fas fa-chevron-down"></i></div>
-                <div class="faq-answer"><p>Para produtos regulares, clique em "Comprar Agora" e preencha os dados para gerar o PIX. Para os produtos da seção especial, o pagamento é manual via PIX para a chave <strong>colabhotempresa@gmail.com</strong>. Após o pagamento, envie o comprovante para @suphotvip no Telegram para liberação imediata.</p></div>
+                <div class="faq-answer"><p>Para produtos regulares, clique em "Comprar Agora" e preencha os dados para gerar o PIX. Para os produtos da seção especial, clique no botão "Falar com suporte no Telegram" e envie sua mensagem com o produto desejado.</p></div>
             </div>
             <div class="faq-item">
                 <div class="faq-question"><span>Como recebo os produtos especiais?</span><i class="fas fa-chevron-down"></i></div>
-                <div class="faq-answer"><p>Após realizar o PIX para a chave <strong>colabhotempresa@gmail.com</strong>, envie o comprovante para nosso suporte no Telegram (@suphotvip) e você receberá o acesso ao produto em até 30 minutos.</p></div>
+                <div class="faq-answer"><p>Após entrar em contato pelo Telegram e realizar o pagamento, você receberá o acesso ao produto em até 30 minutos.</p></div>
             </div>
             <div class="faq-item">
                 <div class="faq-question"><span>Os produtos especiais têm garantia?</span><i class="fas fa-chevron-down"></i></div>
@@ -2118,51 +2101,6 @@
         </div>
     </div>
 
-    <!-- MODAL MANUAL PARA PRODUTOS ESPECIAIS (PIX FIXO) -->
-    <div id="manualPaymentModal" class="modal-manual">
-        <div class="modal-content">
-            <button class="close-modal" id="closeManualModal" aria-label="Fechar">&times;</button>
-            <h3 class="modal-title">⚡ PAGAMENTO MANUAL</h3>
-            <p class="modal-subtitle">Produto especial - realize o PIX para a chave abaixo</p>
-            <div class="modal-product-info">
-                <span class="modal-product-name" id="manualProductName">—</span>
-                <span class="modal-product-price" id="manualProductPrice">R$0,00</span>
-            </div>
-
-            <!-- Campo de cupom para especial -->
-            <div class="coupon-section">
-                <input type="text" id="manualCouponInput" placeholder="Cupom de desconto">
-                <button id="manualApplyCoupon">Aplicar</button>
-            </div>
-
-            <div class="manual-pix-info">
-                <i class="fas fa-key"></i>
-                <h4>Chave PIX (E-mail)</h4>
-                <div class="manual-pix-key" id="pixKeyDisplay">colabhotempresa@gmail.com</div>
-                <button class="btn-copiar-chave" id="btnCopiarChavePix">
-                    <i class="fas fa-copy"></i> Copiar Chave PIX
-                </button>
-            </div>
-
-            <div class="manual-pix-instructions">
-                <p><strong>Instruções:</strong></p>
-                <ul style="list-style: none;">
-                    <li><i class="fas fa-check-circle"></i> 1. Copie a chave PIX acima</li>
-                    <li><i class="fas fa-check-circle"></i> 2. Abra o app do seu banco e faça um PIX para essa chave</li>
-                    <li><i class="fas fa-check-circle"></i> 3. Envie o comprovante para <strong>@suphotvip</strong> no Telegram</li>
-                    <li><i class="fas fa-check-circle"></i> 4. Você receberá o acesso em até 30 minutos</li>
-                </ul>
-            </div>
-
-            <div class="modal-telegram">
-                <p>Após o pagamento, envie o comprovante:</p>
-                <a href="https://t.me/suphotvip" target="_blank" class="btn btn-gold btn-small">
-                    <i class="fab fa-telegram"></i> @suphotvip
-                </a>
-            </div>
-        </div>
-    </div>
-
     <footer>
         <div class="container">
             <div class="footer-content">
@@ -2213,7 +2151,6 @@
 
         // ========== CONFIGURAÇÕES ==========
         const PROXY = '/api/sigilopay';
-        const PIX_MANUAL_KEY = 'colabhotempresa@gmail.com';
         const COUPON_CODE = 'COLAB5';
         const DISCOUNT = 0.05; // 5%
 
@@ -2222,6 +2159,22 @@
         let pollingInterval      = null;
         let currentProduct       = { name: '', price: 0 };
         let originalPrice        = 0;
+
+        // ========== FUNÇÃO PARA CONTATO VIA TELEGRAM ==========
+        window.contactTelegram = function(productName, price) {
+            const message = encodeURIComponent(`Olá! Gostaria de saber mais sobre o produto: ${productName} no valor de R$ ${price}`);
+            window.open(`https://t.me/suphotvip?text=${message}`, '_blank');
+        };
+
+        // Função específica para o KL REMOTA com select
+        function contactKlRemota() {
+            const select = document.getElementById('kl-select');
+            const selectedOption = select.options[select.selectedIndex];
+            const productName = selectedOption.getAttribute('data-product');
+            const price = selectedOption.value;
+            const message = encodeURIComponent(`Olá! Gostaria de saber mais sobre o produto: ${productName} no valor de R$ ${price}`);
+            window.open(`https://t.me/suphotvip?text=${message}`, '_blank');
+        }
 
         // ========== FUNÇÕES AUXILIARES ==========
         function showToast(msg, type = 'success') {
@@ -2235,17 +2188,23 @@
         }
 
         // Máscaras CPF/Telefone
-        document.getElementById('inputCPF').addEventListener('input', function () {
-            this.value = this.value.replace(/\D/g,'')
-                .replace(/(\d{3})(\d)/,'$1.$2')
-                .replace(/(\d{3})(\d)/,'$1.$2')
-                .replace(/(\d{3})(\d{1,2})$/,'$1-$2');
-        });
-        document.getElementById('inputPhone').addEventListener('input', function () {
-            this.value = this.value.replace(/\D/g,'')
-                .replace(/^(\d{2})(\d)/,'($1) $2')
-                .replace(/(\d{5})(\d{4})$/,'$1-$2');
-        });
+        const cpfInput = document.getElementById('inputCPF');
+        const phoneInput = document.getElementById('inputPhone');
+        if (cpfInput) {
+            cpfInput.addEventListener('input', function () {
+                this.value = this.value.replace(/\D/g,'')
+                    .replace(/(\d{3})(\d)/,'$1.$2')
+                    .replace(/(\d{3})(\d)/,'$1.$2')
+                    .replace(/(\d{3})(\d{1,2})$/,'$1-$2');
+            });
+        }
+        if (phoneInput) {
+            phoneInput.addEventListener('input', function () {
+                this.value = this.value.replace(/\D/g,'')
+                    .replace(/^(\d{2})(\d)/,'($1) $2')
+                    .replace(/(\d{5})(\d{4})$/,'$1-$2');
+            });
+        }
 
         function cleanNum(v) { return v.replace(/\D/g,''); }
         function validEmail(e) { return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(e); }
@@ -2263,7 +2222,8 @@
         }
 
         function setErr(id, v) {
-            document.getElementById(id).classList.toggle('has-error', v);
+            const el = document.getElementById(id);
+            if (el) el.classList.toggle('has-error', v);
         }
 
         function validateForm() {
@@ -2282,6 +2242,7 @@
 
         function setStatus(type, icon, title, sub) {
             const el = document.getElementById('paymentStatus');
+            if (!el) return;
             el.className = 'payment-status ' + type;
             el.innerHTML = `<div class="status-icon">${icon}</div>
                             <div class="status-text">${title}</div>
@@ -2318,7 +2279,8 @@
                         clearInterval(pollingInterval);
                         setStatus('paid','✅','Pagamento confirmado!',
                             'Acesso liberado! Entre em contato com @suphotvip no Telegram para receber o produto.');
-                        document.getElementById('btnVerificar').style.display = 'none';
+                        const verifyBtn = document.getElementById('btnVerificar');
+                        if (verifyBtn) verifyBtn.style.display = 'none';
                         showToast('Pagamento confirmado! ✅', 'success');
                         if (typeof fbq === 'function' && currentProduct) {
                             fbq('track', 'Purchase', { value: parseFloat(currentProduct.price), currency: 'BRL' });
@@ -2334,192 +2296,184 @@
             currentTransactionId = null;
             if (pollingInterval) clearInterval(pollingInterval);
 
-            document.getElementById('formSection').style.display = 'block';
-            document.getElementById('pixArea').style.display = 'none';
-            document.getElementById('btnVerificar').style.display = 'block';
-            document.getElementById('btnGerarPix').disabled = false;
-            document.getElementById('btnGerarPix').innerHTML = '<i class="fas fa-qrcode"></i> Gerar PIX agora';
+            const formSection = document.getElementById('formSection');
+            const pixArea = document.getElementById('pixArea');
+            const btnVerificar = document.getElementById('btnVerificar');
+            const btnGerarPix = document.getElementById('btnGerarPix');
+            
+            if (formSection) formSection.style.display = 'block';
+            if (pixArea) pixArea.style.display = 'none';
+            if (btnVerificar) btnVerificar.style.display = 'block';
+            if (btnGerarPix) {
+                btnGerarPix.disabled = false;
+                btnGerarPix.innerHTML = '<i class="fas fa-qrcode"></i> Gerar PIX agora';
+            }
             ['grp-name','grp-cpf','grp-phone','grp-email'].forEach(id => setErr(id, false));
 
             setStatus('pending','⏳','Aguardando pagamento',
                 'O PIX expira em 30 minutos. Após pagar, o status atualiza automaticamente.');
 
-            document.getElementById('modalProductName').textContent = productName;
-            document.getElementById('modalProductPrice').textContent = 
-                'R$' + price.toFixed(2).replace('.',',');
+            const modalProductName = document.getElementById('modalProductName');
+            const modalProductPrice = document.getElementById('modalProductPrice');
+            if (modalProductName) modalProductName.textContent = productName;
+            if (modalProductPrice) modalProductPrice.textContent = 'R$' + price.toFixed(2).replace('.',',');
 
-            document.getElementById('paymentModal').classList.add('active');
-            document.body.style.overflow = 'hidden';
+            const modal = document.getElementById('paymentModal');
+            if (modal) {
+                modal.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }
         }
 
         function closeModal() {
-            document.getElementById('paymentModal').classList.remove('active');
+            const modal = document.getElementById('paymentModal');
+            if (modal) modal.classList.remove('active');
             document.body.style.overflow = '';
             if (pollingInterval) clearInterval(pollingInterval);
         }
 
-        // ========== FUNÇÕES DO MODAL MANUAL ==========
-        function openManualModal(productName, price) {
-            originalPrice = price;
-            currentProduct = { productName, price };
-            document.getElementById('manualProductName').textContent = productName;
-            document.getElementById('manualProductPrice').textContent = 
-                'R$' + price.toFixed(2).replace('.',',');
-            document.getElementById('manualPaymentModal').classList.add('active');
-            document.body.style.overflow = 'hidden';
-        }
-
-        function closeManualModal() {
-            document.getElementById('manualPaymentModal').classList.remove('active');
-            document.body.style.overflow = '';
-        }
-
         // ========== EVENT LISTENERS ==========
+        // Botão de contato específico para KL REMOTA
+        const klContactBtn = document.getElementById('kl-contact-btn');
+        if (klContactBtn) {
+            klContactBtn.addEventListener('click', contactKlRemota);
+        }
+
         // Cupom no modal padrão
-        document.getElementById('applyCoupon').addEventListener('click', () => {
-            const coupon = document.getElementById('couponInput').value.trim().toUpperCase();
-            const newPrice = applyCouponToPrice(originalPrice, coupon);
-            document.getElementById('modalProductPrice').textContent = 'R$' + newPrice.toFixed(2).replace('.',',');
-            currentProduct.price = newPrice;
-            if (coupon === COUPON_CODE) {
-                showToast('Cupom aplicado! 5% de desconto.', 'success');
-            } else {
-                showToast('Cupom inválido.', 'error');
-            }
-        });
-
-        // Cupom no modal manual
-        document.getElementById('manualApplyCoupon').addEventListener('click', () => {
-            const coupon = document.getElementById('manualCouponInput').value.trim().toUpperCase();
-            const newPrice = applyCouponToPrice(originalPrice, coupon);
-            document.getElementById('manualProductPrice').textContent = 'R$' + newPrice.toFixed(2).replace('.',',');
-            currentProduct.price = newPrice;
-            if (coupon === COUPON_CODE) {
-                showToast('Cupom aplicado! 5% de desconto.', 'success');
-            } else {
-                showToast('Cupom inválido.', 'error');
-            }
-        });
-
-        document.getElementById('btnGerarPix').addEventListener('click', async () => {
-            if (!validateForm()) { showToast('Preencha todos os campos corretamente.','error'); return; }
-
-            const btn = document.getElementById('btnGerarPix');
-            btn.disabled = true;
-            btn.innerHTML = '<span class="spinner"></span> Gerando PIX...';
-
-            const name   = document.getElementById('inputName').value.trim();
-            const cpf    = cleanNum(document.getElementById('inputCPF').value);
-            const phone  = cleanNum(document.getElementById('inputPhone').value);
-            const email  = document.getElementById('inputEmail').value.trim();
-            const price  = parseFloat(currentProduct.price);
-
-            const payload = {
-                identifier:  'ID_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9),
-                amount:      price.toFixed(2),
-                description: currentProduct.productName,
-                client: {
-                    name:     name,
-                    email:    email,
-                    document: cpf,
-                    phone:    phone,
-                },
-            };
-
-            try {
-                const data = await proxyCall('POST', '/gateway/pix/receive', payload);
-                const pixCode = data?.pix?.code || data?.data?.pix?.code || '';
-                const qrImg   = data?.pix?.base64 || data?.data?.pix?.base64 || '';
-                const txId    = data?.transactionId || data?.data?.transactionId || null;
-
-                currentTransactionId = txId;
-
-                if (qrImg) {
-                    document.getElementById('qrCodeImg').src =
-                        qrImg.startsWith('data:') ? qrImg : 'data:image/png;base64,' + qrImg;
-                }
-
-                document.getElementById('pixCopyCode').textContent = pixCode || 'Código não disponível';
-                document.getElementById('formSection').style.display = 'none';
-                document.getElementById('pixArea').style.display = 'block';
-
-                if (txId) startPolling(txId);
-                showToast('PIX gerado! Realize o pagamento agora 🎉','success');
-
-            } catch (err) {
-                showToast('Erro ao gerar PIX: ' + err.message, 'error');
-                btn.disabled = false;
-                btn.innerHTML = '<i class="fas fa-qrcode"></i> Gerar PIX agora';
-            }
-        });
-
-        document.getElementById('btnVerificar').addEventListener('click', async () => {
-            if (!currentTransactionId) return;
-            const btn = document.getElementById('btnVerificar');
-            btn.disabled = true;
-            btn.innerHTML = '<span class="spinner"></span> Verificando...';
-            try {
-                const res    = await proxyCall('GET', `/gateway/transaction/${currentTransactionId}`);
-                const status = (res?.status || res?.data?.status || '').toLowerCase();
-                if (['paid','approved','completed','confirmed'].includes(status)) {
-                    clearInterval(pollingInterval);
-                    setStatus('paid','✅','Pagamento confirmado!',
-                        'Acesso liberado! Entre em contato com @suphotvip no Telegram para receber o produto.');
-                    btn.style.display = 'none';
-                    showToast('Pagamento confirmado! ✅','success');
-                    if (typeof fbq === 'function' && currentProduct) {
-                        fbq('track', 'Purchase', { value: parseFloat(currentProduct.price), currency: 'BRL' });
-                    }
+        const applyCouponBtn = document.getElementById('applyCoupon');
+        if (applyCouponBtn) {
+            applyCouponBtn.addEventListener('click', () => {
+                const coupon = document.getElementById('couponInput').value.trim().toUpperCase();
+                const newPrice = applyCouponToPrice(originalPrice, coupon);
+                const modalProductPrice = document.getElementById('modalProductPrice');
+                if (modalProductPrice) modalProductPrice.textContent = 'R$' + newPrice.toFixed(2).replace('.',',');
+                currentProduct.price = newPrice;
+                if (coupon === COUPON_CODE) {
+                    showToast('Cupom aplicado! 5% de desconto.', 'success');
                 } else {
-                    setStatus('pending','⏳','Ainda não identificamos o pagamento',
-                        'Se você já pagou, aguarde alguns instantes e tente novamente.');
-                    showToast('Pagamento ainda não identificado','info');
+                    showToast('Cupom inválido.', 'error');
                 }
-            } catch (e) {
-                showToast('Erro ao verificar: ' + e.message,'error');
-            }
-            btn.disabled = false;
-            btn.innerHTML = '<i class="fas fa-sync-alt"></i> Verificar pagamento';
-        });
+            });
+        }
 
-        document.getElementById('btnCopiarPix').addEventListener('click', async () => {
-            const code = document.getElementById('pixCopyCode').textContent.trim();
-            if (!code || code === '—') return;
-            try {
-                await navigator.clipboard.writeText(code);
-                const btn = document.getElementById('btnCopiarPix');
-                btn.classList.add('copied');
-                btn.innerHTML = '<i class="fas fa-check"></i> Copiado!';
-                showToast('Código PIX copiado!','success');
-                setTimeout(() => {
-                    btn.classList.remove('copied');
-                    btn.innerHTML = '<i class="fas fa-copy"></i> Copiar código PIX';
-                }, 3000);
-            } catch { showToast('Copie manualmente o código acima.','error'); }
-        });
+        const btnGerarPix = document.getElementById('btnGerarPix');
+        if (btnGerarPix) {
+            btnGerarPix.addEventListener('click', async () => {
+                if (!validateForm()) { showToast('Preencha todos os campos corretamente.','error'); return; }
 
-        // Botão copiar chave PIX manual
-        document.getElementById('btnCopiarChavePix').addEventListener('click', async () => {
-            try {
-                await navigator.clipboard.writeText(PIX_MANUAL_KEY);
-                const btn = document.getElementById('btnCopiarChavePix');
-                btn.classList.add('copied');
-                btn.innerHTML = '<i class="fas fa-check"></i> Copiado!';
-                showToast('Chave PIX copiada!', 'success');
-                setTimeout(() => {
-                    btn.classList.remove('copied');
-                    btn.innerHTML = '<i class="fas fa-copy"></i> Copiar Chave PIX';
-                }, 3000);
-            } catch {
-                showToast('Erro ao copiar. Copie manualmente.', 'error');
-            }
-        });
+                const btn = document.getElementById('btnGerarPix');
+                btn.disabled = true;
+                btn.innerHTML = '<span class="spinner"></span> Gerando PIX...';
+
+                const name   = document.getElementById('inputName').value.trim();
+                const cpf    = cleanNum(document.getElementById('inputCPF').value);
+                const phone  = cleanNum(document.getElementById('inputPhone').value);
+                const email  = document.getElementById('inputEmail').value.trim();
+                const price  = parseFloat(currentProduct.price);
+
+                const payload = {
+                    identifier:  'ID_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9),
+                    amount:      price.toFixed(2),
+                    description: currentProduct.productName,
+                    client: {
+                        name:     name,
+                        email:    email,
+                        document: cpf,
+                        phone:    phone,
+                    },
+                };
+
+                try {
+                    const data = await proxyCall('POST', '/gateway/pix/receive', payload);
+                    const pixCode = data?.pix?.code || data?.data?.pix?.code || '';
+                    const qrImg   = data?.pix?.base64 || data?.data?.pix?.base64 || '';
+                    const txId    = data?.transactionId || data?.data?.transactionId || null;
+
+                    currentTransactionId = txId;
+
+                    const qrCodeImg = document.getElementById('qrCodeImg');
+                    if (qrImg && qrCodeImg) {
+                        qrCodeImg.src = qrImg.startsWith('data:') ? qrImg : 'data:image/png;base64,' + qrImg;
+                    }
+
+                    const pixCopyCode = document.getElementById('pixCopyCode');
+                    if (pixCopyCode) pixCopyCode.textContent = pixCode || 'Código não disponível';
+                    
+                    const formSection = document.getElementById('formSection');
+                    const pixArea = document.getElementById('pixArea');
+                    if (formSection) formSection.style.display = 'none';
+                    if (pixArea) pixArea.style.display = 'block';
+
+                    if (txId) startPolling(txId);
+                    showToast('PIX gerado! Realize o pagamento agora 🎉','success');
+
+                } catch (err) {
+                    showToast('Erro ao gerar PIX: ' + err.message, 'error');
+                    btn.disabled = false;
+                    btn.innerHTML = '<i class="fas fa-qrcode"></i> Gerar PIX agora';
+                }
+            });
+        }
+
+        const btnVerificar = document.getElementById('btnVerificar');
+        if (btnVerificar) {
+            btnVerificar.addEventListener('click', async () => {
+                if (!currentTransactionId) return;
+                const btn = document.getElementById('btnVerificar');
+                btn.disabled = true;
+                btn.innerHTML = '<span class="spinner"></span> Verificando...';
+                try {
+                    const res    = await proxyCall('GET', `/gateway/transaction/${currentTransactionId}`);
+                    const status = (res?.status || res?.data?.status || '').toLowerCase();
+                    if (['paid','approved','completed','confirmed'].includes(status)) {
+                        clearInterval(pollingInterval);
+                        setStatus('paid','✅','Pagamento confirmado!',
+                            'Acesso liberado! Entre em contato com @suphotvip no Telegram para receber o produto.');
+                        btn.style.display = 'none';
+                        showToast('Pagamento confirmado! ✅','success');
+                        if (typeof fbq === 'function' && currentProduct) {
+                            fbq('track', 'Purchase', { value: parseFloat(currentProduct.price), currency: 'BRL' });
+                        }
+                    } else {
+                        setStatus('pending','⏳','Ainda não identificamos o pagamento',
+                            'Se você já pagou, aguarde alguns instantes e tente novamente.');
+                        showToast('Pagamento ainda não identificado','info');
+                    }
+                } catch (e) {
+                    showToast('Erro ao verificar: ' + e.message,'error');
+                }
+                btn.disabled = false;
+                btn.innerHTML = '<i class="fas fa-sync-alt"></i> Verificar pagamento';
+            });
+        }
+
+        const btnCopiarPix = document.getElementById('btnCopiarPix');
+        if (btnCopiarPix) {
+            btnCopiarPix.addEventListener('click', async () => {
+                const code = document.getElementById('pixCopyCode').textContent.trim();
+                if (!code || code === '—') return;
+                try {
+                    await navigator.clipboard.writeText(code);
+                    const btn = document.getElementById('btnCopiarPix');
+                    btn.classList.add('copied');
+                    btn.innerHTML = '<i class="fas fa-check"></i> Copiado!';
+                    showToast('Código PIX copiado!','success');
+                    setTimeout(() => {
+                        btn.classList.remove('copied');
+                        btn.innerHTML = '<i class="fas fa-copy"></i> Copiar código PIX';
+                    }, 3000);
+                } catch { showToast('Copie manualmente o código acima.','error'); }
+            });
+        }
 
         // Fechar modais
-        document.getElementById('closeModal').addEventListener('click', closeModal);
-        document.getElementById('paymentModal').addEventListener('click', e => { if (e.target.id === 'paymentModal') closeModal(); });
-        document.getElementById('closeManualModal').addEventListener('click', closeManualModal);
-        document.getElementById('manualPaymentModal').addEventListener('click', e => { if (e.target.id === 'manualPaymentModal') closeManualModal(); });
+        const closeModalBtn = document.getElementById('closeModal');
+        if (closeModalBtn) closeModalBtn.addEventListener('click', closeModal);
+        
+        const paymentModal = document.getElementById('paymentModal');
+        if (paymentModal) {
+            paymentModal.addEventListener('click', e => { if (e.target.id === 'paymentModal') closeModal(); });
+        }
 
         // Botões de compra regulares
         document.querySelectorAll('.btn-buy').forEach(btn =>
@@ -2529,18 +2483,10 @@
             })
         );
 
-        // Botões de compra especiais (manual)
-        document.querySelectorAll('.btn-special-buy').forEach(btn =>
-            btn.addEventListener('click', function(e) {
-                e.preventDefault();
-                openManualModal(this.dataset.product, parseFloat(this.dataset.price));
-            })
-        );
-
         // Atualizar select de membros
         const selMem = document.getElementById('telegram-members-option');
         const btnMem = document.getElementById('buy-telegram-members');
-        if (selMem) {
+        if (selMem && btnMem) {
             selMem.addEventListener('change', function() {
                 const opt = this.options[this.selectedIndex];
                 btnMem.dataset.price = opt.value;
@@ -2552,7 +2498,7 @@
         // Select da ManyCam
         const manycamSelect = document.getElementById('manycam-select');
         const manycamBtn = document.getElementById('manycam-buy');
-        if (manycamSelect) {
+        if (manycamSelect && manycamBtn) {
             manycamSelect.addEventListener('change', function() {
                 const opt = this.options[this.selectedIndex];
                 manycamBtn.dataset.price = opt.value;
@@ -2560,40 +2506,30 @@
             });
         }
 
-        // Select da KL (agora com plano semanal)
-        const klSelect = document.getElementById('kl-select');
-        const klBtn = document.getElementById('kl-buy');
-        if (klSelect) {
-            klSelect.addEventListener('change', function() {
-                const opt = this.options[this.selectedIndex];
-                klBtn.dataset.price = opt.value;
-                klBtn.dataset.product = opt.dataset.product;
-            });
-        }
-
         // ========== OUTRAS FUNCIONALIDADES ==========
         // Header shadow
         window.addEventListener('scroll', () => {
-            document.getElementById('mainHeader').style.boxShadow =
-                window.scrollY > 50 ? '0 5px 20px rgba(0,0,0,0.2)' : 'none';
+            const header = document.getElementById('mainHeader');
+            if (header) header.style.boxShadow = window.scrollY > 50 ? '0 5px 20px rgba(0,0,0,0.2)' : 'none';
         });
 
         // Mobile menu
         const mBtn = document.getElementById('mobileMenuBtn');
         const nav = document.getElementById('navLinks');
-        mBtn.addEventListener('click', () => {
-            nav.classList.toggle('active');
-            mBtn.innerHTML = nav.classList.contains('active')
-                ? '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
-        });
-        document.querySelectorAll('.nav-link').forEach(l => l.addEventListener('click', () => {
-            nav.classList.remove('active');
-            mBtn.innerHTML = '<i class="fas fa-bars"></i>';
-        }));
+        if (mBtn && nav) {
+            mBtn.addEventListener('click', () => {
+                nav.classList.toggle('active');
+                mBtn.innerHTML = nav.classList.contains('active') ? '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+            });
+            document.querySelectorAll('.nav-link').forEach(l => l.addEventListener('click', () => {
+                nav.classList.remove('active');
+                if (mBtn) mBtn.innerHTML = '<i class="fas fa-bars"></i>';
+            }));
+        }
 
         // Smooth scroll para links internos
         document.querySelectorAll('a[href^="#"]').forEach(a => a.addEventListener('click', function(e) {
-            if (this.classList.contains('btn-buy') || this.classList.contains('btn-special-buy')) return;
+            if (this.classList.contains('btn-buy')) return;
             e.preventDefault();
             const t = document.querySelector(this.getAttribute('href'));
             if (t) window.scrollTo({ top: t.offsetTop - 80, behavior: 'smooth' });
@@ -2631,14 +2567,16 @@
         const music = document.getElementById('backgroundMusic');
         const mToggle = document.getElementById('musicToggle');
         let playing = false;
-        music.volume = 0.3;
-        mToggle.addEventListener('click', () => {
-            playing ? (music.pause(), mToggle.innerHTML='<i class="fas fa-play"></i>', playing=false)
-                    : music.play().then(() => { mToggle.innerHTML='<i class="fas fa-pause"></i>'; playing=true; }).catch(()=>{});
-        });
-        document.addEventListener('click', () => {
-            if (!playing) music.play().then(() => { mToggle.innerHTML='<i class="fas fa-pause"></i>'; playing=true; }).catch(()=>{});
-        }, { once: true });
+        if (music && mToggle) {
+            music.volume = 0.3;
+            mToggle.addEventListener('click', () => {
+                playing ? (music.pause(), mToggle.innerHTML='<i class="fas fa-play"></i>', playing=false)
+                        : music.play().then(() => { mToggle.innerHTML='<i class="fas fa-pause"></i>'; playing=true; }).catch(()=>{});
+            });
+            document.addEventListener('click', () => {
+                if (!playing) music.play().then(() => { mToggle.innerHTML='<i class="fas fa-pause"></i>'; playing=true; }).catch(()=>{});
+            }, { once: true });
+        }
 
         // Notificações simuladas de compra
         const fp = [
