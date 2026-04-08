@@ -417,6 +417,14 @@
             color: var(--dark);
         }
 
+        /* NOVO SELO VERMELHO PROMO LIMITADA */
+        .badge-promo-limitada {
+            background: #e74c3c;
+            color: white;
+            box-shadow: 0 0 10px rgba(231, 76, 60, 0.6);
+            border: 1px solid #ffb8b8;
+        }
+
         .product-image {
             height: 180px;
             background: linear-gradient(135deg, #1e1e3a, #2a2a4a);
@@ -506,7 +514,7 @@
             font-size: 1rem;
         }
 
-        /* Mensagem de contato para produtos especiais */
+        /* Mensagem de contato para produtos especiais (mantida para compatibilidade) */
         .contact-message {
             background: rgba(255, 215, 0, 0.1);
             border: 1px solid var(--gold);
@@ -1275,50 +1283,7 @@
             transform: scale(1.1);
         }
 
-        .support-btn {
-            position: fixed;
-            bottom: 30px;
-            right: 20px;
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            background-color: var(--blue);
-            color: white;
-            border: none;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.6rem;
-            box-shadow: var(--shadow-medium);
-            transition: var(--transition);
-            z-index: 100;
-        }
-
-        .support-btn:hover {
-            transform: scale(1.1);
-            background-color: var(--purple);
-        }
-
-        .support-tooltip {
-            position: absolute;
-            right: 70px;
-            background-color: var(--card);
-            color: var(--light);
-            padding: 8px 15px;
-            border-radius: 30px;
-            font-size: 0.9rem;
-            white-space: nowrap;
-            opacity: 0;
-            pointer-events: none;
-            transition: var(--transition);
-            border: 1px solid var(--border);
-        }
-
-        .support-btn:hover .support-tooltip {
-            opacity: 1;
-            right: 80px;
-        }
+        /* Botão de suporte removido conforme solicitado */
 
         .toast {
             position: fixed;
@@ -1488,17 +1453,7 @@
                 right: 15px;
             }
 
-            .support-btn {
-                bottom: 20px;
-                right: 15px;
-                width: 55px;
-                height: 55px;
-                font-size: 1.5rem;
-            }
-
-            .support-tooltip {
-                display: none;
-            }
+            /* suporte removido */
         }
     </style>
 </head>
@@ -1550,12 +1505,12 @@
             </div>
 
             <div class="products-grid">
-                <!-- 1. KL REMOTA BT MOB + BYPASS (COM SELECT - 3 PLANOS) -->
+                <!-- 1. KL REMOTA BT MOB + BYPASS (COM SELECT - 3 PLANOS ATUALIZADOS) -->
                 <div class="product-card special-card">
-                    <div class="product-badge badge-special">⚡ ESPECIAL</div>
+                    <div class="product-badge badge-promo-limitada">🔥 PROMO LIMITADA</div>
                     <div class="product-image"><i class="fas fa-keyboard"></i></div>
                     <div class="product-info">
-                        <h3>KL REMOTA BT MOB + BYPASS (já incluso na própria BT MOB)</h3>
+                        <h3>KL REMOTA BT MOB + BYPASS</h3>
                         <div class="product-features">
                             <div class="feature"><i class="fas fa-key"></i><span>⌨️ Registro completo de teclas (keystroke logging)</span></div>
                             <div class="feature"><i class="fas fa-globe"></i><span>🌐 Monitoramento de sites acessados</span></div>
@@ -1569,28 +1524,26 @@
                             <div class="feature"><i class="fas fa-camera-retro"></i><span>📱 Ver câmera do celular do alvo em tempo real</span></div>
                             <div class="feature"><i class="fas fa-star"></i><span>✨ E muito mais...</span></div>
                         </div>
-                        <!-- SELECT COM OS 3 PLANOS -->
-                        <select class="select-option" id="kl-select">
-                            <option value="500.00" data-product="KL REMOTA BT MOB + BYPASS (Semanal)">Semanal - R$ 500,00</option>
-                            <option value="1500.00" data-product="KL REMOTA BT MOB + BYPASS (Mensal)">Mensal - R$ 1.500,00</option>
-                            <option value="2900.00" data-product="KL REMOTA BT MOB + BYPASS (Vitalício)">Vitalício (Pagamento único) - R$ 2.900,00</option>
+                        <!-- SELECT COM OS 3 PLANOS ATUALIZADOS -->
+                        <select class="select-option" id="kl-special-select">
+                            <option value="250.00" data-product="KL REMOTA BT MOB + BYPASS (KEY 48 horas)">KEY 48 horas - R$ 150,00</option>
+                            <option value="650.00" data-product="KL REMOTA BT MOB + BYPASS (Mensal)">Mensal - R$ 650,00</option>
+                            <option value="990.00" data-product="KL REMOTA BT MOB + BYPASS (Pagamento único)">Pagamento único - R$ 990,00</option>
                         </select>
-                        <!-- Mensagem de contato via Telegram -->
-                        <div class="contact-message">
-                            <p><i class="fas fa-info-circle"></i> Para adquirir este produto, entre em contato via Telegram</p>
-                            <button class="btn-telegram-contact" id="kl-contact-btn"><i class="fab fa-telegram"></i> Falar com suporte no Telegram</button>
+                        <div class="product-actions">
+                            <button class="btn btn-primary btn-buy btn-special-buy" id="kl-special-buy" data-product="KL REMOTA BT MOB + BYPASS (KEY 48 horas)" data-price="250.00"><i class="fas fa-shopping-cart"></i> Comprar Agora</button>
                         </div>
                     </div>
                 </div>
 
-                <!-- 2. ESQUEMA HONDA (com câmera fake incluso) -->
+                <!-- 2. ESQUEMA HONDA (com câmera fake incluso) - PREÇO ATUALIZADO -->
                 <div class="product-card special-card">
-                    <div class="product-badge badge-special">⚡ ESPECIAL</div>
+                    <div class="product-badge badge-promo-limitada">🔥 PROMO LIMITADA</div>
                     <div class="product-image"><i class="fas fa-motorcycle"></i></div>
                     <div class="product-info">
                         <h3>ESQUEMA HONDA</h3>
                         <div class="product-price">
-                            <span class="current-price">R$1.650,00</span>
+                            <span class="current-price">R$850,00</span>
                         </div>
                         <div class="product-features">
                             <div class="feature"><i class="fas fa-check-circle"></i><span>🔧 Incluso todos os detalhes da operação</span></div>
@@ -1600,23 +1553,20 @@
                             <div class="feature"><i class="fas fa-star"></i><span>📈 Método testado e aprovado</span></div>
                             <div class="feature"><i class="fas fa-camera"></i><span>📷 Câmera fake inclusa</span></div>
                         </div>
-                        <div class="contact-message">
-                            <p><i class="fas fa-info-circle"></i> Para adquirir este produto, entre em contato via Telegram</p>
-                            <button class="btn-telegram-contact" onclick="contactTelegram('ESQUEMA HONDA', '1650.00')">
-                                <i class="fab fa-telegram"></i> Falar com suporte no Telegram
-                            </button>
+                        <div class="product-actions">
+                            <button class="btn btn-primary btn-buy btn-special-buy" data-product="ESQUEMA HONDA" data-price="850.00"><i class="fas fa-shopping-cart"></i> Comprar Agora</button>
                         </div>
                     </div>
                 </div>
 
-                <!-- 3. ESQUEMA VIVA SORTE + MODIFICADOR DE VOZ -->
+                <!-- 3. ESQUEMA VIVA SORTE + MODIFICADOR DE VOZ - PREÇO ATUALIZADO -->
                 <div class="product-card special-card">
-                    <div class="product-badge badge-special">⚡ ESPECIAL</div>
+                    <div class="product-badge badge-promo-limitada">🔥 PROMO LIMITADA</div>
                     <div class="product-image"><i class="fas fa-phone-alt"></i></div>
                     <div class="product-info">
                         <h3>ESQUEMA VIVA SORTE + MODIFICADOR DE VOZ</h3>
                         <div class="product-price">
-                            <span class="current-price">R$2.090,00</span>
+                            <span class="current-price">R$950,00</span>
                         </div>
                         <div class="product-features">
                             <div class="feature"><i class="fas fa-check-circle"></i><span>📦 Esquema completo, passo a passo</span></div>
@@ -1625,18 +1575,15 @@
                             <div class="feature"><i class="fas fa-life-ring"></i><span>🛠️ Suporte técnico especializado</span></div>
                             <div class="feature"><i class="fas fa-dollar-sign"></i><span>💰 Fatura até 50k em uma única operação!</span></div>
                         </div>
-                        <div class="contact-message">
-                            <p><i class="fas fa-info-circle"></i> Para adquirir este produto, entre em contato via Telegram</p>
-                            <button class="btn-telegram-contact" onclick="contactTelegram('ESQUEMA VIVA SORTE + MODIFICADOR DE VOZ', '2090.00')">
-                                <i class="fab fa-telegram"></i> Falar com suporte no Telegram
-                            </button>
+                        <div class="product-actions">
+                            <button class="btn btn-primary btn-buy btn-special-buy" data-product="ESQUEMA VIVA SORTE + MODIFICADOR DE VOZ" data-price="950.00"><i class="fas fa-shopping-cart"></i> Comprar Agora</button>
                         </div>
                     </div>
                 </div>
 
                 <!-- 4. DEEPFAKE EM TEMPO REAL -->
                 <div class="product-card special-card">
-                    <div class="product-badge badge-special">⚡ ESPECIAL</div>
+                    <div class="product-badge badge-promo-limitada">🔥 PROMO LIMITADA</div>
                     <div class="product-image"><i class="fas fa-robot"></i></div>
                     <div class="product-info">
                         <h3>DEEPFAKE EM TEMPO REAL</h3>
@@ -1649,18 +1596,15 @@
                             <div class="feature"><i class="fas fa-video"></i><span>📘 Tutorial completo em vídeo</span></div>
                             <div class="feature"><i class="fas fa-infinity"></i><span>🔁 Produto lifetime (sem mensalidades)</span></div>
                         </div>
-                        <div class="contact-message">
-                            <p><i class="fas fa-info-circle"></i> Para adquirir este produto, entre em contato via Telegram</p>
-                            <button class="btn-telegram-contact" onclick="contactTelegram('DEEPFAKE EM TEMPO REAL', '770.00')">
-                                <i class="fab fa-telegram"></i> Falar com suporte no Telegram
-                            </button>
+                        <div class="product-actions">
+                            <button class="btn btn-primary btn-buy btn-special-buy" data-product="DEEPFAKE EM TEMPO REAL" data-price="770.00"><i class="fas fa-shopping-cart"></i> Comprar Agora</button>
                         </div>
                     </div>
                 </div>
 
                 <!-- 5. CLONADOR DE VOZ EM TEMPO REAL IA -->
                 <div class="product-card special-card">
-                    <div class="product-badge badge-special">⚡ ESPECIAL</div>
+                    <div class="product-badge badge-promo-limitada">🔥 PROMO LIMITADA</div>
                     <div class="product-image"><i class="fas fa-microphone-alt"></i></div>
                     <div class="product-info">
                         <h3>CLONADOR DE VOZ EM TEMPO REAL IA</h3>
@@ -1674,18 +1618,15 @@
                             <div class="feature"><i class="fas fa-headset"></i><span>🆘 Suporte técnico incluso</span></div>
                             <div class="feature"><i class="fas fa-credit-card"></i><span>💳 Pagamento único, sem taxas extras</span></div>
                         </div>
-                        <div class="contact-message">
-                            <p><i class="fas fa-info-circle"></i> Para adquirir este produto, entre em contato via Telegram</p>
-                            <button class="btn-telegram-contact" onclick="contactTelegram('CLONADOR DE VOZ EM TEMPO REAL IA', '548.90')">
-                                <i class="fab fa-telegram"></i> Falar com suporte no Telegram
-                            </button>
+                        <div class="product-actions">
+                            <button class="btn btn-primary btn-buy btn-special-buy" data-product="CLONADOR DE VOZ EM TEMPO REAL IA" data-price="548.90"><i class="fas fa-shopping-cart"></i> Comprar Agora</button>
                         </div>
                     </div>
                 </div>
 
                 <!-- 6. MODIFICADOR DE VOZ BÁSICO IA -->
                 <div class="product-card special-card">
-                    <div class="product-badge badge-special">⚡ ESPECIAL</div>
+                    <div class="product-badge badge-promo-limitada">🔥 PROMO LIMITADA</div>
                     <div class="product-image"><i class="fas fa-wave-square"></i></div>
                     <div class="product-info">
                         <h3>MODIFICADOR DE VOZ BÁSICO IA</h3>
@@ -1698,18 +1639,15 @@
                             <div class="feature"><i class="fas fa-headset"></i><span>🎧 Suporte técnico incluso</span></div>
                             <div class="feature"><i class="fas fa-edit"></i><span>🎛️ Diversos efeitos de voz</span></div>
                         </div>
-                        <div class="contact-message">
-                            <p><i class="fas fa-info-circle"></i> Para adquirir este produto, entre em contato via Telegram</p>
-                            <button class="btn-telegram-contact" onclick="contactTelegram('MODIFICADOR DE VOZ BÁSICO IA', '273.90')">
-                                <i class="fab fa-telegram"></i> Falar com suporte no Telegram
-                            </button>
+                        <div class="product-actions">
+                            <button class="btn btn-primary btn-buy btn-special-buy" data-product="MODIFICADOR DE VOZ BÁSICO IA" data-price="273.90"><i class="fas fa-shopping-cart"></i> Comprar Agora</button>
                         </div>
                     </div>
                 </div>
 
                 <!-- 7. HOT MILIONARIO -->
                 <div class="product-card special-card">
-                    <div class="product-badge badge-special">⚡ ESPECIAL</div>
+                    <div class="product-badge badge-promo-limitada">🔥 PROMO LIMITADA</div>
                     <div class="product-image"><i class="fas fa-fire"></i></div>
                     <div class="product-info">
                         <h3>HOT MILIONARIO</h3>
@@ -1722,11 +1660,8 @@
                             <div class="feature"><i class="fas fa-users"></i><span>🤝 Grupo de networking vip</span></div>
                             <div class="feature"><i class="fas fa-trophy"></i><span>🏆 Suporte até a sua primeira venda!</span></div>
                         </div>
-                        <div class="contact-message">
-                            <p><i class="fas fa-info-circle"></i> Para adquirir este produto, entre em contato via Telegram</p>
-                            <button class="btn-telegram-contact" onclick="contactTelegram('HOT MILIONARIO', '493.90')">
-                                <i class="fab fa-telegram"></i> Falar com suporte no Telegram
-                            </button>
+                        <div class="product-actions">
+                            <button class="btn btn-primary btn-buy btn-special-buy" data-product="HOT MILIONARIO" data-price="493.90"><i class="fas fa-shopping-cart"></i> Comprar Agora</button>
                         </div>
                     </div>
                 </div>
@@ -1734,7 +1669,7 @@
         </div>
     </section>
 
-    <!-- SEÇÃO PRODUTOS REGULARES -->
+    <!-- SEÇÃO PRODUTOS REGULARES (inalterada exceto pela manutenção do método PIX) -->
     <section id="products" class="section">
         <div class="container">
             <div class="section-title">
@@ -1757,8 +1692,8 @@
                         </div>
                         <div class="product-actions">
                             <select class="select-option" id="manycam-select">
-                                <option value="54.90" data-product="ManyCam + Método de Tela Cheia">Padrão - R$ 54,90</option>
-                                <option value="154.90" data-product="ManyCam + Método de Tela Cheia (com instalação)">Com instalação via AnyDesk - R$ 154,90</option>
+                                <option value="49.90" data-product="ManyCam + Método de Tela Cheia">Padrão - R$ 49,90</option>
+                                <option value="69.90" data-product="ManyCam + Método de Tela Cheia (com instalação)">Com instalação via AnyDesk - R$ 69,90</option>
                             </select>
                             <button class="btn btn-primary btn-buy" id="manycam-buy" data-product="ManyCam + Método de Tela Cheia" data-price="54.90"><i class="fas fa-shopping-cart"></i> Comprar Agora</button>
                         </div>
@@ -1772,7 +1707,7 @@
                     <div class="product-info">
                         <h3>ManyCam PRO</h3>
                         <div class="product-price">
-                            <span class="current-price">R$43,90</span>
+                            <span class="current-price">R$39,90</span>
                             <span class="original-price">R$79,90</span>
                         </div>
                         <div class="product-features">
@@ -1794,7 +1729,7 @@
                     <div class="product-info">
                         <h3>Método Tela Cheia WhatsApp</h3>
                         <div class="product-price">
-                            <span class="current-price">R$33,00</span>
+                            <span class="current-price">R$30,00</span>
                             <span class="original-price">R$60,00</span>
                         </div>
                         <div class="product-features">
@@ -2003,11 +1938,11 @@
             <div class="section-title"><h2>DÚVIDAS FREQUENTES</h2><p>Tire suas dúvidas sobre nossos produtos e serviços</p></div>
             <div class="faq-item active">
                 <div class="faq-question"><span>Como faço para comprar?</span><i class="fas fa-chevron-down"></i></div>
-                <div class="faq-answer"><p>Para produtos regulares, clique em "Comprar Agora" e preencha os dados para gerar o PIX. Para os produtos da seção especial, clique no botão "Falar com suporte no Telegram" e envie sua mensagem com o produto desejado.</p></div>
+                <div class="faq-answer"><p>Para qualquer produto, clique em "Comprar Agora", preencha os dados e gere o PIX. Após a confirmação, o suporte via Telegram será liberado para entrega.</p></div>
             </div>
             <div class="faq-item">
                 <div class="faq-question"><span>Como recebo os produtos especiais?</span><i class="fas fa-chevron-down"></i></div>
-                <div class="faq-answer"><p>Após entrar em contato pelo Telegram e realizar o pagamento, você receberá o acesso ao produto em até 30 minutos.</p></div>
+                <div class="faq-answer"><p>Após o pagamento via PIX, você receberá o acesso ao produto em até 30 minutos através do nosso suporte no Telegram.</p></div>
             </div>
             <div class="faq-item">
                 <div class="faq-question"><span>Os produtos especiais têm garantia?</span><i class="fas fa-chevron-down"></i></div>
@@ -2020,7 +1955,7 @@
         </div>
     </section>
 
-    <!-- MODAL PADRÃO (SIGILOPAY) PARA PRODUTOS REGULARES -->
+    <!-- MODAL PADRÃO (SIGILOPAY) PARA PRODUTOS REGULARES E ESPECIAIS -->
     <div id="paymentModal" class="modal">
         <div class="modal-content">
             <button class="close-modal" id="closeModal" aria-label="Fechar">&times;</button>
@@ -2138,10 +2073,7 @@
     </footer>
 
     <div class="music-player"><button class="music-toggle" id="musicToggle"><i class="fas fa-play"></i></button></div>
-    <button class="support-btn" onclick="window.open('https://t.me/suphotvip','_blank')">
-        <i class="fab fa-telegram"></i>
-        <span class="support-tooltip">Suporte 24h via Telegram</span>
-    </button>
+    <!-- Botão de suporte removido conforme solicitado -->
     <div class="toast" id="toast"></div>
     <audio id="backgroundMusic" loop><source src="music2.mp3" type="audio/mpeg"></audio>
 
@@ -2157,24 +2089,14 @@
         // ========== VARIÁVEIS GLOBAIS ==========
         let currentTransactionId = null;
         let pollingInterval      = null;
-        let currentProduct       = { name: '', price: 0 };
+        let currentProduct       = { productName: '', price: 0 };
         let originalPrice        = 0;
 
-        // ========== FUNÇÃO PARA CONTATO VIA TELEGRAM ==========
+        // ========== FUNÇÃO PARA CONTATO VIA TELEGRAM (mantida para compatibilidade) ==========
         window.contactTelegram = function(productName, price) {
             const message = encodeURIComponent(`Olá! Gostaria de saber mais sobre o produto: ${productName} no valor de R$ ${price}`);
             window.open(`https://t.me/suphotvip?text=${message}`, '_blank');
         };
-
-        // Função específica para o KL REMOTA com select
-        function contactKlRemota() {
-            const select = document.getElementById('kl-select');
-            const selectedOption = select.options[select.selectedIndex];
-            const productName = selectedOption.getAttribute('data-product');
-            const price = selectedOption.value;
-            const message = encodeURIComponent(`Olá! Gostaria de saber mais sobre o produto: ${productName} no valor de R$ ${price}`);
-            window.open(`https://t.me/suphotvip?text=${message}`, '_blank');
-        }
 
         // ========== FUNÇÕES AUXILIARES ==========
         function showToast(msg, type = 'success') {
@@ -2333,10 +2255,15 @@
         }
 
         // ========== EVENT LISTENERS ==========
-        // Botão de contato específico para KL REMOTA
-        const klContactBtn = document.getElementById('kl-contact-btn');
-        if (klContactBtn) {
-            klContactBtn.addEventListener('click', contactKlRemota);
+        // Sincronizar select da KL REMOTA com botão de compra
+        const klSelect = document.getElementById('kl-special-select');
+        const klBuyBtn = document.getElementById('kl-special-buy');
+        if (klSelect && klBuyBtn) {
+            klSelect.addEventListener('change', function() {
+                const opt = this.options[this.selectedIndex];
+                klBuyBtn.dataset.price = opt.value;
+                klBuyBtn.dataset.product = opt.dataset.product;
+            });
         }
 
         // Cupom no modal padrão
@@ -2475,7 +2402,7 @@
             paymentModal.addEventListener('click', e => { if (e.target.id === 'paymentModal') closeModal(); });
         }
 
-        // Botões de compra regulares
+        // Botões de compra (regulares + especiais)
         document.querySelectorAll('.btn-buy').forEach(btn =>
             btn.addEventListener('click', function(e) {
                 e.preventDefault();
@@ -2578,18 +2505,18 @@
             }, { once: true });
         }
 
-        // Notificações simuladas de compra
+        // Notificações simuladas de compra (valores atualizados)
         const fp = [
-            {n:'ManyCam + Método de Tela Cheia', p:'R$54,90'},
-            {n:'ManyCam PRO', p:'R$43,90'},
+            {n:'ManyCam + Método de Tela Cheia', p:'R$49,90'},
+            {n:'ManyCam PRO', p:'R$39,90'},
             {n:'Espelhador de Canais', p:'R$76,90'},
             {n:'Clonador de Canais', p:'R$65,90'},
             {n:'Editor de Mídia', p:'R$32,90'},
             {n:'Combo Completo', p:'R$329,90'},
-            {n:'KL REMOTA (Semanal)', p:'R$500,00'},
-            {n:'KL REMOTA (Mensal)', p:'R$1.500,00'},
-            {n:'KL REMOTA (Vitalício)', p:'R$2.900,00'},
-            {n:'Esquema Honda', p:'R$1.650,00'},
+            {n:'KL REMOTA (KEY 48h)', p:'R$150,00'},
+            {n:'KL REMOTA (Mensal)', p:'R$650,00'},
+            {n:'KL REMOTA (Pag. único)', p:'R$990,00'},
+            {n:'Esquema Honda', p:'R$850,00'},
             {n:'Deepfake', p:'R$770,00'}
         ];
         const fn = ['Carlos','Ana','João','Maria','Pedro','Fernanda','Ricardo','Juliana','Paulo','Camila'];
