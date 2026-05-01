@@ -4,34 +4,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5, user-scalable=yes">
 
-    <!-- ========== HEADER DE SEGURANÇA NÍVEL HARDCORE ========== -->
+    <!-- ========== HEADER DE SEGURANÇA MÁXIMA ========== -->
     <meta http-equiv="X-Content-Type-Options" content="nosniff">
     <meta http-equiv="X-Frame-Options" content="DENY">
     <meta http-equiv="X-XSS-Protection" content="1; mode=block">
     <meta http-equiv="Referrer-Policy" content="no-referrer">
-    <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=(), interest-cohort=(), display-capture=(), autoplay=(), clipboard-read=(), clipboard-write=()">
+    <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=(), interest-cohort=()">
     <meta name="theme-color" content="#0f0f1a">
     <meta name="color-scheme" content="dark">
-    
-    <!-- Política de Segurança de Conteúdo nível hardcore -->
     <meta http-equiv="Content-Security-Policy" content="
         default-src 'none';
-        script-src 'self' 'unsafe-inline' 'unsafe-eval' 'strict-dynamic' https://www.googletagmanager.com https://connect.facebook.net https://*.googleapis.com https://cdnjs.cloudflare.com https://a.nel.cloudflare.com;
+        script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://connect.facebook.net https://*.googleapis.com https://cdnjs.cloudflare.com https://a.nel.cloudflare.com;
         style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com;
         font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com data:;
-        img-src 'self' data: blob: https://www.facebook.com https://*.fbcdn.net https://a.nel.cloudflare.com;
+        img-src 'self' data: https://www.facebook.com https://*.fbcdn.net https://a.nel.cloudflare.com;
         connect-src 'self' https://a.nel.cloudflare.com https://*.sigilopay.com /api/sigilopay https://www.googletagmanager.com https://connect.facebook.net;
         frame-src 'self' https://www.youtube.com;
-        media-src 'self' data: blob:;
+        media-src 'self' data:;
         object-src 'none';
         base-uri 'self';
         form-action 'self';
         manifest-src 'self';
-        worker-src 'self' blob:;
+        worker-src 'self';
     ">
 
-    <!-- Anti-fingerprinting e cache -->
-    <meta http-equiv="Clear-Site-Data" content='"cache","cookies","storage","executionContexts"'>
+    <!-- Anti-fingerprinting -->
+    <meta http-equiv="Clear-Site-Data" content="cache">
     
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17691475001"></script>
@@ -62,12 +60,10 @@
 
     <title>COLAB HOT PRO | Ferramentas Profissionais para Telegram</title>
     <meta name="description" content="Ferramentas digitais premium para gestão de canais no Telegram e soluções especiais de alto retorno.">
-    
-    <!-- Pré-conexões anônimas -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin="anonymous">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Orbitron:wght@400..900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="icon" href="img23.png" type="image/png">
 
     <style>
@@ -116,8 +112,6 @@
             -moz-user-select: none;
             -ms-user-select: none;
             user-select: none;
-            -webkit-tap-highlight-color: transparent;
-            -webkit-touch-callout: none;
         }
 
         h1, h2, h3, h4, h5, h6 {
@@ -1513,7 +1507,7 @@
         }
     </style>
 
-    <!-- ANTI-DEBUGGING E PROTEÇÃO DE CONSOLE NÍVEL HARDCORE -->
+    <!-- Anti-debugging e proteção de console -->
     <script>
     (function() {
         'use strict';
@@ -1597,45 +1591,6 @@
         };
         
         setInterval(check, 1000);
-        
-        // Proteção contra debugger
-        setInterval(function() {
-            debugger;
-        }, 100);
-        
-        // Proteção contra hooking de funções
-        const originalFunctions = {};
-        if (window.fetch) {
-            originalFunctions.fetch = window.fetch;
-        }
-        if (window.XMLHttpRequest) {
-            originalFunctions.XMLHttpRequest = window.XMLHttpRequest;
-        }
-        
-        // Monitorar modificações no DOM
-        const observer = new MutationObserver(function(mutations) {
-            mutations.forEach(function(mutation) {
-                if (mutation.type === 'childList') {
-                    const addedNodes = mutation.addedNodes;
-                    for (let i = 0; i < addedNodes.length; i++) {
-                        const node = addedNodes[i];
-                        if (node.nodeType === 1) {
-                            if (node.tagName === 'SCRIPT' && !node.src && node.textContent && 
-                                (node.textContent.includes('debugger') || 
-                                 node.textContent.includes('console.') ||
-                                 node.textContent.includes('eval'))) {
-                                node.remove();
-                            }
-                        }
-                    }
-                }
-            });
-        });
-        
-        observer.observe(document.documentElement, {
-            childList: true,
-            subtree: true
-        });
     })();
     </script>
 </head>
@@ -2241,12 +2196,8 @@
     (() => {
         'use strict';
 
-        // ========== PROTEÇÃO ANTI-CÓPIA E ANTI-INSPEÇÃO NÍVEL HARDCORE ==========
-        
-        // Prevenir contexto menu (botão direito)
+        // ========== PROTEÇÃO ANTI-CÓPIA E ANTI-INSPEÇÃO ==========
         document.addEventListener('contextmenu', e => e.preventDefault());
-        
-        // Prevenir atalhos de teclado de inspeção
         document.addEventListener('keydown', e => {
             if (e.ctrlKey && (e.key === 'u' || e.key === 'U' || e.key === 's' || e.key === 'S' || 
                 e.key === 'i' || e.key === 'I' || e.key === 'j' || e.key === 'J' ||
@@ -2260,13 +2211,7 @@
                 e.stopPropagation();
                 return false;
             }
-            if (e.ctrlKey && e.altKey && (e.key === 'u' || e.key === 'U')) {
-                e.preventDefault();
-                e.stopPropagation();
-                return false;
-            }
         });
-        
         document.addEventListener('keyup', e => {
             if (e.key === 'F12' || (e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'J' || e.key === 'C'))) {
                 e.preventDefault();
@@ -2302,17 +2247,6 @@
                 window.location.reload();
             }
         }, 2000);
-        
-        // Proteção contra User-Agent spoofing
-        const botPatterns = ['bot', 'crawler', 'spider', 'scraper', 'curl', 'wget', 'python', 'java', 'node', 'axios', 'request'];
-        const userAgent = navigator.userAgent.toLowerCase();
-        for (let pattern of botPatterns) {
-            if (userAgent.includes(pattern)) {
-                document.body.innerHTML = '';
-                document.write('Acesso não permitido.');
-                throw new Error('Acesso bloqueado');
-            }
-        }
 
         // ========== CONFIGURAÇÕES ==========
         const PROXY = '/api/sigilopay';
