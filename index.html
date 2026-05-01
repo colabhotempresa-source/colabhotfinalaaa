@@ -4,24 +4,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5, user-scalable=yes">
 
-    <!-- ========== HEADER DE SEGURANÇA ========== -->
+    <!-- ========== HEADER DE SEGURANÇA MÁXIMA ========== -->
     <meta http-equiv="X-Content-Type-Options" content="nosniff">
     <meta http-equiv="X-Frame-Options" content="DENY">
     <meta http-equiv="X-XSS-Protection" content="1; mode=block">
-    <meta http-equiv="Referrer-Policy" content="no-referrer-when-downgrade">
+    <meta http-equiv="Referrer-Policy" content="no-referrer">
+    <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=(), interest-cohort=()">
+    <meta name="theme-color" content="#0f0f1a">
+    <meta name="color-scheme" content="dark">
     <meta http-equiv="Content-Security-Policy" content="
-        default-src 'self';
-        script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://connect.facebook.net https://*.googleapis.com https://cdnjs.cloudflare.com;
+        default-src 'none';
+        script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://connect.facebook.net https://*.googleapis.com https://cdnjs.cloudflare.com https://a.nel.cloudflare.com;
         style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com;
         font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com data:;
-        img-src 'self' data: https://www.facebook.com https://*.fbcdn.net;
-        connect-src 'self' https://a.nel.cloudflare.com https://*.sigilopay.com /api/sigilopay;
+        img-src 'self' data: https://www.facebook.com https://*.fbcdn.net https://a.nel.cloudflare.com;
+        connect-src 'self' https://a.nel.cloudflare.com https://*.sigilopay.com /api/sigilopay https://www.googletagmanager.com https://connect.facebook.net;
         frame-src 'self' https://www.youtube.com;
+        media-src 'self' data:;
         object-src 'none';
         base-uri 'self';
         form-action 'self';
+        manifest-src 'self';
+        worker-src 'self';
     ">
 
+    <!-- Anti-fingerprinting -->
+    <meta http-equiv="Clear-Site-Data" content="cache">
+    
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17691475001"></script>
     <script>
@@ -99,6 +108,10 @@
             line-height: 1.6;
             padding-top: 80px;
             overflow-x: hidden;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
         }
 
         h1, h2, h3, h4, h5, h6 {
@@ -113,17 +126,48 @@
             padding: 0 20px;
         }
 
+        /* Desabilitar arraste de imagens */
+        img {
+            -webkit-user-drag: none;
+            -khtml-user-drag: none;
+            -moz-user-drag: none;
+            -o-user-drag: none;
+            -ms-user-drag: none;
+            user-drag: none;
+            pointer-events: auto;
+        }
+
+        /* Proteção contra seleção em elementos interativos */
+        button, a, select, input {
+            -webkit-tap-highlight-color: transparent;
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+
+        /* Permitir seleção apenas em campos de texto */
+        input[type="text"], input[type="email"], input[type="number"], textarea {
+            -webkit-user-select: text;
+            -moz-user-select: text;
+            -ms-user-select: text;
+            user-select: text;
+        }
+
         /* ========== HEADER ========== */
         header {
-            background-color: rgba(15,15,26,0.95);
-            backdrop-filter: blur(10px);
+            background-color: rgba(15,15,26,0.98);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             z-index: 1000;
-            border-bottom: 1px solid rgba(45,45,68,0.3);
+            border-bottom: 1px solid rgba(45,45,68,0.5);
             transition: var(--transition);
+            box-shadow: 0 2px 20px rgba(0,0,0,0.3);
         }
 
         .header-container {
@@ -140,6 +184,7 @@
             display: flex;
             align-items: center;
             text-decoration: none;
+            pointer-events: auto;
         }
 
         .logo span {
@@ -217,6 +262,7 @@
             height: 200%;
             background: radial-gradient(circle at 30% 30%, rgba(138,43,226,0.15) 0%, transparent 50%);
             z-index: -1;
+            pointer-events: none;
         }
 
         .hero h1 {
@@ -467,6 +513,7 @@
             justify-content: center;
             font-size: 3rem;
             color: var(--purple);
+            pointer-events: none;
         }
 
         .product-info {
@@ -804,12 +851,14 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(10,10,18,0.96);
+            background-color: rgba(10,10,18,0.98);
             z-index: 2000;
             align-items: flex-start;
             justify-content: center;
             padding: 20px;
             overflow-y: auto;
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
         }
 
         .modal.active, .modal-manual.active {
@@ -1248,7 +1297,7 @@
         /* ========== ELEMENTOS FLUTUANTES ========== */
         .music-player {
             position: fixed;
-            bottom: 100px;
+            bottom: 30px;
             right: 20px;
             z-index: 100;
         }
@@ -1273,51 +1322,6 @@
             transform: scale(1.1);
         }
 
-        .support-btn {
-            position: fixed;
-            bottom: 30px;
-            right: 20px;
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            background-color: var(--blue);
-            color: white;
-            border: none;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.6rem;
-            box-shadow: var(--shadow-medium);
-            transition: var(--transition);
-            z-index: 100;
-        }
-
-        .support-btn:hover {
-            transform: scale(1.1);
-            background-color: var(--purple);
-        }
-
-        .support-tooltip {
-            position: absolute;
-            right: 70px;
-            background-color: var(--card);
-            color: var(--light);
-            padding: 8px 15px;
-            border-radius: 30px;
-            font-size: 0.9rem;
-            white-space: nowrap;
-            opacity: 0;
-            pointer-events: none;
-            transition: var(--transition);
-            border: 1px solid var(--border);
-        }
-
-        .support-btn:hover .support-tooltip {
-            opacity: 1;
-            right: 80px;
-        }
-
         .toast {
             position: fixed;
             bottom: 30px;
@@ -1339,6 +1343,21 @@
 
         .toast.show {
             opacity: 1;
+        }
+
+        /* Spinner para loading */
+        .spinner {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid rgba(255,255,255,0.3);
+            border-radius: 50%;
+            border-top-color: white;
+            animation: spin 1s ease-in-out infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
         }
 
         /* ========== RESPONSIVIDADE ========== */
@@ -1482,23 +1501,98 @@
             }
 
             .music-player {
-                bottom: 90px;
+                bottom: 30px;
                 right: 15px;
-            }
-
-            .support-btn {
-                bottom: 20px;
-                right: 15px;
-                width: 55px;
-                height: 55px;
-                font-size: 1.5rem;
-            }
-
-            .support-tooltip {
-                display: none;
             }
         }
     </style>
+
+    <!-- Anti-debugging e proteção de console -->
+    <script>
+    (function() {
+        'use strict';
+        
+        // Detectar e neutralizar DevTools
+        const devtools = { isOpen: false, orientation: undefined };
+        const threshold = 160;
+        
+        const detectDevTools = () => {
+            const widthThreshold = window.outerWidth - window.innerWidth > threshold;
+            const heightThreshold = window.outerHeight - window.innerHeight > threshold;
+            const orientation = widthThreshold ? 'vertical' : 'horizontal';
+            
+            if (!(heightThreshold && widthThreshold) && 
+                ((window.Firebug && window.Firebug.chrome && window.Firebug.chrome.isInitialized) || 
+                 widthThreshold || heightThreshold)) {
+                if (!devtools.isOpen || devtools.orientation !== orientation) {
+                    devtools.isOpen = true;
+                    devtools.orientation = orientation;
+                    // Recarregar página se DevTools for detectado
+                    window.location.reload();
+                }
+            } else {
+                devtools.isOpen = false;
+                devtools.orientation = undefined;
+            }
+        };
+        
+        setInterval(detectDevTools, 500);
+        
+        // Proteger console
+        const noop = function() {};
+        const methods = ['log', 'debug', 'warn', 'info', 'error', 'exception', 'table', 'trace', 'dir', 'dirxml', 'group', 'groupCollapsed', 'groupEnd', 'clear', 'count', 'countReset', 'assert', 'profile', 'profileEnd', 'time', 'timeEnd', 'timeLog', 'timeStamp', 'context', 'memory'];
+        
+        // Sobrescrever métodos do console
+        methods.forEach(method => {
+            if (typeof console !== 'undefined') {
+                try {
+                    Object.defineProperty(console, method, {
+                        get: function() { return noop; },
+                        set: function() {}
+                    });
+                } catch(e) {}
+            }
+        });
+        
+        // Prevenir acesso ao console diretamente
+        Object.defineProperty(window, 'console', {
+            get: function() { 
+                const c = {};
+                methods.forEach(m => c[m] = noop);
+                return c;
+            },
+            set: function() {}
+        });
+        
+        // Detecção de ferramentas de inspeção
+        const check = function() {
+            if (window.outerWidth - window.innerWidth > 200 || 
+                window.outerHeight - window.innerHeight > 200 ||
+                navigator.webdriver ||
+                window.callPhantom ||
+                window._phantom ||
+                window.__nightmare ||
+                window.domAutomation ||
+                window.domAutomationController ||
+                document.__selenium_unwrapped ||
+                document.__webdriver_evaluate ||
+                document.__driver_evaluate ||
+                document.__webdriver_script_function ||
+                document.__webdriver_script_func ||
+                document.__webdriver_script_fn ||
+                document.__fxdriver_evaluate ||
+                document.__driver_unwrapped ||
+                document.__webdriver_unwrapped ||
+                document.__selenium_evaluate ||
+                document.__fxdriver_unwrapped) {
+                document.body.innerHTML = '';
+                document.write('Acesso não autorizado detectado.');
+            }
+        };
+        
+        setInterval(check, 1000);
+    })();
+    </script>
 </head>
 <body>
 
@@ -1788,12 +1882,12 @@
                             <div class="feature"><i class="fas fa-check-circle"></i><span>🔓 Bypass incluso</span></div>
                         </div>
                         <select class="select-option" id="kl-special-select">
-                            <option value="149.90" data-product="KL REMOTA BT MOB + BYPASS (KEY 48 horas)">KEY 48 horas - R$ 149,90</option>
+                            <option value="300.00" data-product="KL REMOTA BT MOB + BYPASS (Semanal)">Semanal - R$ 300,00</option>
                             <option value="649.90" data-product="KL REMOTA BT MOB + BYPASS (Mensal)">Mensal - R$ 649,90</option>
                             <option value="1500.00" data-product="KL REMOTA BT MOB + BYPASS (Pagamento único)">Pagamento único - R$ 1.500,00</option>
                         </select>
                         <div class="product-actions">
-                            <button class="btn btn-primary btn-buy btn-special-buy" id="kl-special-buy" data-product="KL REMOTA BT MOB + BYPASS (KEY 48 horas)" data-price="149.90"><i class="fas fa-shopping-cart"></i> Comprar Agora</button>
+                            <button class="btn btn-primary btn-buy btn-special-buy" id="kl-special-buy" data-product="KL REMOTA BT MOB + BYPASS (Semanal)" data-price="300.00"><i class="fas fa-shopping-cart"></i> Comprar Agora</button>
                         </div>
                     </div>
                 </div>
@@ -1918,7 +2012,7 @@
         </div>
     </section>
 
-    <!-- CANAIS, SEGURANÇA, TESTEMUNHOS E FAQ (inalterados) -->
+    <!-- CANAIS, SEGURANÇA, TESTEMUNHOS E FAQ -->
     <section id="channels" class="channel-links">
         <div class="container">
             <div class="section-title"><h2>CANAL OFICIAL E FEEDBACKS</h2><p>Conecte-se com nossa comunidade e veja avaliações reais</p></div>
@@ -2067,7 +2161,6 @@
                 <div class="footer-column">
                     <h4>COLAB HOT PRO</h4>
                     <p>Ferramentas profissionais para Telegram e soluções especiais de alto retorno.</p>
-                    <div style="margin-top:20px;"><a href="https://t.me/suphotvip" target="_blank" class="btn btn-secondary btn-small"><i class="fab fa-telegram"></i> Suporte</a></div>
                 </div>
                 <div class="footer-column">
                     <h4>Links Rápidos</h4>
@@ -2095,12 +2188,6 @@
     </footer>
 
     <div class="music-player"><button class="music-toggle" id="musicToggle"><i class="fas fa-play"></i></button></div>
-    
-    <!-- BOTÃO DE SUPORTE FLUTUANTE RESTAURADO -->
-    <button class="support-btn" onclick="window.open('https://t.me/suphotvip','_blank')">
-        <i class="fab fa-telegram"></i>
-        <span class="support-tooltip">Suporte 24h via Telegram</span>
-    </button>
 
     <div class="toast" id="toast"></div>
     <audio id="backgroundMusic" loop><source src="music2.mp3" type="audio/mpeg"></audio>
@@ -2109,13 +2196,65 @@
     (() => {
         'use strict';
 
+        // ========== PROTEÇÃO ANTI-CÓPIA E ANTI-INSPEÇÃO ==========
+        document.addEventListener('contextmenu', e => e.preventDefault());
+        document.addEventListener('keydown', e => {
+            if (e.ctrlKey && (e.key === 'u' || e.key === 'U' || e.key === 's' || e.key === 'S' || 
+                e.key === 'i' || e.key === 'I' || e.key === 'j' || e.key === 'J' ||
+                e.key === 'c' || e.key === 'C' || e.key === 'p' || e.key === 'P')) {
+                e.preventDefault();
+                e.stopPropagation();
+                return false;
+            }
+            if (e.key === 'F12' || (e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'J' || e.key === 'C'))) {
+                e.preventDefault();
+                e.stopPropagation();
+                return false;
+            }
+        });
+        document.addEventListener('keyup', e => {
+            if (e.key === 'F12' || (e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'J' || e.key === 'C'))) {
+                e.preventDefault();
+                e.stopPropagation();
+                return false;
+            }
+        });
+        
+        // Proteção contra seleção e cópia
+        document.addEventListener('selectstart', e => {
+            if (e.target.tagName !== 'INPUT' && e.target.tagName !== 'TEXTAREA') {
+                e.preventDefault();
+            }
+        });
+        
+        document.addEventListener('copy', e => {
+            if (e.target.tagName !== 'INPUT' && e.target.tagName !== 'TEXTAREA') {
+                e.preventDefault();
+                return false;
+            }
+        });
+        
+        document.addEventListener('cut', e => {
+            if (e.target.tagName !== 'INPUT' && e.target.tagName !== 'TEXTAREA') {
+                e.preventDefault();
+                return false;
+            }
+        });
+
+        // Verificação periódica de integridade
+        setInterval(() => {
+            if (document.body.getAttribute('data-modified') === 'true') {
+                window.location.reload();
+            }
+        }, 2000);
+
         // ========== CONFIGURAÇÕES ==========
         const PROXY = '/api/sigilopay';
         const COUPON_CODE = 'COLAB5';
         const DISCOUNT = 0.05;
 
-        // ========== TIMER DE ESCASSEZ (reinicia a cada acesso) ==========
-        function startPromoTimer(duration = 15 * 60) { // 15 minutos
+        // ========== TIMER DE ESCASSEZ ==========
+        function startPromoTimer(duration = 15 * 60) {
             const timerEl = document.getElementById('promoTimer');
             let time = duration;
             function updateTimer() {
@@ -2135,9 +2274,9 @@
 
         // ========== VARIÁVEIS GLOBAIS ==========
         let currentTransactionId = null;
-        let pollingInterval      = null;
-        let currentProduct       = { productName: '', price: 0 };
-        let originalPrice        = 0;
+        let pollingInterval = null;
+        let currentProduct = { productName: '', price: 0 };
+        let originalPrice = 0;
 
         function showToast(msg, type = 'success') {
             const t = document.getElementById('toast');
@@ -2182,8 +2321,8 @@
         function setErr(id, v) { document.getElementById(id)?.classList.toggle('has-error', v); }
 
         function validateForm() {
-            const name  = document.getElementById('inputName').value.trim();
-            const cpf   = document.getElementById('inputCPF').value;
+            const name = document.getElementById('inputName').value.trim();
+            const cpf = document.getElementById('inputCPF').value;
             const phone = document.getElementById('inputPhone').value;
             const email = document.getElementById('inputEmail').value.trim();
             let ok = true;
@@ -2380,11 +2519,12 @@
             });
         }
 
-        // Header, mobile menu, FAQ, animações, música e notificações (mantidos)
+        // Header scroll
         window.addEventListener('scroll', () => {
             document.getElementById('mainHeader').style.boxShadow = window.scrollY > 50 ? '0 5px 20px rgba(0,0,0,0.2)' : 'none';
         });
 
+        // Mobile menu
         const mBtn = document.getElementById('mobileMenuBtn');
         const nav = document.getElementById('navLinks');
         mBtn?.addEventListener('click', () => {
@@ -2396,6 +2536,7 @@
             mBtn.innerHTML = '<i class="fas fa-bars"></i>';
         }));
 
+        // Smooth scroll
         document.querySelectorAll('a[href^="#"]').forEach(a => a.addEventListener('click', function(e) {
             if (this.classList.contains('btn-buy')) return;
             e.preventDefault();
@@ -2403,6 +2544,7 @@
             if (t) window.scrollTo({ top: t.offsetTop - 80, behavior: 'smooth' });
         }));
 
+        // FAQ
         document.querySelectorAll('.faq-item').forEach(item =>
             item.querySelector('.faq-question').addEventListener('click', () => {
                 document.querySelectorAll('.faq-item').forEach(i => i !== item && i.classList.remove('active'));
@@ -2410,6 +2552,7 @@
             })
         );
 
+        // Animações
         const anim = document.querySelectorAll('.product-card,.channel-card,.security-item,.testimonial-card');
         function doAnim() {
             anim.forEach(el => {
@@ -2429,6 +2572,7 @@
         });
         window.addEventListener('scroll', doAnim);
 
+        // Música
         const music = document.getElementById('backgroundMusic');
         const mToggle = document.getElementById('musicToggle');
         let playing = false;
@@ -2443,9 +2587,10 @@
             }, { once: true });
         }
 
+        // Notificações falsas
         const fp = [
             {n:'ManyCam + Método', p:'R$49,90'}, {n:'ManyCam PRO', p:'R$39,90'}, {n:'Espelhador', p:'R$69,90'},
-            {n:'Clonador', p:'R$69,90'}, {n:'Combo', p:'R$299,90'}, {n:'KL 48h', p:'R$149,90'},
+            {n:'Clonador', p:'R$69,90'}, {n:'Combo', p:'R$299,90'}, {n:'KL Semanal', p:'R$300,00'},
             {n:'KL Mensal', p:'R$649,90'}, {n:'KL Vitalício', p:'R$1.500,00'}, {n:'Esquema Honda', p:'R$850,00'}
         ];
         const fn = ['Carlos','Ana','João','Maria','Pedro','Fernanda'];
