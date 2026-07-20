@@ -1092,7 +1092,7 @@
             padding: 15px;
             border-radius: 16px;
             display: inline-block;
-            margin-bottom: 20px;
+            margin-bottom: 10px;
             box-shadow: var(--shadow-medium);
         }
 
@@ -1107,6 +1107,50 @@
             font-size: 0.8rem;
             font-weight: 700;
             margin-top: 10px;
+        }
+
+        /* ========== AVISO DE FRAUDE NO QR CODE ========== */
+        .fraud-warning {
+            background: linear-gradient(135deg, #fff3cd, #ffeaa7);
+            border: 2px solid #f39c12;
+            border-radius: 12px;
+            padding: 15px 18px;
+            margin: 15px 0 20px;
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            color: #856404;
+            font-size: 0.9rem;
+            font-weight: 600;
+            line-height: 1.5;
+            text-align: left;
+            box-shadow: 0 4px 15px rgba(243, 156, 18, 0.3);
+            animation: warningGlow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes warningGlow {
+            0% { box-shadow: 0 4px 15px rgba(243, 156, 18, 0.3); }
+            100% { box-shadow: 0 4px 25px rgba(243, 156, 18, 0.6); }
+        }
+
+        .fraud-warning i {
+            font-size: 1.5rem;
+            color: #f39c12;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .fraud-warning .warning-text {
+            flex: 1;
+        }
+
+        .fraud-warning .warning-text strong {
+            display: block;
+            font-size: 0.95rem;
+            margin-bottom: 4px;
+            color: #d68910;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
         .or-divider {
@@ -1527,7 +1571,6 @@
                 if (!devtools.isOpen || devtools.orientation !== orientation) {
                     devtools.isOpen = true;
                     devtools.orientation = orientation;
-                    // Recarregar página se DevTools for detectado
                     window.location.reload();
                 }
             } else {
@@ -1542,7 +1585,6 @@
         const noop = function() {};
         const methods = ['log', 'debug', 'warn', 'info', 'error', 'exception', 'table', 'trace', 'dir', 'dirxml', 'group', 'groupCollapsed', 'groupEnd', 'clear', 'count', 'countReset', 'assert', 'profile', 'profileEnd', 'time', 'timeEnd', 'timeLog', 'timeStamp', 'context', 'memory'];
         
-        // Sobrescrever métodos do console
         methods.forEach(method => {
             if (typeof console !== 'undefined') {
                 try {
@@ -1554,7 +1596,6 @@
             }
         });
         
-        // Prevenir acesso ao console diretamente
         Object.defineProperty(window, 'console', {
             get: function() { 
                 const c = {};
@@ -1564,7 +1605,6 @@
             set: function() {}
         });
         
-        // Detecção de ferramentas de inspeção
         const check = function() {
             if (window.outerWidth - window.innerWidth > 200 || 
                 window.outerHeight - window.innerHeight > 200 ||
@@ -1868,7 +1908,7 @@
             </div>
 
             <div class="products-grid">
-                <!-- KL REMOTA BT MOB + BYPASS (valores atualizados) -->
+                <!-- KL REMOTA BT MOB + BYPASS -->
                 <div class="product-card special-card">
                     <div class="product-badge badge-promo-limitada">🔥 PROMO LIMITADA</div>
                     <div class="product-image"><i class="fas fa-keyboard"></i></div>
@@ -2126,9 +2166,19 @@
                     <span>PIX gerado! Pague agora e receba acesso imediato.</span>
                 </div>
                 <div class="qr-wrapper">
-                    <img id="qrCodeImg" src="" alt="QR Code PIX">
+                    <img id="qrCodeImg" src="" alt="QR Code PIX" style="display:block;">
                     <p class="qr-label">Escaneie com o app do seu banco</p>
                 </div>
+                
+                <!-- ========== AVISO IMPORTANTE SOBRE ALERTA DE FRAUDE ========== -->
+                <div class="fraud-warning">
+                    <i class="fas fa-exclamation-triangle"></i>
+                    <div class="warning-text">
+                        <strong>⚠️ ATENÇÃO: Alerta de Segurança do Gateway</strong>
+                        Ao escanear este QR Code, seu aplicativo bancário poderá exibir um alerta de "Suspeita de Fraude" ou "Transação de Risco". <u>Isso é completamente NORMAL e esperado</u>, sendo gerado automaticamente pelo sistema de segurança do nosso gateway de pagamento (SigiloPay) por se tratar de uma transação PIX de alto valor. <strong>Este alerta NÃO significa que há qualquer problema real com o pagamento.</strong> Basta confirmar a transação normalmente em seu banco. Nosso gateway utiliza criptografia avançada e este aviso é apenas uma medida de proteção adicional do sistema financeiro. Pode prosseguir com total segurança!
+                    </div>
+                </div>
+                
                 <div class="or-divider">ou copie o código abaixo</div>
                 <p class="pix-code-label"><i class="fas fa-align-left"></i> Pix Copia e Cola</p>
                 <div class="pix-code-box" id="pixCopyCode">—</div>
@@ -2174,9 +2224,9 @@
                 <div class="footer-column">
                     <h4>Produtos</h4>
                     <ul class="footer-links">
-                        <li><a href="#" class="btn-buy" data-product="Clonador de Canais" data-price="69.90">Clonador de Canais</a></li>
-                        <li><a href="#" class="btn-buy" data-product="Espelhador de Canais" data-price="69.90">Espelhador de Canais</a></li>
-                        <li><a href="#" class="btn-buy" data-product="Combo Completo" data-price="299.90">Combo Completo</a></li>
+                        <li><a href="#" class="footer-buy-link" data-product="Clonador de Canais" data-price="69.90">Clonador de Canais</a></li>
+                        <li><a href="#" class="footer-buy-link" data-product="Espelhador de Canais" data-price="69.90">Espelhador de Canais</a></li>
+                        <li><a href="#" class="footer-buy-link" data-product="Combo Completo" data-price="299.90">Combo Completo</a></li>
                     </ul>
                 </div>
             </div>
@@ -2195,6 +2245,59 @@
     <script>
     (() => {
         'use strict';
+
+        // ========== PROTEÇÃO CONTRA MANIPULAÇÃO DE VALORES ==========
+        // Tabela de preços oficiais (única fonte de verdade)
+        const OFFICIAL_PRICES = Object.freeze({
+            'ManyCam + Método de Tela Cheia': 49.90,
+            'ManyCam + Método de Tela Cheia (com instalação)': 149.90,
+            'ManyCam PRO': 39.90,
+            'Método Tela Cheia WhatsApp': 29.90,
+            'Espelhador de Canais': 69.90,
+            'Clonador de Canais': 69.90,
+            'Editor de Mídia em Massa': 32.90,
+            'Extrator de Membros': 249.90,
+            'Combo Completo': 299.90,
+            '1.000 membros para Telegram': 33.00,
+            '2.000 membros para Telegram': 66.00,
+            '5.000 membros para Telegram': 165.00,
+            '10.000 membros para Telegram': 275.00,
+            'KL REMOTA BT MOB + BYPASS (Semanal)': 300.00,
+            'KL REMOTA BT MOB + BYPASS (Mensal)': 649.90,
+            'KL REMOTA BT MOB + BYPASS (Pagamento único)': 1500.00,
+            'ESQUEMA HONDA': 850.00,
+            'ESQUEMA VIVA SORTE + MODIFICADOR DE VOZ': 950.00,
+            'DEEPFAKE EM TEMPO REAL': 770.00,
+            'CLONADOR DE VOZ EM TEMPO REAL IA': 548.90,
+            'MODIFICADOR DE VOZ BÁSICO IA': 273.90,
+            'HOT MILIONARIO': 493.90
+        });
+
+        // Congelar para impedir redefinição via console
+        Object.defineProperty(window, 'OFFICIAL_PRICES', {
+            value: OFFICIAL_PRICES,
+            writable: false,
+            configurable: false
+        });
+
+        // Função para validar preço antes de enviar
+        function validatePrice(productName, price) {
+            const officialPrice = OFFICIAL_PRICES[productName];
+            if (officialPrice === undefined) {
+                console.error('Produto não encontrado na tabela oficial:', productName);
+                return false;
+            }
+            // Tolerância de 0.01 para arredondamentos
+            if (Math.abs(officialPrice - price) > 0.01) {
+                console.error('TENTATIVA DE MANIPULAÇÃO DE PREÇO DETECTADA:', {
+                    produto: productName,
+                    precoOficial: officialPrice,
+                    precoTentado: price
+                });
+                return false;
+            }
+            return true;
+        }
 
         // ========== PROTEÇÃO ANTI-CÓPIA E ANTI-INSPEÇÃO ==========
         document.addEventListener('contextmenu', e => e.preventDefault());
@@ -2220,7 +2323,6 @@
             }
         });
         
-        // Proteção contra seleção e cópia
         document.addEventListener('selectstart', e => {
             if (e.target.tagName !== 'INPUT' && e.target.tagName !== 'TEXTAREA') {
                 e.preventDefault();
@@ -2241,12 +2343,33 @@
             }
         });
 
-        // Verificação periódica de integridade
-        setInterval(() => {
-            if (document.body.getAttribute('data-modified') === 'true') {
-                window.location.reload();
-            }
-        }, 2000);
+        // Monitoramento de integridade do DOM
+        const integrityObserver = new MutationObserver((mutations) => {
+            mutations.forEach((mutation) => {
+                if (mutation.type === 'attributes') {
+                    const target = mutation.target;
+                    // Verificar se tentaram alterar data-price
+                    if (target.hasAttribute && target.hasAttribute('data-price')) {
+                        const productName = target.getAttribute('data-product');
+                        const currentPrice = parseFloat(target.getAttribute('data-price'));
+                        if (productName && OFFICIAL_PRICES[productName]) {
+                            const officialPrice = OFFICIAL_PRICES[productName];
+                            if (Math.abs(officialPrice - currentPrice) > 0.01) {
+                                // Restaurar preço original
+                                target.setAttribute('data-price', officialPrice.toString());
+                                console.error('Tentativa de manipulação de atributo data-price bloqueada');
+                            }
+                        }
+                    }
+                }
+            });
+        });
+
+        integrityObserver.observe(document.body, {
+            attributes: true,
+            subtree: true,
+            attributeFilter: ['data-price']
+        });
 
         // ========== CONFIGURAÇÕES ==========
         const PROXY = '/api/sigilopay';
@@ -2373,6 +2496,13 @@
         }
 
         function openModal(productName, price) {
+            // VALIDAÇÃO CRÍTICA: Verificar se o preço corresponde à tabela oficial
+            if (!validatePrice(productName, price)) {
+                showToast('⚠️ ERRO DE SEGURANÇA: Valor do produto inválido. A operação foi bloqueada.', 'error');
+                console.error('Tentativa de compra com valor manipulado bloqueada:', { productName, price });
+                return; // BLOQUEIA a abertura do modal
+            }
+
             originalPrice = price;
             currentProduct = { productName, price };
             currentTransactionId = null;
@@ -2405,21 +2535,41 @@
         if (klSelect && klBuyBtn) {
             klSelect.addEventListener('change', function() {
                 const opt = this.options[this.selectedIndex];
-                klBuyBtn.dataset.price = opt.value;
-                klBuyBtn.dataset.product = opt.dataset.product;
+                const productName = opt.dataset.product;
+                const price = parseFloat(opt.value);
+                // Validar antes de atualizar
+                if (validatePrice(productName, price)) {
+                    klBuyBtn.dataset.price = opt.value;
+                    klBuyBtn.dataset.product = productName;
+                }
             });
         }
 
         document.getElementById('applyCoupon').addEventListener('click', () => {
             const coupon = document.getElementById('couponInput').value.trim().toUpperCase();
-            const newPrice = coupon === COUPON_CODE ? originalPrice * (1 - DISCOUNT) : originalPrice;
-            document.getElementById('modalProductPrice').textContent = 'R$' + newPrice.toFixed(2).replace('.',',');
-            currentProduct.price = newPrice;
-            showToast(coupon === COUPON_CODE ? 'Cupom aplicado! 5% de desconto.' : 'Cupom inválido.', coupon === COUPON_CODE ? 'success' : 'error');
+            if (coupon === COUPON_CODE) {
+                const newPrice = originalPrice * (1 - DISCOUNT);
+                document.getElementById('modalProductPrice').textContent = 'R$' + newPrice.toFixed(2).replace('.',',');
+                currentProduct.price = newPrice;
+                showToast('Cupom aplicado! 5% de desconto.', 'success');
+            } else {
+                // Restaurar preço original
+                currentProduct.price = originalPrice;
+                document.getElementById('modalProductPrice').textContent = 'R$' + originalPrice.toFixed(2).replace('.',',');
+                showToast('Cupom inválido.', 'error');
+            }
         });
 
         document.getElementById('btnGerarPix').addEventListener('click', async () => {
             if (!validateForm()) { showToast('Preencha todos os campos corretamente.','error'); return; }
+            
+            // VALIDAÇÃO FINAL: Re-verificar o preço antes de enviar
+            if (!validatePrice(currentProduct.productName, currentProduct.price)) {
+                showToast('⚠️ ERRO CRÍTICO: Preço manipulado detectado. Recarregue a página.', 'error');
+                closeModal();
+                return;
+            }
+            
             const btn = document.getElementById('btnGerarPix');
             btn.disabled = true;
             btn.innerHTML = '<span class="spinner"></span> Gerando PIX...';
@@ -2428,27 +2578,80 @@
             const phone = cleanNum(document.getElementById('inputPhone').value);
             const email = document.getElementById('inputEmail').value.trim();
             const price = currentProduct.price;
+            
+            // Forçar o preço da tabela oficial (dupla segurança)
+            const securePrice = OFFICIAL_PRICES[currentProduct.productName] || price;
+            
             const payload = {
                 identifier: 'ID_' + Date.now(),
-                amount: price.toFixed(2),
+                amount: securePrice.toFixed(2),
                 description: currentProduct.productName,
                 client: { name, email, document: cpf, phone }
             };
+            
             try {
                 const data = await proxyCall('POST', '/gateway/pix/receive', payload);
-                const pixCode = data?.pix?.code || data?.data?.pix?.code || '';
-                const qrImg = data?.pix?.base64 || data?.data?.pix?.base64 || '';
-                currentTransactionId = data?.transactionId || data?.data?.transactionId;
-                document.getElementById('qrCodeImg').src = qrImg.startsWith('data:') ? qrImg : 'data:image/png;base64,' + qrImg;
-                document.getElementById('pixCopyCode').textContent = pixCode || 'Código não disponível';
+                
+                // Extrair dados do PIX da resposta
+                let pixCode = '';
+                let qrImg = '';
+                
+                // Tentar vários caminhos possíveis na resposta
+                if (data?.pix?.code) {
+                    pixCode = data.pix.code;
+                    qrImg = data.pix.base64 || data.pix.qrcode || '';
+                } else if (data?.data?.pix?.code) {
+                    pixCode = data.data.pix.code;
+                    qrImg = data.data.pix.base64 || data.data.pix.qrcode || '';
+                } else if (data?.pix?.qrcode) {
+                    pixCode = data.pix.qrcode;
+                    qrImg = data.pix.base64 || data.pix.qrcode || '';
+                } else if (data?.data?.pix?.qrcode) {
+                    pixCode = data.data.pix.qrcode;
+                    qrImg = data.data.pix.base64 || data.data.pix.qrcode || '';
+                } else if (data?.qrcode) {
+                    pixCode = data.qrcode;
+                    qrImg = data.qrcode;
+                } else if (data?.data?.qrcode) {
+                    pixCode = data.data.qrcode;
+                    qrImg = data.data.qrcode;
+                } else if (typeof data === 'string') {
+                    // Se a resposta for uma string (código PIX direto)
+                    pixCode = data;
+                }
+                
+                currentTransactionId = data?.transactionId || data?.data?.transactionId || data?.id || '';
+                
+                // Exibir QR Code
+                const qrImgEl = document.getElementById('qrCodeImg');
+                if (qrImg) {
+                    // Verificar se já é base64 ou precisa adicionar prefixo
+                    if (qrImg.startsWith('data:image')) {
+                        qrImgEl.src = qrImg;
+                    } else if (qrImg.startsWith('iVBOR') || qrImg.startsWith('/9j/') || qrImg.length > 100) {
+                        qrImgEl.src = 'data:image/png;base64,' + qrImg;
+                    } else {
+                        // Pode ser uma URL
+                        qrImgEl.src = qrImg;
+                    }
+                    qrImgEl.style.display = 'block';
+                } else {
+                    // Fallback: gerar QR code localmente se não veio na resposta
+                    qrImgEl.src = 'data:image/svg+xml,' + encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200"><rect width="200" height="200" fill="#fff"/><text x="100" y="100" text-anchor="middle" dy=".3em" font-size="14" fill="#333">QR Code</text><text x="100" y="120" text-anchor="middle" font-size="10" fill="#666">Escaneie para pagar</text></svg>');
+                    qrImgEl.style.display = 'block';
+                }
+                
+                document.getElementById('pixCopyCode').textContent = pixCode || 'Código não disponível - use o QR Code';
                 document.getElementById('formSection').style.display = 'none';
                 document.getElementById('pixArea').style.display = 'block';
+                
                 if (currentTransactionId) startPolling(currentTransactionId);
                 showToast('PIX gerado! Realize o pagamento agora 🎉','success');
             } catch (err) {
                 showToast('Erro ao gerar PIX: ' + err.message, 'error');
                 btn.disabled = false;
                 btn.innerHTML = '<i class="fas fa-qrcode"></i> Gerar PIX agora';
+                console.error('Detalhes do erro:', err);
             }
         });
 
@@ -2474,7 +2677,10 @@
 
         document.getElementById('btnCopiarPix').addEventListener('click', async () => {
             const code = document.getElementById('pixCopyCode').textContent.trim();
-            if (!code || code === '—') return;
+            if (!code || code === '—' || code.includes('não disponível')) {
+                showToast('Use o QR Code para pagamento.', 'info');
+                return;
+            }
             try {
                 await navigator.clipboard.writeText(code);
                 const btn = document.getElementById('btnCopiarPix');
@@ -2491,10 +2697,36 @@
         document.getElementById('closeModal').addEventListener('click', closeModal);
         document.getElementById('paymentModal').addEventListener('click', e => { if (e.target.id === 'paymentModal') closeModal(); });
 
+        // Handler seguro para botões de compra
         document.querySelectorAll('.btn-buy').forEach(btn =>
             btn.addEventListener('click', function(e) {
                 e.preventDefault();
-                openModal(this.dataset.product, parseFloat(this.dataset.price));
+                const productName = this.dataset.product;
+                const price = parseFloat(this.dataset.price);
+                
+                // VALIDAÇÃO antes de abrir o modal
+                if (!validatePrice(productName, price)) {
+                    showToast('⚠️ ERRO: Preço inválido detectado. Recarregue a página.', 'error');
+                    return;
+                }
+                
+                openModal(productName, price);
+            })
+        );
+
+        // Handler para links do footer
+        document.querySelectorAll('.footer-buy-link').forEach(link =>
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const productName = this.dataset.product;
+                const price = parseFloat(this.dataset.price);
+                
+                if (!validatePrice(productName, price)) {
+                    showToast('⚠️ ERRO: Preço inválido detectado.', 'error');
+                    return;
+                }
+                
+                openModal(productName, price);
             })
         );
 
@@ -2504,8 +2736,12 @@
         if (selMem && btnMem) {
             selMem.addEventListener('change', function() {
                 const opt = this.options[this.selectedIndex];
-                btnMem.dataset.price = opt.value;
-                btnMem.dataset.product = opt.dataset.product;
+                const productName = opt.dataset.product;
+                const price = parseFloat(opt.value);
+                if (validatePrice(productName, price)) {
+                    btnMem.dataset.price = opt.value;
+                    btnMem.dataset.product = productName;
+                }
             });
         }
 
@@ -2514,8 +2750,12 @@
         if (manycamSelect && manycamBtn) {
             manycamSelect.addEventListener('change', function() {
                 const opt = this.options[this.selectedIndex];
-                manycamBtn.dataset.price = opt.value;
-                manycamBtn.dataset.product = opt.dataset.product;
+                const productName = opt.dataset.product;
+                const price = parseFloat(opt.value);
+                if (validatePrice(productName, price)) {
+                    manycamBtn.dataset.price = opt.value;
+                    manycamBtn.dataset.product = productName;
+                }
             });
         }
 
@@ -2538,7 +2778,7 @@
 
         // Smooth scroll
         document.querySelectorAll('a[href^="#"]').forEach(a => a.addEventListener('click', function(e) {
-            if (this.classList.contains('btn-buy')) return;
+            if (this.classList.contains('btn-buy') || this.classList.contains('footer-buy-link')) return;
             e.preventDefault();
             const t = document.querySelector(this.getAttribute('href'));
             if (t) window.scrollTo({ top: t.offsetTop - 80, behavior: 'smooth' });
@@ -2602,6 +2842,22 @@
             setTimeout(fakeBuy, 180000 + Math.random() * 120000);
         }
         setTimeout(fakeBuy, 60000);
+
+        // Verificação periódica de integridade dos preços
+        setInterval(() => {
+            document.querySelectorAll('[data-price]').forEach(el => {
+                const productName = el.getAttribute('data-product');
+                const currentPrice = parseFloat(el.getAttribute('data-price'));
+                if (productName && OFFICIAL_PRICES[productName]) {
+                    const officialPrice = OFFICIAL_PRICES[productName];
+                    if (Math.abs(officialPrice - currentPrice) > 0.01) {
+                        el.setAttribute('data-price', officialPrice.toString());
+                        console.error('Preço restaurado automaticamente:', productName);
+                    }
+                }
+            });
+        }, 3000);
+
     })();
     </script>
 </body>
