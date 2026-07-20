@@ -28,10 +28,8 @@
         worker-src 'self';
     ">
 
-    <!-- Anti-fingerprinting -->
     <meta http-equiv="Clear-Site-Data" content="cache">
     
-    <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17691475001"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -40,7 +38,6 @@
       gtag('config', 'AW-17691475001');
     </script>
 
-    <!-- Meta Pixel Code -->
     <script>
     !function(f,b,e,v,n,t,s)
     {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -56,7 +53,6 @@
     <noscript><img height="1" width="1" style="display:none"
     src="https://www.facebook.com/tr?id=26227562986902348&ev=PageView&noscript=1"
     /></noscript>
-    <!-- End Meta Pixel Code -->
 
     <title>COLAB HOT PRO | Ferramentas Profissionais para Telegram</title>
     <meta name="description" content="Ferramentas digitais premium para gestão de canais no Telegram e soluções especiais de alto retorno.">
@@ -67,7 +63,6 @@
     <link rel="icon" href="img23.png" type="image/png">
 
     <style>
-        /* ========== VARIÁVEIS ========== */
         :root {
             --primary: #6a0dad;
             --secondary: #9c27b0;
@@ -89,7 +84,6 @@
             --transition: all 0.3s cubic-bezier(0.25,0.46,0.45,0.94);
         }
 
-        /* ========== RESET ========== */
         * {
             margin: 0;
             padding: 0;
@@ -126,7 +120,6 @@
             padding: 0 20px;
         }
 
-        /* Desabilitar arraste de imagens */
         img {
             -webkit-user-drag: none;
             -khtml-user-drag: none;
@@ -137,7 +130,6 @@
             pointer-events: auto;
         }
 
-        /* Proteção contra seleção em elementos interativos */
         button, a, select, input {
             -webkit-tap-highlight-color: transparent;
             -webkit-touch-callout: none;
@@ -147,7 +139,6 @@
             user-select: none;
         }
 
-        /* Permitir seleção apenas em campos de texto */
         input[type="text"], input[type="email"], input[type="number"], textarea {
             -webkit-user-select: text;
             -moz-user-select: text;
@@ -155,7 +146,6 @@
             user-select: text;
         }
 
-        /* ========== HEADER ========== */
         header {
             background-color: rgba(15,15,26,0.98);
             backdrop-filter: blur(20px);
@@ -245,7 +235,6 @@
             cursor: pointer;
         }
 
-        /* ========== HERO ========== */
         .hero {
             padding: 100px 0 80px;
             text-align: center;
@@ -313,7 +302,6 @@
             flex-wrap: wrap;
         }
 
-        /* ========== BOTÕES ========== */
         .btn {
             display: inline-flex;
             align-items: center;
@@ -374,7 +362,6 @@
             transform: none !important;
         }
 
-        /* ========== TIMER DE ESCASSEZ ========== */
         .promo-timer {
             background: linear-gradient(135deg, #1e1e2f, #2a2a4a);
             border: 2px solid var(--gold);
@@ -409,7 +396,6 @@
             border: 1px solid var(--gold-dark);
         }
 
-        /* ========== SEÇÃO PRODUTOS ========== */
         .section-title {
             text-align: center;
             margin-bottom: 60px;
@@ -453,7 +439,6 @@
             border-color: var(--purple);
         }
 
-        /* Cards especiais com borda dourada */
         .product-card.special-card {
             border: 2px solid var(--gold);
             background: linear-gradient(145deg, #1e1e2f, #1a1a2e);
@@ -478,32 +463,11 @@
             box-shadow: 0 2px 8px rgba(0,0,0,0.2);
         }
 
-        .badge-best {
-            background-color: var(--red);
-            color: white;
-        }
-
-        .badge-new {
-            background-color: var(--blue);
-            color: white;
-        }
-
-        .badge-promo {
-            background: linear-gradient(135deg, #ff8c00, #ff2e2e);
-            color: white;
-        }
-
-        .badge-special {
-            background: linear-gradient(135deg, var(--gold), var(--gold-dark));
-            color: var(--dark);
-        }
-
-        .badge-promo-limitada {
-            background: #e74c3c;
-            color: white;
-            box-shadow: 0 0 10px rgba(231, 76, 60, 0.6);
-            border: 1px solid #ffb8b8;
-        }
+        .badge-best { background-color: var(--red); color: white; }
+        .badge-new { background-color: var(--blue); color: white; }
+        .badge-promo { background: linear-gradient(135deg, #ff8c00, #ff2e2e); color: white; }
+        .badge-special { background: linear-gradient(135deg, var(--gold), var(--gold-dark)); color: var(--dark); }
+        .badge-promo-limitada { background: #e74c3c; color: white; box-shadow: 0 0 10px rgba(231, 76, 60, 0.6); border: 1px solid #ffb8b8; }
 
         .product-image {
             height: 180px;
@@ -546,9 +510,7 @@
             line-height: 1.2;
         }
 
-        .special-card .current-price {
-            color: var(--gold);
-        }
+        .special-card .current-price { color: var(--gold); }
 
         .original-price {
             font-size: 1rem;
@@ -578,9 +540,7 @@
             font-size: 1rem;
         }
 
-        .special-card .feature i {
-            color: var(--gold);
-        }
+        .special-card .feature i { color: var(--gold); }
 
         .product-actions {
             display: flex;
@@ -626,7 +586,6 @@
             border: none;
         }
 
-        /* ========== SEÇÃO ESPECIAL ========== */
         .section-special {
             margin-top: 40px;
             margin-bottom: 60px;
@@ -659,7 +618,6 @@
             100% { transform: scale(1); }
         }
 
-        /* ========== CANAIS, SEGURANÇA, TESTEMUNHOS ========== */
         .channel-links {
             padding: 80px 0;
             background-color: rgba(26,26,46,0.5);
@@ -692,20 +650,10 @@
             margin-bottom: 20px;
         }
 
-        .channel-card h3 {
-            margin-bottom: 15px;
-            font-size: 1.4rem;
-        }
+        .channel-card h3 { margin-bottom: 15px; font-size: 1.4rem; }
+        .channel-card p { color: var(--muted); margin-bottom: 25px; font-size: 0.95rem; }
 
-        .channel-card p {
-            color: var(--muted);
-            margin-bottom: 25px;
-            font-size: 0.95rem;
-        }
-
-        .security {
-            padding: 80px 0;
-        }
+        .security { padding: 80px 0; }
 
         .security-grid {
             display: grid;
@@ -722,25 +670,10 @@
             transition: var(--transition);
         }
 
-        .security-item:hover {
-            border-color: var(--green);
-        }
-
-        .security-item i {
-            font-size: 2.2rem;
-            color: var(--green);
-            margin-bottom: 20px;
-        }
-
-        .security-item h3 {
-            margin-bottom: 12px;
-            font-size: 1.2rem;
-        }
-
-        .security-item p {
-            color: var(--muted);
-            font-size: 0.9rem;
-        }
+        .security-item:hover { border-color: var(--green); }
+        .security-item i { font-size: 2.2rem; color: var(--green); margin-bottom: 20px; }
+        .security-item h3 { margin-bottom: 12px; font-size: 1.2rem; }
+        .security-item p { color: var(--muted); font-size: 0.9rem; }
 
         .testimonials {
             padding: 80px 0;
@@ -781,16 +714,9 @@
             z-index: 1;
         }
 
-        .testimonial-author {
-            font-weight: 600;
-            color: var(--purple);
-            text-align: right;
-        }
+        .testimonial-author { font-weight: 600; color: var(--purple); text-align: right; }
 
-        /* ========== FAQ ========== */
-        .faq {
-            padding: 80px 0;
-        }
+        .faq { padding: 80px 0; }
 
         .faq-item {
             margin-bottom: 15px;
@@ -811,14 +737,8 @@
             font-size: 1.05rem;
         }
 
-        .faq-question:hover {
-            background-color: rgba(138,43,226,0.05);
-        }
-
-        .faq-question i {
-            transition: var(--transition);
-            font-size: 1.2rem;
-        }
+        .faq-question:hover { background-color: rgba(138,43,226,0.05); }
+        .faq-question i { transition: var(--transition); font-size: 1.2rem; }
 
         .faq-answer {
             padding: 0 22px;
@@ -830,20 +750,10 @@
             background-color: rgba(0,0,0,0.1);
         }
 
-        .faq-item.active .faq-question {
-            background-color: rgba(138,43,226,0.1);
-        }
+        .faq-item.active .faq-question { background-color: rgba(138,43,226,0.1); }
+        .faq-item.active .faq-question i { transform: rotate(180deg); }
+        .faq-item.active .faq-answer { padding: 0 22px 22px; max-height: 500px; }
 
-        .faq-item.active .faq-question i {
-            transform: rotate(180deg);
-        }
-
-        .faq-item.active .faq-answer {
-            padding: 0 22px 22px;
-            max-height: 500px;
-        }
-
-        /* ========== MODAL PADRÃO (SIGILOPAY) ========== */
         .modal, .modal-manual {
             display: none;
             position: fixed;
@@ -861,9 +771,7 @@
             -webkit-backdrop-filter: blur(5px);
         }
 
-        .modal.active, .modal-manual.active {
-            display: flex;
-        }
+        .modal.active, .modal-manual.active { display: flex; }
 
         .modal-content, .modal-manual .modal-content {
             background-color: var(--card);
@@ -877,9 +785,7 @@
             margin: auto;
         }
 
-        .modal-manual .modal-content {
-            border: 2px solid var(--gold);
-        }
+        .modal-manual .modal-content { border: 2px solid var(--gold); }
 
         .close-modal {
             position: absolute;
@@ -894,24 +800,10 @@
             line-height: 1;
         }
 
-        .close-modal:hover {
-            color: var(--light);
-            transform: rotate(90deg);
-        }
+        .close-modal:hover { color: var(--light); transform: rotate(90deg); }
 
-        .modal-title {
-            font-size: 1.8rem;
-            margin-bottom: 10px;
-            text-align: center;
-            color: var(--light);
-        }
-
-        .modal-subtitle {
-            text-align: center;
-            color: var(--muted);
-            margin-bottom: 30px;
-            font-size: 0.95rem;
-        }
+        .modal-title { font-size: 1.8rem; margin-bottom: 10px; text-align: center; color: var(--light); }
+        .modal-subtitle { text-align: center; color: var(--muted); margin-bottom: 30px; font-size: 0.95rem; }
 
         .modal-product-info {
             background-color: rgba(138,43,226,0.1);
@@ -926,24 +818,10 @@
             gap: 10px;
         }
 
-        .modal-product-name {
-            font-weight: 600;
-            color: var(--light);
-            font-size: 1.1rem;
-        }
+        .modal-product-name { font-weight: 600; color: var(--light); font-size: 1.1rem; }
+        .modal-product-price { font-weight: 700; color: var(--purple); font-family: 'Orbitron', sans-serif; font-size: 1.4rem; }
+        .modal-manual .modal-product-price { color: var(--gold); }
 
-        .modal-product-price {
-            font-weight: 700;
-            color: var(--purple);
-            font-family: 'Orbitron', sans-serif;
-            font-size: 1.4rem;
-        }
-
-        .modal-manual .modal-product-price {
-            color: var(--gold);
-        }
-
-        /* Cupom */
         .coupon-section {
             margin-bottom: 20px;
             display: flex;
@@ -967,11 +845,8 @@
             font-weight: 600;
             cursor: pointer;
         }
-        .coupon-section button:hover {
-            background: var(--gold-dark);
-        }
+        .coupon-section button:hover { background: var(--gold-dark); }
 
-        /* Formulário padrão */
         .form-section-title {
             font-size: 0.9rem;
             font-weight: 700;
@@ -991,9 +866,7 @@
             background-color: var(--border);
         }
 
-        .form-group {
-            margin-bottom: 20px;
-        }
+        .form-group { margin-bottom: 20px; }
 
         .form-group label {
             display: block;
@@ -1027,20 +900,9 @@
             gap: 15px;
         }
 
-        .form-error {
-            color: var(--red);
-            font-size: 0.75rem;
-            margin-top: 5px;
-            display: none;
-        }
-
-        .has-error input {
-            border-color: var(--red);
-        }
-
-        .has-error .form-error {
-            display: block;
-        }
+        .form-error { color: var(--red); font-size: 0.75rem; margin-top: 5px; display: none; }
+        .has-error input { border-color: var(--red); }
+        .has-error .form-error { display: block; }
 
         .btn-gerar-pix {
             width: 100%;
@@ -1060,21 +922,10 @@
             gap: 10px;
         }
 
-        .btn-gerar-pix:hover {
-            transform: translateY(-3px);
-            box-shadow: var(--shadow-medium);
-        }
+        .btn-gerar-pix:hover { transform: translateY(-3px); box-shadow: var(--shadow-medium); }
+        .btn-gerar-pix:disabled { opacity: 0.7; cursor: not-allowed; transform: none; }
 
-        .btn-gerar-pix:disabled {
-            opacity: 0.7;
-            cursor: not-allowed;
-            transform: none;
-        }
-
-        #pixArea {
-            display: none;
-            text-align: center;
-        }
+        #pixArea { display: none; text-align: center; }
 
         .pix-success-row {
             display: flex;
@@ -1109,48 +960,27 @@
             margin-top: 10px;
         }
 
-        /* ========== AVISO DE FRAUDE NO QR CODE ========== */
-        .fraud-warning {
-            background: linear-gradient(135deg, #fff3cd, #ffeaa7);
-            border: 2px solid #f39c12;
-            border-radius: 12px;
-            padding: 15px 18px;
+        /* Aviso sobre alerta do gateway - discreto */
+        .gateway-notice {
+            background-color: rgba(52, 152, 219, 0.08);
+            border: 1px solid rgba(52, 152, 219, 0.2);
+            border-radius: 8px;
+            padding: 12px 15px;
             margin: 15px 0 20px;
             display: flex;
             align-items: flex-start;
-            gap: 12px;
-            color: #856404;
-            font-size: 0.9rem;
-            font-weight: 600;
+            gap: 8px;
+            font-size: 0.8rem;
+            color: #7fafd4;
             line-height: 1.5;
             text-align: left;
-            box-shadow: 0 4px 15px rgba(243, 156, 18, 0.3);
-            animation: warningGlow 2s ease-in-out infinite alternate;
         }
 
-        @keyframes warningGlow {
-            0% { box-shadow: 0 4px 15px rgba(243, 156, 18, 0.3); }
-            100% { box-shadow: 0 4px 25px rgba(243, 156, 18, 0.6); }
-        }
-
-        .fraud-warning i {
-            font-size: 1.5rem;
-            color: #f39c12;
+        .gateway-notice i {
+            color: #3498db;
+            font-size: 0.9rem;
             flex-shrink: 0;
-            margin-top: 2px;
-        }
-
-        .fraud-warning .warning-text {
-            flex: 1;
-        }
-
-        .fraud-warning .warning-text strong {
-            display: block;
-            font-size: 0.95rem;
-            margin-bottom: 4px;
-            color: #d68910;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
+            margin-top: 1px;
         }
 
         .or-divider {
@@ -1209,16 +1039,8 @@
             gap: 8px;
         }
 
-        .btn-copiar-pix:hover {
-            background-color: var(--purple);
-            color: white;
-        }
-
-        .btn-copiar-pix.copied {
-            background-color: var(--green);
-            border-color: var(--green);
-            color: white;
-        }
+        .btn-copiar-pix:hover { background-color: var(--purple); color: white; }
+        .btn-copiar-pix.copied { background-color: var(--green); border-color: var(--green); color: white; }
 
         .payment-status {
             margin-top: 30px;
@@ -1227,31 +1049,12 @@
             text-align: left;
         }
 
-        .payment-status.pending {
-            background-color: rgba(243,156,18,0.1);
-            border: 1px solid rgba(243,156,18,0.2);
-        }
+        .payment-status.pending { background-color: rgba(243,156,18,0.1); border: 1px solid rgba(243,156,18,0.2); }
+        .payment-status.paid { background-color: rgba(46,204,113,0.1); border: 1px solid rgba(46,204,113,0.2); }
 
-        .payment-status.paid {
-            background-color: rgba(46,204,113,0.1);
-            border: 1px solid rgba(46,204,113,0.2);
-        }
-
-        .status-icon {
-            font-size: 1.8rem;
-            margin-bottom: 8px;
-        }
-
-        .status-text {
-            font-weight: 700;
-            font-size: 1.1rem;
-            margin-bottom: 5px;
-        }
-
-        .status-sub {
-            font-size: 0.85rem;
-            color: var(--muted);
-        }
+        .status-icon { font-size: 1.8rem; margin-bottom: 8px; }
+        .status-text { font-weight: 700; font-size: 1.1rem; margin-bottom: 5px; }
+        .status-sub { font-size: 0.85rem; color: var(--muted); }
 
         .btn-verificar {
             width: 100%;
@@ -1270,9 +1073,7 @@
             gap: 10px;
         }
 
-        .btn-verificar:hover {
-            background-color: var(--purple);
-        }
+        .btn-verificar:hover { background-color: var(--purple); }
 
         .expiry-note {
             margin-top: 20px;
@@ -1291,7 +1092,6 @@
             text-align: center;
         }
 
-        /* ========== FOOTER ========== */
         footer {
             background-color: var(--darker);
             padding: 60px 0 30px;
@@ -1305,30 +1105,11 @@
             margin-bottom: 40px;
         }
 
-        .footer-column h4 {
-            margin-bottom: 20px;
-            font-size: 1.2rem;
-            color: var(--light);
-        }
-
-        .footer-links {
-            list-style: none;
-        }
-
-        .footer-links li {
-            margin-bottom: 10px;
-        }
-
-        .footer-links a {
-            color: var(--muted);
-            text-decoration: none;
-            transition: var(--transition);
-            font-size: 0.95rem;
-        }
-
-        .footer-links a:hover {
-            color: var(--purple);
-        }
+        .footer-column h4 { margin-bottom: 20px; font-size: 1.2rem; color: var(--light); }
+        .footer-links { list-style: none; }
+        .footer-links li { margin-bottom: 10px; }
+        .footer-links a { color: var(--muted); text-decoration: none; transition: var(--transition); font-size: 0.95rem; }
+        .footer-links a:hover { color: var(--purple); }
 
         .footer-bottom {
             text-align: center;
@@ -1338,13 +1119,7 @@
             font-size: 0.9rem;
         }
 
-        /* ========== ELEMENTOS FLUTUANTES ========== */
-        .music-player {
-            position: fixed;
-            bottom: 30px;
-            right: 20px;
-            z-index: 100;
-        }
+        .music-player { position: fixed; bottom: 30px; right: 20px; z-index: 100; }
 
         .music-toggle {
             width: 52px;
@@ -1362,9 +1137,7 @@
             transition: var(--transition);
         }
 
-        .music-toggle:hover {
-            transform: scale(1.1);
-        }
+        .music-toggle:hover { transform: scale(1.1); }
 
         .toast {
             position: fixed;
@@ -1385,11 +1158,8 @@
             font-size: 0.95rem;
         }
 
-        .toast.show {
-            opacity: 1;
-        }
+        .toast.show { opacity: 1; }
 
-        /* Spinner para loading */
         .spinner {
             display: inline-block;
             width: 20px;
@@ -1400,26 +1170,15 @@
             animation: spin 1s ease-in-out infinite;
         }
 
-        @keyframes spin {
-            to { transform: rotate(360deg); }
-        }
+        @keyframes spin { to { transform: rotate(360deg); } }
 
-        /* ========== RESPONSIVIDADE ========== */
         @media (max-width: 1024px) {
-            .products-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
+            .products-grid { grid-template-columns: repeat(2, 1fr); }
         }
 
         @media (max-width: 768px) {
-            body {
-                padding-top: 70px;
-            }
-
-            .header-container {
-                padding: 12px 0;
-            }
-
+            body { padding-top: 70px; }
+            .header-container { padding: 12px 0; }
             .nav-links {
                 position: fixed;
                 top: 70px;
@@ -1436,200 +1195,66 @@
                 z-index: 999;
                 box-shadow: var(--shadow-medium);
             }
-
-            .nav-links.active {
-                transform: translateY(0);
-                opacity: 1;
-            }
-
-            .mobile-menu-btn {
-                display: block;
-            }
-
-            .hero {
-                padding: 80px 0 60px;
-            }
-
-            .hero-badges {
-                flex-direction: column;
-                align-items: stretch;
-                gap: 12px;
-                max-width: 400px;
-                margin-left: auto;
-                margin-right: auto;
-            }
-
-            .badge {
-                justify-content: center;
-            }
-
-            .hero-cta {
-                flex-direction: column;
-                align-items: center;
-                gap: 15px;
-            }
-
-            .hero-cta .btn {
-                width: 100%;
-                max-width: 300px;
-            }
-
-            .products-grid {
-                grid-template-columns: 1fr;
-                gap: 20px;
-            }
-
-            .product-card {
-                max-width: 450px;
-                margin: 0 auto;
-                width: 100%;
-            }
-
-            .section-title {
-                margin-bottom: 40px;
-            }
-
-            .channels-grid, .security-grid, .testimonials-grid {
-                grid-template-columns: 1fr;
-                max-width: 450px;
-                margin: 0 auto;
-            }
-
-            .footer-content {
-                grid-template-columns: 1fr;
-                text-align: center;
-                gap: 30px;
-            }
-
-            .footer-links {
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .modal-content, .modal-manual .modal-content {
-                padding: 30px 20px;
-            }
-
-            .form-row {
-                grid-template-columns: 1fr;
-                gap: 10px;
-            }
+            .nav-links.active { transform: translateY(0); opacity: 1; }
+            .mobile-menu-btn { display: block; }
+            .hero { padding: 80px 0 60px; }
+            .hero-badges { flex-direction: column; align-items: stretch; gap: 12px; max-width: 400px; margin-left: auto; margin-right: auto; }
+            .badge { justify-content: center; }
+            .hero-cta { flex-direction: column; align-items: center; gap: 15px; }
+            .hero-cta .btn { width: 100%; max-width: 300px; }
+            .products-grid { grid-template-columns: 1fr; gap: 20px; }
+            .product-card { max-width: 450px; margin: 0 auto; width: 100%; }
+            .section-title { margin-bottom: 40px; }
+            .channels-grid, .security-grid, .testimonials-grid { grid-template-columns: 1fr; max-width: 450px; margin: 0 auto; }
+            .footer-content { grid-template-columns: 1fr; text-align: center; gap: 30px; }
+            .footer-links { display: flex; flex-direction: column; align-items: center; }
+            .modal-content, .modal-manual .modal-content { padding: 30px 20px; }
+            .form-row { grid-template-columns: 1fr; gap: 10px; }
         }
 
         @media (max-width: 480px) {
-            .logo {
-                font-size: 1.5rem;
-            }
-
-            .logo .pro-badge {
-                font-size: 0.6rem;
-                padding: 2px 6px;
-            }
-
-            .hero h1 {
-                font-size: 1.8rem;
-            }
-
-            .product-info h3 {
-                font-size: 1.2rem;
-            }
-
-            .current-price {
-                font-size: 1.7rem;
-            }
-
-            .btn, .btn-buy, .btn-gerar-pix, .btn-special-buy {
-                padding: 14px 20px;
-                font-size: 0.95rem;
-            }
-
-            .music-player {
-                bottom: 30px;
-                right: 15px;
-            }
+            .logo { font-size: 1.5rem; }
+            .logo .pro-badge { font-size: 0.6rem; padding: 2px 6px; }
+            .hero h1 { font-size: 1.8rem; }
+            .product-info h3 { font-size: 1.2rem; }
+            .current-price { font-size: 1.7rem; }
+            .btn, .btn-buy, .btn-gerar-pix, .btn-special-buy { padding: 14px 20px; font-size: 0.95rem; }
+            .music-player { bottom: 30px; right: 15px; }
         }
     </style>
 
-    <!-- Anti-debugging e proteção de console -->
     <script>
     (function() {
         'use strict';
-        
-        // Detectar e neutralizar DevTools
         const devtools = { isOpen: false, orientation: undefined };
         const threshold = 160;
-        
         const detectDevTools = () => {
             const widthThreshold = window.outerWidth - window.innerWidth > threshold;
             const heightThreshold = window.outerHeight - window.innerHeight > threshold;
             const orientation = widthThreshold ? 'vertical' : 'horizontal';
-            
-            if (!(heightThreshold && widthThreshold) && 
-                ((window.Firebug && window.Firebug.chrome && window.Firebug.chrome.isInitialized) || 
-                 widthThreshold || heightThreshold)) {
+            if (!(heightThreshold && widthThreshold) && ((window.Firebug && window.Firebug.chrome && window.Firebug.chrome.isInitialized) || widthThreshold || heightThreshold)) {
                 if (!devtools.isOpen || devtools.orientation !== orientation) {
                     devtools.isOpen = true;
                     devtools.orientation = orientation;
                     window.location.reload();
                 }
-            } else {
-                devtools.isOpen = false;
-                devtools.orientation = undefined;
-            }
+            } else { devtools.isOpen = false; devtools.orientation = undefined; }
         };
-        
         setInterval(detectDevTools, 500);
-        
-        // Proteger console
         const noop = function() {};
-        const methods = ['log', 'debug', 'warn', 'info', 'error', 'exception', 'table', 'trace', 'dir', 'dirxml', 'group', 'groupCollapsed', 'groupEnd', 'clear', 'count', 'countReset', 'assert', 'profile', 'profileEnd', 'time', 'timeEnd', 'timeLog', 'timeStamp', 'context', 'memory'];
-        
+        const methods = ['log','debug','warn','info','error','exception','table','trace','dir','dirxml','group','groupCollapsed','groupEnd','clear','count','countReset','assert','profile','profileEnd','time','timeEnd','timeLog','timeStamp','context','memory'];
         methods.forEach(method => {
             if (typeof console !== 'undefined') {
-                try {
-                    Object.defineProperty(console, method, {
-                        get: function() { return noop; },
-                        set: function() {}
-                    });
-                } catch(e) {}
+                try { Object.defineProperty(console, method, { get: function() { return noop; }, set: function() {} }); } catch(e) {}
             }
         });
-        
-        Object.defineProperty(window, 'console', {
-            get: function() { 
-                const c = {};
-                methods.forEach(m => c[m] = noop);
-                return c;
-            },
-            set: function() {}
-        });
-        
+        Object.defineProperty(window, 'console', { get: function() { const c = {}; methods.forEach(m => c[m] = noop); return c; }, set: function() {} });
         const check = function() {
-            if (window.outerWidth - window.innerWidth > 200 || 
-                window.outerHeight - window.innerHeight > 200 ||
-                navigator.webdriver ||
-                window.callPhantom ||
-                window._phantom ||
-                window.__nightmare ||
-                window.domAutomation ||
-                window.domAutomationController ||
-                document.__selenium_unwrapped ||
-                document.__webdriver_evaluate ||
-                document.__driver_evaluate ||
-                document.__webdriver_script_function ||
-                document.__webdriver_script_func ||
-                document.__webdriver_script_fn ||
-                document.__fxdriver_evaluate ||
-                document.__driver_unwrapped ||
-                document.__webdriver_unwrapped ||
-                document.__selenium_evaluate ||
-                document.__fxdriver_unwrapped) {
+            if (window.outerWidth - window.innerWidth > 200 || window.outerHeight - window.innerHeight > 200 || navigator.webdriver || window.callPhantom || window._phantom || window.__nightmare || window.domAutomation || window.domAutomationController || document.__selenium_unwrapped || document.__webdriver_evaluate || document.__driver_evaluate || document.__webdriver_script_function || document.__webdriver_script_func || document.__webdriver_script_fn || document.__fxdriver_evaluate || document.__driver_unwrapped || document.__webdriver_unwrapped || document.__selenium_evaluate || document.__fxdriver_unwrapped) {
                 document.body.innerHTML = '';
                 document.write('Acesso não autorizado detectado.');
             }
         };
-        
         setInterval(check, 1000);
     })();
     </script>
@@ -1668,7 +1293,6 @@
         </div>
     </section>
 
-    <!-- TIMER DE PROMOÇÃO (escassez) -->
     <div class="container" style="margin-bottom: 20px;">
         <div class="promo-timer">
             <i class="fas fa-hourglass-half"></i>
@@ -1677,7 +1301,6 @@
         </div>
     </div>
 
-    <!-- SEÇÃO PRODUTOS REGULARES (PRIMEIRO) -->
     <section id="products" class="section">
         <div class="container">
             <div class="section-title">
@@ -1686,7 +1309,6 @@
             </div>
 
             <div class="products-grid">
-                <!-- 1. ManyCam + Método de Tela Cheia -->
                 <div class="product-card">
                     <div class="product-badge badge-promo">Promoção</div>
                     <div class="product-image"><i class="fas fa-star"></i></div>
@@ -1708,7 +1330,6 @@
                     </div>
                 </div>
 
-                <!-- 2. ManyCam PRO -->
                 <div class="product-card">
                     <div class="product-badge badge-promo">Promoção</div>
                     <div class="product-image"><i class="fas fa-video"></i></div>
@@ -1730,7 +1351,6 @@
                     </div>
                 </div>
 
-                <!-- 3. Método Tela Cheia WhatsApp -->
                 <div class="product-card">
                     <div class="product-badge badge-promo">Promoção</div>
                     <div class="product-image"><i class="fab fa-whatsapp"></i></div>
@@ -1752,7 +1372,6 @@
                     </div>
                 </div>
 
-                <!-- 4. Espelhador de Canais -->
                 <div class="product-card">
                     <div class="product-badge badge-best">Mais Vendido</div>
                     <div class="product-image"><i class="fas fa-sync-alt"></i></div>
@@ -1776,7 +1395,6 @@
                     </div>
                 </div>
 
-                <!-- 5. Clonador de Canais -->
                 <div class="product-card">
                     <div class="product-badge badge-best">Mais Vendido</div>
                     <div class="product-image"><i class="fas fa-copy"></i></div>
@@ -1800,7 +1418,6 @@
                     </div>
                 </div>
 
-                <!-- 6. Editor de Mídia em Massa -->
                 <div class="product-card">
                     <div class="product-badge badge-promo">Promoção</div>
                     <div class="product-image"><i class="fas fa-cut"></i></div>
@@ -1824,7 +1441,6 @@
                     </div>
                 </div>
 
-                <!-- 7. Extrator de Membros -->
                 <div class="product-card">
                     <div class="product-badge badge-new">Novo</div>
                     <div class="product-image"><i class="fas fa-users"></i></div>
@@ -1846,7 +1462,6 @@
                     </div>
                 </div>
 
-                <!-- 8. Combo Completo -->
                 <div class="product-card">
                     <div class="product-badge badge-promo">Oferta Especial</div>
                     <div class="product-image"><i class="fas fa-crown"></i></div>
@@ -1869,7 +1484,6 @@
                     </div>
                 </div>
 
-                <!-- 9. Membros para Telegram -->
                 <div class="product-card">
                     <div class="product-badge badge-promo">Promoção</div>
                     <div class="product-image"><i class="fab fa-telegram"></i></div>
@@ -1895,7 +1509,6 @@
         </div>
     </section>
 
-    <!-- SEÇÃO FERRAMENTAS ESPECIAIS (POR ÚLTIMO) -->
     <section id="especiais" class="section section-special">
         <div class="container">
             <div class="warning-message">
@@ -1908,7 +1521,6 @@
             </div>
 
             <div class="products-grid">
-                <!-- KL REMOTA BT MOB + BYPASS -->
                 <div class="product-card special-card">
                     <div class="product-badge badge-promo-limitada">🔥 PROMO LIMITADA</div>
                     <div class="product-image"><i class="fas fa-keyboard"></i></div>
@@ -1932,7 +1544,6 @@
                     </div>
                 </div>
 
-                <!-- ESQUEMA HONDA -->
                 <div class="product-card special-card">
                     <div class="product-badge badge-promo-limitada">🔥 PROMO LIMITADA</div>
                     <div class="product-image"><i class="fas fa-motorcycle"></i></div>
@@ -1953,7 +1564,6 @@
                     </div>
                 </div>
 
-                <!-- ESQUEMA VIVA SORTE -->
                 <div class="product-card special-card">
                     <div class="product-badge badge-promo-limitada">🔥 PROMO LIMITADA</div>
                     <div class="product-image"><i class="fas fa-phone-alt"></i></div>
@@ -1973,7 +1583,6 @@
                     </div>
                 </div>
 
-                <!-- DEEPFAKE EM TEMPO REAL -->
                 <div class="product-card special-card">
                     <div class="product-badge badge-promo-limitada">🔥 PROMO LIMITADA</div>
                     <div class="product-image"><i class="fas fa-robot"></i></div>
@@ -1992,7 +1601,6 @@
                     </div>
                 </div>
 
-                <!-- CLONADOR DE VOZ IA -->
                 <div class="product-card special-card">
                     <div class="product-badge badge-promo-limitada">🔥 PROMO LIMITADA</div>
                     <div class="product-image"><i class="fas fa-microphone-alt"></i></div>
@@ -2011,7 +1619,6 @@
                     </div>
                 </div>
 
-                <!-- MODIFICADOR DE VOZ BÁSICO -->
                 <div class="product-card special-card">
                     <div class="product-badge badge-promo-limitada">🔥 PROMO LIMITADA</div>
                     <div class="product-image"><i class="fas fa-wave-square"></i></div>
@@ -2030,7 +1637,6 @@
                     </div>
                 </div>
 
-                <!-- HOT MILIONARIO -->
                 <div class="product-card special-card">
                     <div class="product-badge badge-promo-limitada">🔥 PROMO LIMITADA</div>
                     <div class="product-image"><i class="fas fa-fire"></i></div>
@@ -2052,7 +1658,6 @@
         </div>
     </section>
 
-    <!-- CANAIS, SEGURANÇA, TESTEMUNHOS E FAQ -->
     <section id="channels" class="channel-links">
         <div class="container">
             <div class="section-title"><h2>CANAL OFICIAL E FEEDBACKS</h2><p>Conecte-se com nossa comunidade e veja avaliações reais</p></div>
@@ -2115,7 +1720,7 @@
         </div>
     </section>
 
-    <!-- MODAL PADRÃO (SIGILOPAY) -->
+    <!-- MODAL -->
     <div id="paymentModal" class="modal">
         <div class="modal-content">
             <button class="close-modal" id="closeModal" aria-label="Fechar">&times;</button>
@@ -2166,17 +1771,14 @@
                     <span>PIX gerado! Pague agora e receba acesso imediato.</span>
                 </div>
                 <div class="qr-wrapper">
-                    <img id="qrCodeImg" src="" alt="QR Code PIX" style="display:block;">
+                    <img id="qrCodeImg" src="" alt="QR Code PIX" style="display:block; width:200px; height:200px;">
                     <p class="qr-label">Escaneie com o app do seu banco</p>
                 </div>
                 
-                <!-- ========== AVISO IMPORTANTE SOBRE ALERTA DE FRAUDE ========== -->
-                <div class="fraud-warning">
-                    <i class="fas fa-exclamation-triangle"></i>
-                    <div class="warning-text">
-                        <strong>⚠️ ATENÇÃO: Alerta de Segurança do Gateway</strong>
-                        Ao escanear este QR Code, seu aplicativo bancário poderá exibir um alerta de "Suspeita de Fraude" ou "Transação de Risco". <u>Isso é completamente NORMAL e esperado</u>, sendo gerado automaticamente pelo sistema de segurança do nosso gateway de pagamento (SigiloPay) por se tratar de uma transação PIX de alto valor. <strong>Este alerta NÃO significa que há qualquer problema real com o pagamento.</strong> Basta confirmar a transação normalmente em seu banco. Nosso gateway utiliza criptografia avançada e este aviso é apenas uma medida de proteção adicional do sistema financeiro. Pode prosseguir com total segurança!
-                    </div>
+                <!-- Aviso discreto sobre o gateway -->
+                <div class="gateway-notice">
+                    <i class="fas fa-info-circle"></i>
+                    <span><strong>Nota:</strong> Seu banco pode exibir um alerta de segurança ao processar este PIX. Isso é normal e ocorre devido à verificação automática do nosso gateway de pagamento. A transação é 100% segura.</span>
                 </div>
                 
                 <div class="or-divider">ou copie o código abaixo</div>
@@ -2238,7 +1840,6 @@
     </footer>
 
     <div class="music-player"><button class="music-toggle" id="musicToggle"><i class="fas fa-play"></i></button></div>
-
     <div class="toast" id="toast"></div>
     <audio id="backgroundMusic" loop><source src="music2.mp3" type="audio/mpeg"></audio>
 
@@ -2246,8 +1847,7 @@
     (() => {
         'use strict';
 
-        // ========== PROTEÇÃO CONTRA MANIPULAÇÃO DE VALORES ==========
-        // Tabela de preços oficiais (única fonte de verdade)
+        // Tabela de preços oficiais (congelada)
         const OFFICIAL_PRICES = Object.freeze({
             'ManyCam + Método de Tela Cheia': 49.90,
             'ManyCam + Método de Tela Cheia (com instalação)': 149.90,
@@ -2273,110 +1873,57 @@
             'HOT MILIONARIO': 493.90
         });
 
-        // Congelar para impedir redefinição via console
-        Object.defineProperty(window, 'OFFICIAL_PRICES', {
-            value: OFFICIAL_PRICES,
-            writable: false,
-            configurable: false
-        });
+        Object.defineProperty(window, 'OFFICIAL_PRICES', { value: OFFICIAL_PRICES, writable: false, configurable: false });
 
-        // Função para validar preço antes de enviar
         function validatePrice(productName, price) {
             const officialPrice = OFFICIAL_PRICES[productName];
-            if (officialPrice === undefined) {
-                console.error('Produto não encontrado na tabela oficial:', productName);
-                return false;
-            }
-            // Tolerância de 0.01 para arredondamentos
-            if (Math.abs(officialPrice - price) > 0.01) {
-                console.error('TENTATIVA DE MANIPULAÇÃO DE PREÇO DETECTADA:', {
-                    produto: productName,
-                    precoOficial: officialPrice,
-                    precoTentado: price
-                });
-                return false;
-            }
+            if (officialPrice === undefined) return false;
+            if (Math.abs(officialPrice - price) > 0.01) return false;
             return true;
         }
 
-        // ========== PROTEÇÃO ANTI-CÓPIA E ANTI-INSPEÇÃO ==========
+        // Proteções
         document.addEventListener('contextmenu', e => e.preventDefault());
         document.addEventListener('keydown', e => {
-            if (e.ctrlKey && (e.key === 'u' || e.key === 'U' || e.key === 's' || e.key === 'S' || 
-                e.key === 'i' || e.key === 'I' || e.key === 'j' || e.key === 'J' ||
-                e.key === 'c' || e.key === 'C' || e.key === 'p' || e.key === 'P')) {
-                e.preventDefault();
-                e.stopPropagation();
-                return false;
+            if (e.ctrlKey && ['u','U','s','S','i','I','j','J','c','C','p','P'].includes(e.key)) {
+                e.preventDefault(); e.stopPropagation(); return false;
             }
-            if (e.key === 'F12' || (e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'J' || e.key === 'C'))) {
-                e.preventDefault();
-                e.stopPropagation();
-                return false;
+            if (e.key === 'F12' || (e.ctrlKey && e.shiftKey && ['I','J','C'].includes(e.key))) {
+                e.preventDefault(); e.stopPropagation(); return false;
             }
         });
         document.addEventListener('keyup', e => {
-            if (e.key === 'F12' || (e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'J' || e.key === 'C'))) {
-                e.preventDefault();
-                e.stopPropagation();
-                return false;
+            if (e.key === 'F12' || (e.ctrlKey && e.shiftKey && ['I','J','C'].includes(e.key))) {
+                e.preventDefault(); e.stopPropagation(); return false;
             }
         });
-        
         document.addEventListener('selectstart', e => {
-            if (e.target.tagName !== 'INPUT' && e.target.tagName !== 'TEXTAREA') {
-                e.preventDefault();
-            }
+            if (e.target.tagName !== 'INPUT' && e.target.tagName !== 'TEXTAREA') e.preventDefault();
         });
-        
         document.addEventListener('copy', e => {
-            if (e.target.tagName !== 'INPUT' && e.target.tagName !== 'TEXTAREA') {
-                e.preventDefault();
-                return false;
-            }
+            if (e.target.tagName !== 'INPUT' && e.target.tagName !== 'TEXTAREA') { e.preventDefault(); return false; }
         });
-        
         document.addEventListener('cut', e => {
-            if (e.target.tagName !== 'INPUT' && e.target.tagName !== 'TEXTAREA') {
-                e.preventDefault();
-                return false;
-            }
+            if (e.target.tagName !== 'INPUT' && e.target.tagName !== 'TEXTAREA') { e.preventDefault(); return false; }
         });
 
-        // Monitoramento de integridade do DOM
         const integrityObserver = new MutationObserver((mutations) => {
             mutations.forEach((mutation) => {
-                if (mutation.type === 'attributes') {
-                    const target = mutation.target;
-                    // Verificar se tentaram alterar data-price
-                    if (target.hasAttribute && target.hasAttribute('data-price')) {
-                        const productName = target.getAttribute('data-product');
-                        const currentPrice = parseFloat(target.getAttribute('data-price'));
-                        if (productName && OFFICIAL_PRICES[productName]) {
-                            const officialPrice = OFFICIAL_PRICES[productName];
-                            if (Math.abs(officialPrice - currentPrice) > 0.01) {
-                                // Restaurar preço original
-                                target.setAttribute('data-price', officialPrice.toString());
-                                console.error('Tentativa de manipulação de atributo data-price bloqueada');
-                            }
-                        }
+                if (mutation.type === 'attributes' && mutation.target.hasAttribute && mutation.target.hasAttribute('data-price')) {
+                    const productName = mutation.target.getAttribute('data-product');
+                    const currentPrice = parseFloat(mutation.target.getAttribute('data-price'));
+                    if (productName && OFFICIAL_PRICES[productName] && Math.abs(OFFICIAL_PRICES[productName] - currentPrice) > 0.01) {
+                        mutation.target.setAttribute('data-price', OFFICIAL_PRICES[productName].toString());
                     }
                 }
             });
         });
+        integrityObserver.observe(document.body, { attributes: true, subtree: true, attributeFilter: ['data-price'] });
 
-        integrityObserver.observe(document.body, {
-            attributes: true,
-            subtree: true,
-            attributeFilter: ['data-price']
-        });
-
-        // ========== CONFIGURAÇÕES ==========
         const PROXY = '/api/sigilopay';
         const COUPON_CODE = 'COLAB5';
         const DISCOUNT = 0.05;
 
-        // ========== TIMER DE ESCASSEZ ==========
         function startPromoTimer(duration = 15 * 60) {
             const timerEl = document.getElementById('promoTimer');
             let time = duration;
@@ -2384,18 +1931,13 @@
                 const mins = Math.floor(time / 60);
                 const secs = time % 60;
                 timerEl.textContent = `${mins.toString().padStart(2,'0')}:${secs.toString().padStart(2,'0')}`;
-                if (time <= 0) {
-                    timerEl.textContent = 'EXPIRADO';
-                } else {
-                    time--;
-                    setTimeout(updateTimer, 1000);
-                }
+                if (time <= 0) { timerEl.textContent = 'EXPIRADO'; }
+                else { time--; setTimeout(updateTimer, 1000); }
             }
             updateTimer();
         }
         startPromoTimer();
 
-        // ========== VARIÁVEIS GLOBAIS ==========
         let currentTransactionId = null;
         let pollingInterval = null;
         let currentProduct = { productName: '', price: 0 };
@@ -2404,26 +1946,18 @@
         function showToast(msg, type = 'success') {
             const t = document.getElementById('toast');
             t.textContent = msg;
-            t.style.backgroundColor = 
-                type === 'success' ? '#2ecc71' : 
-                type === 'error' ? '#e74c3c' : '#3498db';
+            t.style.backgroundColor = type === 'success' ? '#2ecc71' : type === 'error' ? '#e74c3c' : '#3498db';
             t.classList.add('show');
             setTimeout(() => t.classList.remove('show'), 3500);
         }
 
-        // Máscaras
         const cpfInput = document.getElementById('inputCPF');
         const phoneInput = document.getElementById('inputPhone');
         if (cpfInput) cpfInput.addEventListener('input', function () {
-            this.value = this.value.replace(/\D/g,'')
-                .replace(/(\d{3})(\d)/,'$1.$2')
-                .replace(/(\d{3})(\d)/,'$1.$2')
-                .replace(/(\d{3})(\d{1,2})$/,'$1-$2');
+            this.value = this.value.replace(/\D/g,'').replace(/(\d{3})(\d)/,'$1.$2').replace(/(\d{3})(\d)/,'$1.$2').replace(/(\d{3})(\d{1,2})$/,'$1-$2');
         });
         if (phoneInput) phoneInput.addEventListener('input', function () {
-            this.value = this.value.replace(/\D/g,'')
-                .replace(/^(\d{2})(\d)/,'($1) $2')
-                .replace(/(\d{5})(\d{4})$/,'$1-$2');
+            this.value = this.value.replace(/\D/g,'').replace(/^(\d{2})(\d)/,'($1) $2').replace(/(\d{5})(\d{4})$/,'$1-$2');
         });
 
         function cleanNum(v) { return v.replace(/\D/g,''); }
@@ -2461,9 +1995,7 @@
             const el = document.getElementById('paymentStatus');
             if (!el) return;
             el.className = 'payment-status ' + type;
-            el.innerHTML = `<div class="status-icon">${icon}</div>
-                            <div class="status-text">${title}</div>
-                            <div class="status-sub">${sub}</div>`;
+            el.innerHTML = `<div class="status-icon">${icon}</div><div class="status-text">${title}</div><div class="status-sub">${sub}</div>`;
         }
 
         async function proxyCall(method, path, body) {
@@ -2485,10 +2017,9 @@
                     const status = (res?.status || res?.data?.status || '').toLowerCase();
                     if (['paid','approved','completed','confirmed'].includes(status)) {
                         clearInterval(pollingInterval);
-                        setStatus('paid','✅','Pagamento confirmado!',
-                            'Acesso liberado! Entre em contato com @suphotvip no Telegram.');
+                        setStatus('paid','✅','Pagamento confirmado!','Acesso liberado! Entre em contato com @suphotvip no Telegram.');
                         document.getElementById('btnVerificar').style.display = 'none';
-                        showToast('Pagamento confirmado! ✅', 'success');
+                        showToast('Pagamento confirmado! ✅','success');
                         if (typeof fbq === 'function') fbq('track', 'Purchase', { value: currentProduct.price, currency: 'BRL' });
                     }
                 } catch (_) {}
@@ -2496,13 +2027,10 @@
         }
 
         function openModal(productName, price) {
-            // VALIDAÇÃO CRÍTICA: Verificar se o preço corresponde à tabela oficial
             if (!validatePrice(productName, price)) {
-                showToast('⚠️ ERRO DE SEGURANÇA: Valor do produto inválido. A operação foi bloqueada.', 'error');
-                console.error('Tentativa de compra com valor manipulado bloqueada:', { productName, price });
-                return; // BLOQUEIA a abertura do modal
+                showToast('⚠️ ERRO DE SEGURANÇA: Valor do produto inválido.', 'error');
+                return;
             }
-
             originalPrice = price;
             currentProduct = { productName, price };
             currentTransactionId = null;
@@ -2516,7 +2044,6 @@
             btnGerar.innerHTML = '<i class="fas fa-qrcode"></i> Gerar PIX agora';
             ['grp-name','grp-cpf','grp-phone','grp-email'].forEach(id => setErr(id, false));
             setStatus('pending','⏳','Aguardando pagamento','O PIX expira em 30 minutos.');
-
             document.getElementById('modalProductName').textContent = productName;
             document.getElementById('modalProductPrice').textContent = 'R$' + price.toFixed(2).replace('.',',');
             document.getElementById('paymentModal').classList.add('active');
@@ -2529,7 +2056,6 @@
             if (pollingInterval) clearInterval(pollingInterval);
         }
 
-        // Sincronizar select KL com botão
         const klSelect = document.getElementById('kl-special-select');
         const klBuyBtn = document.getElementById('kl-special-buy');
         if (klSelect && klBuyBtn) {
@@ -2537,7 +2063,6 @@
                 const opt = this.options[this.selectedIndex];
                 const productName = opt.dataset.product;
                 const price = parseFloat(opt.value);
-                // Validar antes de atualizar
                 if (validatePrice(productName, price)) {
                     klBuyBtn.dataset.price = opt.value;
                     klBuyBtn.dataset.product = productName;
@@ -2553,7 +2078,6 @@
                 currentProduct.price = newPrice;
                 showToast('Cupom aplicado! 5% de desconto.', 'success');
             } else {
-                // Restaurar preço original
                 currentProduct.price = originalPrice;
                 document.getElementById('modalProductPrice').textContent = 'R$' + originalPrice.toFixed(2).replace('.',',');
                 showToast('Cupom inválido.', 'error');
@@ -2562,14 +2086,11 @@
 
         document.getElementById('btnGerarPix').addEventListener('click', async () => {
             if (!validateForm()) { showToast('Preencha todos os campos corretamente.','error'); return; }
-            
-            // VALIDAÇÃO FINAL: Re-verificar o preço antes de enviar
             if (!validatePrice(currentProduct.productName, currentProduct.price)) {
-                showToast('⚠️ ERRO CRÍTICO: Preço manipulado detectado. Recarregue a página.', 'error');
+                showToast('⚠️ ERRO CRÍTICO: Preço manipulado detectado.', 'error');
                 closeModal();
                 return;
             }
-            
             const btn = document.getElementById('btnGerarPix');
             btn.disabled = true;
             btn.innerHTML = '<span class="spinner"></span> Gerando PIX...';
@@ -2577,10 +2098,7 @@
             const cpf = cleanNum(document.getElementById('inputCPF').value);
             const phone = cleanNum(document.getElementById('inputPhone').value);
             const email = document.getElementById('inputEmail').value.trim();
-            const price = currentProduct.price;
-            
-            // Forçar o preço da tabela oficial (dupla segurança)
-            const securePrice = OFFICIAL_PRICES[currentProduct.productName] || price;
+            const securePrice = OFFICIAL_PRICES[currentProduct.productName] || currentProduct.price;
             
             const payload = {
                 identifier: 'ID_' + Date.now(),
@@ -2592,56 +2110,80 @@
             try {
                 const data = await proxyCall('POST', '/gateway/pix/receive', payload);
                 
-                // Extrair dados do PIX da resposta
+                // Extrair dados do PIX de múltiplos caminhos possíveis
                 let pixCode = '';
-                let qrImg = '';
+                let qrBase64 = '';
                 
-                // Tentar vários caminhos possíveis na resposta
-                if (data?.pix?.code) {
-                    pixCode = data.pix.code;
-                    qrImg = data.pix.base64 || data.pix.qrcode || '';
-                } else if (data?.data?.pix?.code) {
-                    pixCode = data.data.pix.code;
-                    qrImg = data.data.pix.base64 || data.data.pix.qrcode || '';
-                } else if (data?.pix?.qrcode) {
-                    pixCode = data.pix.qrcode;
-                    qrImg = data.pix.base64 || data.pix.qrcode || '';
-                } else if (data?.data?.pix?.qrcode) {
-                    pixCode = data.data.pix.qrcode;
-                    qrImg = data.data.pix.base64 || data.data.pix.qrcode || '';
-                } else if (data?.qrcode) {
-                    pixCode = data.qrcode;
-                    qrImg = data.qrcode;
-                } else if (data?.data?.qrcode) {
-                    pixCode = data.data.qrcode;
-                    qrImg = data.data.qrcode;
-                } else if (typeof data === 'string') {
-                    // Se a resposta for uma string (código PIX direto)
-                    pixCode = data;
+                // Função auxiliar para buscar em objeto aninhado
+                const extractFromObj = (obj) => {
+                    if (!obj) return null;
+                    // Verificar caminhos comuns
+                    const paths = [
+                        ['pix', 'code'], ['pix', 'qrcode'], ['pix', 'base64'],
+                        ['data', 'pix', 'code'], ['data', 'pix', 'qrcode'], ['data', 'pix', 'base64'],
+                        ['qrcode'], ['code'], ['pixCode'], ['pix_code'],
+                        ['data', 'qrcode'], ['data', 'code']
+                    ];
+                    
+                    for (const path of paths) {
+                        let value = obj;
+                        for (const key of path) {
+                            if (value && typeof value === 'object') value = value[key];
+                            else { value = undefined; break; }
+                        }
+                        if (value && typeof value === 'string') return value;
+                    }
+                    return null;
+                };
+                
+                const extractedCode = extractFromObj(data);
+                if (extractedCode) {
+                    // Verificar se é base64 (imagem) ou código pix
+                    if (extractedCode.startsWith('data:image') || extractedCode.startsWith('iVBOR') || extractedCode.startsWith('/9j/')) {
+                        qrBase64 = extractedCode;
+                    } else if (extractedCode.length > 200) {
+                        // Provavelmente é um código PIX
+                        pixCode = extractedCode;
+                    } else {
+                        // Pode ser ambos, tentar como código primeiro
+                        pixCode = extractedCode;
+                    }
+                }
+                
+                // Buscar especificamente por base64
+                if (!qrBase64) {
+                    qrBase64 = data?.pix?.base64 || data?.data?.pix?.base64 || 
+                               data?.pix?.qrcode_base64 || data?.data?.pix?.qrcode_base64 || '';
+                }
+                
+                // Buscar especificamente por código pix
+                if (!pixCode) {
+                    pixCode = data?.pix?.code || data?.data?.pix?.code || 
+                              data?.pix?.qrcode || data?.data?.pix?.qrcode || '';
                 }
                 
                 currentTransactionId = data?.transactionId || data?.data?.transactionId || data?.id || '';
                 
-                // Exibir QR Code
                 const qrImgEl = document.getElementById('qrCodeImg');
-                if (qrImg) {
-                    // Verificar se já é base64 ou precisa adicionar prefixo
-                    if (qrImg.startsWith('data:image')) {
-                        qrImgEl.src = qrImg;
-                    } else if (qrImg.startsWith('iVBOR') || qrImg.startsWith('/9j/') || qrImg.length > 100) {
-                        qrImgEl.src = 'data:image/png;base64,' + qrImg;
+                if (qrBase64) {
+                    if (qrBase64.startsWith('data:image')) {
+                        qrImgEl.src = qrBase64;
                     } else {
-                        // Pode ser uma URL
-                        qrImgEl.src = qrImg;
+                        qrImgEl.src = 'data:image/png;base64,' + qrBase64;
                     }
                     qrImgEl.style.display = 'block';
+                } else if (pixCode) {
+                    // Gerar QR code a partir do código PIX usando API pública
+                    const qrUrl = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${encodeURIComponent(pixCode)}`;
+                    qrImgEl.src = qrUrl;
+                    qrImgEl.style.display = 'block';
                 } else {
-                    // Fallback: gerar QR code localmente se não veio na resposta
-                    qrImgEl.src = 'data:image/svg+xml,' + encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200"><rect width="200" height="200" fill="#fff"/><text x="100" y="100" text-anchor="middle" dy=".3em" font-size="14" fill="#333">QR Code</text><text x="100" y="120" text-anchor="middle" font-size="10" fill="#666">Escaneie para pagar</text></svg>');
+                    // Fallback: exibir placeholder
+                    qrImgEl.src = 'data:image/svg+xml,' + encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200"><rect width="200" height="200" fill="#fff"/><text x="100" y="90" text-anchor="middle" font-size="12" fill="#333">QR Code</text><text x="100" y="110" text-anchor="middle" font-size="10" fill="#666">Use o código</text><text x="100" y="130" text-anchor="middle" font-size="10" fill="#666">abaixo</text></svg>');
                     qrImgEl.style.display = 'block';
                 }
                 
-                document.getElementById('pixCopyCode').textContent = pixCode || 'Código não disponível - use o QR Code';
+                document.getElementById('pixCopyCode').textContent = pixCode || 'Código não disponível - utilize o QR Code acima';
                 document.getElementById('formSection').style.display = 'none';
                 document.getElementById('pixArea').style.display = 'block';
                 
@@ -2651,7 +2193,6 @@
                 showToast('Erro ao gerar PIX: ' + err.message, 'error');
                 btn.disabled = false;
                 btn.innerHTML = '<i class="fas fa-qrcode"></i> Gerar PIX agora';
-                console.error('Detalhes do erro:', err);
             }
         });
 
@@ -2697,40 +2238,32 @@
         document.getElementById('closeModal').addEventListener('click', closeModal);
         document.getElementById('paymentModal').addEventListener('click', e => { if (e.target.id === 'paymentModal') closeModal(); });
 
-        // Handler seguro para botões de compra
         document.querySelectorAll('.btn-buy').forEach(btn =>
             btn.addEventListener('click', function(e) {
                 e.preventDefault();
                 const productName = this.dataset.product;
                 const price = parseFloat(this.dataset.price);
-                
-                // VALIDAÇÃO antes de abrir o modal
                 if (!validatePrice(productName, price)) {
-                    showToast('⚠️ ERRO: Preço inválido detectado. Recarregue a página.', 'error');
+                    showToast('⚠️ ERRO: Preço inválido detectado.', 'error');
                     return;
                 }
-                
                 openModal(productName, price);
             })
         );
 
-        // Handler para links do footer
         document.querySelectorAll('.footer-buy-link').forEach(link =>
             link.addEventListener('click', function(e) {
                 e.preventDefault();
                 const productName = this.dataset.product;
                 const price = parseFloat(this.dataset.price);
-                
                 if (!validatePrice(productName, price)) {
                     showToast('⚠️ ERRO: Preço inválido detectado.', 'error');
                     return;
                 }
-                
                 openModal(productName, price);
             })
         );
 
-        // Select membros
         const selMem = document.getElementById('telegram-members-option');
         const btnMem = document.getElementById('buy-telegram-members');
         if (selMem && btnMem) {
@@ -2759,12 +2292,10 @@
             });
         }
 
-        // Header scroll
         window.addEventListener('scroll', () => {
             document.getElementById('mainHeader').style.boxShadow = window.scrollY > 50 ? '0 5px 20px rgba(0,0,0,0.2)' : 'none';
         });
 
-        // Mobile menu
         const mBtn = document.getElementById('mobileMenuBtn');
         const nav = document.getElementById('navLinks');
         mBtn?.addEventListener('click', () => {
@@ -2776,7 +2307,6 @@
             mBtn.innerHTML = '<i class="fas fa-bars"></i>';
         }));
 
-        // Smooth scroll
         document.querySelectorAll('a[href^="#"]').forEach(a => a.addEventListener('click', function(e) {
             if (this.classList.contains('btn-buy') || this.classList.contains('footer-buy-link')) return;
             e.preventDefault();
@@ -2784,7 +2314,6 @@
             if (t) window.scrollTo({ top: t.offsetTop - 80, behavior: 'smooth' });
         }));
 
-        // FAQ
         document.querySelectorAll('.faq-item').forEach(item =>
             item.querySelector('.faq-question').addEventListener('click', () => {
                 document.querySelectorAll('.faq-item').forEach(i => i !== item && i.classList.remove('active'));
@@ -2792,7 +2321,6 @@
             })
         );
 
-        // Animações
         const anim = document.querySelectorAll('.product-card,.channel-card,.security-item,.testimonial-card');
         function doAnim() {
             anim.forEach(el => {
@@ -2812,7 +2340,6 @@
         });
         window.addEventListener('scroll', doAnim);
 
-        // Música
         const music = document.getElementById('backgroundMusic');
         const mToggle = document.getElementById('musicToggle');
         let playing = false;
@@ -2827,7 +2354,6 @@
             }, { once: true });
         }
 
-        // Notificações falsas
         const fp = [
             {n:'ManyCam + Método', p:'R$49,90'}, {n:'ManyCam PRO', p:'R$39,90'}, {n:'Espelhador', p:'R$69,90'},
             {n:'Clonador', p:'R$69,90'}, {n:'Combo', p:'R$299,90'}, {n:'KL Semanal', p:'R$300,00'},
@@ -2843,17 +2369,12 @@
         }
         setTimeout(fakeBuy, 60000);
 
-        // Verificação periódica de integridade dos preços
         setInterval(() => {
             document.querySelectorAll('[data-price]').forEach(el => {
                 const productName = el.getAttribute('data-product');
                 const currentPrice = parseFloat(el.getAttribute('data-price'));
-                if (productName && OFFICIAL_PRICES[productName]) {
-                    const officialPrice = OFFICIAL_PRICES[productName];
-                    if (Math.abs(officialPrice - currentPrice) > 0.01) {
-                        el.setAttribute('data-price', officialPrice.toString());
-                        console.error('Preço restaurado automaticamente:', productName);
-                    }
+                if (productName && OFFICIAL_PRICES[productName] && Math.abs(OFFICIAL_PRICES[productName] - currentPrice) > 0.01) {
+                    el.setAttribute('data-price', OFFICIAL_PRICES[productName].toString());
                 }
             });
         }, 3000);
