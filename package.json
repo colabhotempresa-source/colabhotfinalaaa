@@ -1,14 +1,14 @@
 {
   "name": "colab-hot-pro",
   "version": "1.0.0",
-  "description": "COLAB HOT PRO - Ferramentas Telegram",
+  "description": "COLAB HOT PRO - Mercado Pago",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
-    "build": "echo 'Build completed'"
+    "build": "npm install"
   },
   "engines": {
-    "node": ">=18.0.0"
+    "node": "18.x"
   },
   "dependencies": {
     "axios": "^1.6.0",
